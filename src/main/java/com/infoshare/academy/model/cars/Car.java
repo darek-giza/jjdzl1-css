@@ -11,6 +11,7 @@ public class Car {
     private Integer mileage;
 
     //Constructor
+    public Car(){}
     public Car(Integer id, String make, String model, Integer year, String fuelSource, Integer power, Integer mileage) {
         this.id = id;
         this.make = make;
@@ -83,5 +84,18 @@ public class Car {
     public void carDescription() {
         String description = String.format("Samochód nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s", id, make, model, year, fuelSource, power, mileage);
         System.out.println(description);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", fuelSource='" + fuelSource + '\'' +
+                ", power=" + power +
+                ", mileage=" + mileage +
+                '}';
     }
 }
