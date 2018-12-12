@@ -6,7 +6,7 @@ public class CarTruck extends Car {
     protected Integer cargoSpace;
     protected String lift;
 
-    public CarTruck(Integer id, String make, String model, Integer year, String fuelSource, Integer power, Integer mileage, Integer capacity, Integer cargoSpace, String lift) {
+    public CarTruck(Integer id, String make, String model, Integer year, Enum fuelSource, Integer power, Integer mileage, Integer capacity, Integer cargoSpace, String lift) {
         super(id, make, model, year, fuelSource, power, mileage);
         this.capacity = capacity;
         this.cargoSpace = cargoSpace;
@@ -37,9 +37,5 @@ public class CarTruck extends Car {
         this.lift = lift;
     }
 
-    public void carTruckDescription() {
-        String descriptionTruck = String.format("Samochód nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s,przebieg: %s, ładowność: %s, przestrzeń ładunkowa: %s, winda: %s "
-                , id, make, model, year, fuelSource, power, mileage,capacity,cargoSpace,lift);
-        System.out.println(descriptionTruck);
-    }
+
 }

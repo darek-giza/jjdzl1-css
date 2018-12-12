@@ -6,12 +6,13 @@ public class Car {
     protected String make;
     protected String model;
     protected Integer year;
-    protected String fuelSource;
+    protected Enum fuelSource;
+    //protected String fuelSource;
     protected Integer power;
     protected Integer mileage;
 
     //Constructor
-    public Car(Integer id, String make, String model, Integer year, String fuelSource, Integer power, Integer mileage) {
+    public Car(Integer id, String make, String model, Integer year, Enum fuelSource, Integer power, Integer mileage) {
         this.id = id;
         this.make = make;
         this.model = model;
@@ -38,7 +39,7 @@ public class Car {
         return year;
     }
 
-    public String getFuelSource() {
+    public Enum getFuelSource() {
         return fuelSource;
     }
 
@@ -67,7 +68,7 @@ public class Car {
         this.year = year;
     }
 
-    public void setFuelSource(String fuelSource) {
+    public void setFuelSource(Enum fuelSource) {
         this.fuelSource = fuelSource;
     }
 
@@ -80,8 +81,5 @@ public class Car {
     }
 
     //Methods
-    public void carDescription() {
-        String description = String.format("Samochód nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s", id, make, model, year, fuelSource, power, mileage);
-        System.out.println(description);
-    }
+
 }

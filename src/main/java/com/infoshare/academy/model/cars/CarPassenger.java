@@ -39,7 +39,7 @@ public class CarPassenger extends Car {
         this.transmission = transmission;
     }
 
-    public CarPassenger(Integer id, String make, String model, Integer year, String fuelSource, Integer power, Integer mileage, String type, String destiny, String seats, String transmission) {
+    public CarPassenger(Integer id, String make, String model, Integer year, Enum fuelSource, Integer power, Integer mileage, String type, String destiny, String seats, String transmission) {
         super(id, make, model, year, fuelSource, power, mileage);
         this.type = type;
         this.destiny = destiny;
@@ -49,14 +49,8 @@ public class CarPassenger extends Car {
 
     }
 
-    public void carPassengerDescription() {
-        String descriptionPassenger = String.format("Samochód nr %s: %s %s, " +
-                        "rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s," +
-                        " typ: %s, przeznaczenie: %s, ilość miejsc: %s,skrzynia biegów; %s", id, make, model,
-                year, fuelSource, power, mileage, type, destiny, seats, transmission);
 
-        System.out.println(descriptionPassenger);
-    }
+
 }
 
 

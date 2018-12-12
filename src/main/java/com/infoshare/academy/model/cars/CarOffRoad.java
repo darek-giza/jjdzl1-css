@@ -7,7 +7,7 @@ public class CarOffRoad extends Car {
     protected String winch;
     protected String trunk;
 
-    public CarOffRoad(Integer id, String make, String model, Integer year, String fuelSource, Integer power, Integer mileage, Integer seats, Integer drive, String winch, String trunk) {
+    public CarOffRoad(Integer id, String make, String model, Integer year, Enum fuelSource, Integer power, Integer mileage, Integer seats, Integer drive, String winch, String trunk) {
         super(id, make, model, year, fuelSource, power, mileage);
         this.seats = seats;
         this.drive = drive;
@@ -47,9 +47,5 @@ public class CarOffRoad extends Car {
         this.trunk = trunk;
     }
 
-    public void carOffRosdDescription() {
-        String descriptionOffRoad = String.format("Samochód nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s,liczba miejsc: %s,napęd: %s,wyciągarka: %s, bagażnik: %s "
-                , id, make, model, year, fuelSource, power, mileage, seats, drive, winch, trunk);
-        System.out.println(descriptionOffRoad);
-    }
+
 }
