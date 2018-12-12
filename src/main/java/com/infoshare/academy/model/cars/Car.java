@@ -2,13 +2,13 @@ package com.infoshare.academy.model.cars;
 
 public class Car {
 
-    private Integer id;
-    private String make;
-    private String model;
-    private Integer year;
-    private String fuelSource;
-    private Integer power;
-    private Integer mileage;
+    protected Integer id;
+    protected String make;
+    protected String model;
+    protected Integer year;
+    protected String fuelSource;
+    protected Integer power;
+    protected Integer mileage;
 
     //Constructor
     public Car(Integer id, String make, String model, Integer year, String fuelSource, Integer power, Integer mileage) {
