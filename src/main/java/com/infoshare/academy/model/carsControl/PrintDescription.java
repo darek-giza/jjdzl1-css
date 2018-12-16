@@ -1,4 +1,4 @@
-package com.infoshare.academy.model.CarsControl;
+package com.infoshare.academy.model.carsControl;
 
 import com.infoshare.academy.model.cars.Car;
 import com.infoshare.academy.model.cars.CarOffRoad;
