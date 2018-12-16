@@ -13,20 +13,20 @@ public class Menu {
         System.out.println("4\t Koniec");
         System.out.println("Wybór:");
         //Get user's choice
-        int choice = in.nextInt();
+        String choice = in.nextLine();
         //Display the title of the chosen position
         switch (choice) {
-            case 1:
+            case "1":
                 System.out.println("Lista samochodów");
                 //implementation printListOfCar method
                 break;
-            case 2:
+            case "2":
                 System.out.println("Szczegóły samochodu");
                 break;
-            case 3:
+            case "3":
                 System.out.println("Rezerwacja");
                 break;
-            case 4:
+            case "4":
                 System.out.println("Koniec");
                 break;
             default:
