@@ -9,6 +9,6 @@ public class MainCar {
         Car car1 = new Car(2,"opel","vectra",2006,"diesel",80,180000);
         car1.carDescription();
 
-        CarReader.readCar();
+        CarReader.readCar(3);
     }
 }
