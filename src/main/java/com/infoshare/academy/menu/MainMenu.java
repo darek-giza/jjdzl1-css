@@ -2,7 +2,7 @@ package com.infoshare.academy.menu;
 
 import java.util.Scanner;
 
-public class Menu {
+public class MainMenu {
 
     public static void showMainMenu() {
         Scanner in = new Scanner(System.in);
@@ -17,11 +17,11 @@ public class Menu {
         //Display the title of the chosen position
         switch (choice) {
             case "1":
-                System.out.println("Lista samochodów");
+                Messages.LIST_OF_CARS.getText();
                 //implementation printListOfCar method
                 break;
             case "2":
-                System.out.println("Szczegóły samochodu");
+                Messages.PRINT_DESCRIPTION.getText();
                 break;
             case "3":
                 System.out.println("Rezerwacja");
