@@ -7,16 +7,27 @@ public enum Messages {
     END("Koniec"),
     BAD_CHOICE("Błędny wybór!");
 
-    private String text;
+//    private String mDisplayName;
+//
+//    Messages(String displayName) {
+//        mDisplayName = displayName;
+//    }
+//
+//    public String getDisplayName() {
+//        return mDisplayName;
+//    }
 
-    Messages(String text) {
+    private String message;
+
+    Messages(String message) {
+        this.message = message;
     }
 
-    public String getText() {
-        return text;
+    public String getMessage() {
+        return message;
     }
 
     public void Messages(String text) {
-        this.text = text;
+        this.message = text;
     }
 }
