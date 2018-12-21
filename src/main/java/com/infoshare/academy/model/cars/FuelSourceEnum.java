@@ -1,6 +1,6 @@
 package com.infoshare.academy.model.cars;
 
-public enum FuelSource {
+public enum FuelSourceEnum {
 
     PETROL,
     PETROLANDGAS,

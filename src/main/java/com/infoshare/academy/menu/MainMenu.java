@@ -17,20 +17,20 @@ public class MainMenu {
         //Display the title of the chosen position
         switch (choice) {
             case "1":
-                System.out.println(Messages.LIST_OF_CARS.getMessage());
+                System.out.println(MessagesEnum.LIST_OF_CARS.getMessage());
                 //implementation printListOfCar method
                 break;
             case "2":
-                System.out.println(Messages.PRINT_DESCRIPTION.getMessage());
+                System.out.println(MessagesEnum.PRINT_DESCRIPTION.getMessage());
                 break;
             case "3":
-                System.out.println(Messages.RESERVATION.getMessage());
+                System.out.println(MessagesEnum.RESERVATION.getMessage());
                 break;
             case "4":
-                System.out.println(Messages.END.getMessage());
+                System.out.println(MessagesEnum.END.getMessage());
                 break;
             default:
-                System.out.println(Messages.BAD_CHOICE.getMessage());
+                System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
         }
     }
 }
