@@ -8,8 +8,8 @@ public class CarTruck extends Car {
 
 
     //Constructor
-    public CarTruck(Integer id, Boolean isReserved, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, String lift) {
-        super(id, isReserved, make, model, year, mileage, fuelSource, enginePower);
+    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, String lift) {
+        super(id, make, model, year, mileage, fuelSource, enginePower);
         this.capacity = capacity;
         this.cargoSpace = cargoSpace;
         this.lift = lift;
@@ -46,7 +46,6 @@ public class CarTruck extends Car {
     public String toString() {
         return "CarTruck{" +
                 "id=" + id +
-                ", isReserved=" + isReserved +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +

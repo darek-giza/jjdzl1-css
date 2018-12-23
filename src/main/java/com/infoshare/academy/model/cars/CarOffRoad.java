@@ -8,8 +8,8 @@ public class CarOffRoad extends Car {
     protected String trunk;
 
     //Constructor
-    public CarOffRoad(Integer id, Boolean isReserved, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Integer seats, Integer drive, String winch, String trunk) {
-        super(id, isReserved, make, model, year, mileage, fuelSource, enginePower);
+    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Integer seats, Integer drive, String winch, String trunk) {
+        super(id, make, model, year, mileage, fuelSource, enginePower);
         this.seats = seats;
         this.drive = drive;
         this.winch = winch;
@@ -55,7 +55,6 @@ public class CarOffRoad extends Car {
     public String toString() {
         return "CarOffRoad{" +
                 "id=" + id +
-                ", isReserved=" + isReserved +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
