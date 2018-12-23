@@ -1,25 +1,25 @@
 package com.infoshare.academy.model.cars;
 
-public class Car {
+public class Car implements Vehicle {
 
-    private Integer id;
-    private String make;
-    private String model;
-    private Integer year;
-    private String fuelSource;
-    private Integer power;
-    private Integer mileage;
+    protected Integer id;
+//    protected Boolean isReserved;
+    protected String make;
+    protected String model;
+    protected Integer year;
+    protected Integer mileage;
+    protected Enum fuelSource;
+    protected Integer enginePower;
 
     //Constructor
-    public Car(){}
-    public Car(Integer id, String make, String model, Integer year, String fuelSource, Integer power, Integer mileage) {
+    public Car(Integer id, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower) {
         this.id = id;
         this.make = make;
         this.model = model;
         this.year = year;
-        this.fuelSource = fuelSource;
-        this.power = power;
         this.mileage = mileage;
+        this.fuelSource = fuelSource;
+        this.enginePower = enginePower;
     }
 
     //Getters
@@ -39,16 +39,16 @@ public class Car {
         return year;
     }
 
-    public String getFuelSource() {
+    public Integer getMileage() {
+        return mileage;
+    }
+
+    public Enum getFuelSource() {
         return fuelSource;
     }
 
-    public Integer getPower() {
-        return power;
-    }
-
-    public Integer getMileage() {
-        return mileage;
+    public Integer getEnginePower() {
+        return enginePower;
     }
 
     //Setters
@@ -68,24 +68,19 @@ public class Car {
         this.year = year;
     }
 
-    public void setFuelSource(String fuelSource) {
-        this.fuelSource = fuelSource;
-    }
-
-    public void setPower(Integer power) {
-        this.power = power;
-    }
-
     public void setMileage(Integer mileage) {
         this.mileage = mileage;
     }
 
-    //Methods
-    public void carDescription() {
-        String description = String.format("Samochód nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s", id, make, model, year, fuelSource, power, mileage);
-        System.out.println(description);
+    public void setFuelSource(Enum fuelSource) {
+        this.fuelSource = fuelSource;
     }
 
+    public void setEnginePower(Integer enginePower) {
+        this.enginePower = enginePower;
+    }
+
+    //Methods
     @Override
     public String toString() {
         return "Car{" +
@@ -93,9 +88,18 @@ public class Car {
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
-                ", fuelSource='" + fuelSource + '\'' +
-                ", power=" + power +
                 ", mileage=" + mileage +
+                ", fuelSource=" + fuelSource +
+                ", enginePower=" + enginePower +
                 '}';
     }
+
+/*    @Override
+    public void checkIfReserved() {
+        if (this.isReserved) {
+            System.out.println("Vehicle id=" + getId() + " is not available.");
+        } else {
+            System.out.println("Vehicle id=" + getId() + " is available.");
+        }
+    }*/
 }

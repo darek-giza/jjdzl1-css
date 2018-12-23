@@ -35,7 +35,7 @@ public class CarReader {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] carPart = line.split(",");
-                Car carCreated = (new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), carPart[4], Integer.parseInt(carPart[5]), Integer.parseInt(carPart[6])));
+                Car carCreated = (new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6])));
                 carList.add(carCreated);
             }
         } catch (FileNotFoundException e) {
