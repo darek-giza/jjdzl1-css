@@ -6,36 +6,56 @@ public class CarTruck extends Car {
     protected Integer cargoSpace;
     protected String lift;
 
-    public CarTruck(Integer id, String make, String model, Integer year, Enum fuelSource, Integer power, Integer mileage, Integer capacity, Integer cargoSpace, String lift) {
-        super(id, make, model, year, fuelSource, power, mileage);
+
+    //Constructor
+    public CarTruck(Integer id, Boolean isReserved, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, String lift) {
+        super(id, isReserved, make, model, year, mileage, fuelSource, enginePower);
         this.capacity = capacity;
         this.cargoSpace = cargoSpace;
         this.lift = lift;
     }
 
+    //Getters
     public Integer getCapacity() {
         return capacity;
-    }
-
-    public void setCapacity(Integer capacity) {
-        this.capacity = capacity;
     }
 
     public Integer getCargoSpace() {
         return cargoSpace;
     }
 
-    public void setCargoSpace(Integer cargoSpace) {
-        this.cargoSpace = cargoSpace;
-    }
-
     public String getLift() {
         return lift;
+    }
+
+    //Setters
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setCargoSpace(Integer cargoSpace) {
+        this.cargoSpace = cargoSpace;
     }
 
     public void setLift(String lift) {
         this.lift = lift;
     }
 
-
+    //Methods
+    @Override
+    public String toString() {
+        return "CarTruck{" +
+                "id=" + id +
+                ", isReserved=" + isReserved +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", mileage=" + mileage +
+                ", fuelSource=" + fuelSource +
+                ", enginePower=" + enginePower +
+                ", capacity=" + capacity +
+                ", cargoSpace=" + cargoSpace +
+                ", lift='" + lift + '\'' +
+                "} ";
+    }
 }

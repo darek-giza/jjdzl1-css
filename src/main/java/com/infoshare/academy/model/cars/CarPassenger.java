@@ -1,56 +1,72 @@
 package com.infoshare.academy.model.cars;
 
 public class CarPassenger extends Car {
-    protected String type;
-    protected String destiny;
-    protected String seats;
-    protected String transmission;
+    protected Enum color;
+    protected Enum bodyType;
+    protected Integer seats;
+    protected Enum transmission;
 
-
-    public String getType() {
-        return type;
+    //Constructor
+    public CarPassenger(Integer id, Boolean isReserved, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Enum color, Enum bodyType, Integer seats, Enum transmission) {
+        super(id, isReserved, make, model, year, mileage, fuelSource, enginePower);
+        this.color = color;
+        this.bodyType = bodyType;
+        this.seats = seats;
+        this.transmission = transmission;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    //Getters
+    public Enum getColor() {
+        return color;
     }
 
-    public String getDestiny() {
-        return destiny;
+    public Enum getBodyType() {
+        return bodyType;
     }
 
-    public void setDestiny(String destiny) {
-        this.destiny = destiny;
-    }
-
-    public String getSeats() {
+    public Integer getSeats() {
         return seats;
     }
 
-    public void setSeats(String seats) {
-        this.seats = seats;
-    }
-
-    public String getTransmission() {
+    public Enum getTransmission() {
         return transmission;
     }
 
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
+    //Setters
+    public void setColor(Enum color) {
+        this.color = color;
     }
 
-    public CarPassenger(Integer id, String make, String model, Integer year, Enum fuelSource, Integer power, Integer mileage, String type, String destiny, String seats, String transmission) {
-        super(id, make, model, year, fuelSource, power, mileage);
-        this.type = type;
-        this.destiny = destiny;
+    public void setBodyType(Enum bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    public void setSeats(Integer seats) {
         this.seats = seats;
-        this.transmission = transmission;
-
-
     }
 
+    public void setTransmission(Enum transmission) {
+        this.transmission = transmission;
+    }
 
-
+    //Methods
+    @Override
+    public String toString() {
+        return "CarPassenger{" +
+                "id=" + id +
+                ", isReserved=" + isReserved +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", mileage=" + mileage +
+                ", fuelSource=" + fuelSource +
+                ", enginePower=" + enginePower +
+                ", color=" + color +
+                ", bodyType=" + bodyType +
+                ", seats=" + seats +
+                ", transmission=" + transmission +
+                '}';
+    }
 }
 
 
