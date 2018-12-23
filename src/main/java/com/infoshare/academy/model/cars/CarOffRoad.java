@@ -7,45 +7,65 @@ public class CarOffRoad extends Car {
     protected String winch;
     protected String trunk;
 
-    public CarOffRoad(Integer id, String make, String model, Integer year, Enum fuelSource, Integer power, Integer mileage, Integer seats, Integer drive, String winch, String trunk) {
-        super(id, make, model, year, fuelSource, power, mileage);
+    //Constructor
+    public CarOffRoad(Integer id, Boolean isReserved, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Integer seats, Integer drive, String winch, String trunk) {
+        super(id, isReserved, make, model, year, mileage, fuelSource, enginePower);
         this.seats = seats;
         this.drive = drive;
         this.winch = winch;
         this.trunk = trunk;
     }
 
+    //Getters
     public Integer getSeats() {
         return seats;
-    }
-
-    public void setSeats(Integer seats) {
-        this.seats = seats;
     }
 
     public Integer getDrive() {
         return drive;
     }
 
-    public void setDrive(Integer drive) {
-        this.drive = drive;
-    }
-
     public String getWinch() {
         return winch;
-    }
-
-    public void setWinch(String winch) {
-        this.winch = winch;
     }
 
     public String getTrunk() {
         return trunk;
     }
 
+    //Setters
+    public void setSeats(Integer seats) {
+        this.seats = seats;
+    }
+
+    public void setDrive(Integer drive) {
+        this.drive = drive;
+    }
+
+    public void setWinch(String winch) {
+        this.winch = winch;
+    }
+
     public void setTrunk(String trunk) {
         this.trunk = trunk;
     }
 
-
+    //Methods
+    @Override
+    public String toString() {
+        return "CarOffRoad{" +
+                "id=" + id +
+                ", isReserved=" + isReserved +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", mileage=" + mileage +
+                ", fuelSource=" + fuelSource +
+                ", enginePower=" + enginePower +
+                ", seats=" + seats +
+                ", drive=" + drive +
+                ", winch='" + winch + '\'' +
+                ", trunk='" + trunk + '\'' +
+                "} ";
+    }
 }
