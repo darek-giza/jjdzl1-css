@@ -6,5 +6,5 @@ public interface Vehicle {
      * Vehicle Interface
      */
 
-    public void checkIfReserved();
+    //public void checkIfReserved();
 }

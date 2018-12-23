@@ -7,8 +7,8 @@ public class CarPassenger extends Car {
     protected Enum transmission;
 
     //Constructor
-    public CarPassenger(Integer id, Boolean isReserved, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Enum color, Enum bodyType, Integer seats, Enum transmission) {
-        super(id, isReserved, make, model, year, mileage, fuelSource, enginePower);
+    public CarPassenger(Integer id, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Enum color, Enum bodyType, Integer seats, Enum transmission) {
+        super(id, make, model, year, mileage, fuelSource, enginePower);
         this.color = color;
         this.bodyType = bodyType;
         this.seats = seats;
@@ -54,7 +54,6 @@ public class CarPassenger extends Car {
     public String toString() {
         return "CarPassenger{" +
                 "id=" + id +
-                ", isReserved=" + isReserved +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
