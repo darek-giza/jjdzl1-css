@@ -8,7 +8,7 @@ public class CarOffRoad extends Car {
     protected String trunk;
 
     //Constructor
-    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Integer seats, Integer drive, String winch, String trunk) {
+    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer seats, Integer drive, String winch, String trunk) {
         super(id, make, model, year, mileage, fuelSource, enginePower);
         this.seats = seats;
         this.drive = drive;

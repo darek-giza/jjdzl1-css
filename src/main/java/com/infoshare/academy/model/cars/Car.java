@@ -8,11 +8,11 @@ public class Car implements Vehicle {
     protected String model;
     protected Integer year;
     protected Integer mileage;
-    protected Enum fuelSource;
+    protected FuelSource fuelSource;
     protected Integer enginePower;
 
     //Constructor
-    public Car(Integer id, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower) {
+    public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower) {
         this.id = id;
         this.make = make;
         this.model = model;
@@ -43,7 +43,7 @@ public class Car implements Vehicle {
         return mileage;
     }
 
-    public Enum getFuelSource() {
+    public FuelSource getFuelSource() {
         return fuelSource;
     }
 
@@ -72,7 +72,7 @@ public class Car implements Vehicle {
         this.mileage = mileage;
     }
 
-    public void setFuelSource(Enum fuelSource) {
+    public void setFuelSource(FuelSource fuelSource) {
         this.fuelSource = fuelSource;
     }
 
