@@ -25,12 +25,12 @@ public class CarMaker {
     }
 
     public static void readCarPassenger() {
-        List<Car> carCreated = createCarPassengerList();
+        List<CarPassenger> carCreated = createCarPassengerList();
         System.out.println(carCreated);
     }
 
     public static void readCarPassenger(Integer id) {
-        List<Car> carCreated = createCarPassengerList();
+        List<CarPassenger> carCreated = createCarPassengerList();
         for (Car car : carCreated) {
             if (car.getId().equals(id)) {
                 System.out.println(car);
@@ -39,12 +39,12 @@ public class CarMaker {
     }
 
     public static void readCarOffRoad() {
-        List<Car> carCreated = createCarOffRoadList();
+        List<CarOffRoad> carCreated = createCarOffRoadList();
         System.out.println(carCreated);
     }
 
     public static void readCarOffRoad(Integer id) {
-        List<Car> carCreated = createCarOffRoadList();
+        List<CarOffRoad> carCreated = createCarOffRoadList();
         for (Car car : carCreated) {
             if (car.getId().equals(id)) {
                 System.out.println(car);
@@ -53,12 +53,12 @@ public class CarMaker {
     }
 
     public static void readCarTruck() {
-        List<Car> carCreated = createCarOffRoadList();
+        List<CarTruck> carCreated = createCarTruckList();
         System.out.println(carCreated);
     }
 
     public static void readCarTruck(Integer id) {
-        List<Car> carCreated = createCarTruckList();
+        List<CarTruck> carCreated = createCarTruckList();
         for (Car car : carCreated) {
             if (car.getId().equals(id)) {
                 System.out.println(car);
@@ -79,37 +79,37 @@ public class CarMaker {
         return carList;
     }
 
-    public static List<Car> createCarPassengerList() {
-        List<Car> carList = new ArrayList<>();
+    public static List<CarPassenger> createCarPassengerList() {
+        List<CarPassenger> carList = new ArrayList<>();
         StringBuilder carData = FileIO.readFile(FilePath.getCarPassengerData());
         String[] carLine = carData.toString().split("\\n");
         for (String s : carLine) {
             String[] carPart = s.split(",");
-            Car carObject = returnCarPassenger(carPart);
+            CarPassenger carObject = returnCarPassenger(carPart);
             carList.add(carObject);
         }
         return carList;
     }
 
-    public static List<Car> createCarOffRoadList() {
-        List<Car> carList = new ArrayList<>();
+    public static List<CarOffRoad> createCarOffRoadList() {
+        List<CarOffRoad> carList = new ArrayList<>();
         StringBuilder carData = FileIO.readFile(FilePath.getCarOffRoadData());
         String[] carLine = carData.toString().split("\\n");
         for (String s : carLine) {
             String[] carPart = s.split(",");
-            Car carObject = returnCarOffRoad(carPart);
+            CarOffRoad carObject = returnCarOffRoad(carPart);
             carList.add(carObject);
         }
         return carList;
     }
 
-    public static List<Car> createCarTruckList() {
-        List<Car> carList = new ArrayList<>();
+    public static List<CarTruck> createCarTruckList() {
+        List<CarTruck> carList = new ArrayList<>();
         StringBuilder carData = FileIO.readFile(FilePath.getCarTruckData());
         String[] carLine = carData.toString().split("\\n");
         for (String s : carLine) {
             String[] carPart = s.split(",");
-            Car carObject = returnCarTruck(carPart);
+            CarTruck carObject = returnCarTruck(carPart);
             carList.add(carObject);
         }
         return carList;
@@ -120,15 +120,15 @@ public class CarMaker {
         return new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]));
     }
 
-    public static Car returnCarPassenger(String[] carPart) {
+    public static CarPassenger returnCarPassenger(String[] carPart) {
         return new CarPassenger(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Color.valueOf(carPart[7]), BodyType.valueOf(carPart[8]), Integer.parseInt(carPart[9]), Transmission.valueOf(carPart[10]));
     }
 
-    public static Car returnCarOffRoad(String[] carPart) {
+    public static CarOffRoad returnCarOffRoad(String[] carPart) {
         return new CarOffRoad(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), carPart[9], carPart[10]);
     }
 
-    public static Car returnCarTruck(String[] carPart) {
+    public static CarTruck returnCarTruck(String[] carPart) {
         return new CarTruck(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), carPart[9]);
     }
 
