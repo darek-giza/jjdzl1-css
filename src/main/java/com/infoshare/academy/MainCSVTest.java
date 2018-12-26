@@ -10,11 +10,12 @@ import java.nio.file.Paths;
 public class MainCSVTest {
     public static void main(String[] args) {
         //Car Objects example
-        CarReader.readCar();
+/*        CarReader.readCar();
         CarReader.readCar(1);
         CarReader.readCar(7);
         System.out.println(FileIO.readFile(FilePath.getCarData()));
-        System.out.println(FileIO.readLine(FilePath.getCarData(),1));
+        System.out.println(FileIO.readLine(FilePath.getCarData(),1));*/
+        CarReader.readCarPassenger();
 
     }
 }
