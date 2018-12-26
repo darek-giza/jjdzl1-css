@@ -8,7 +8,7 @@ public class CarTruck extends Car {
 
 
     //Constructor
-    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, String lift) {
+    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, String lift) {
         super(id, make, model, year, mileage, fuelSource, enginePower);
         this.capacity = capacity;
         this.cargoSpace = cargoSpace;

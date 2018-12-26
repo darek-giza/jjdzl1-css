@@ -1,13 +1,13 @@
 package com.infoshare.academy.model.cars;
 
 public class CarPassenger extends Car {
-    protected Enum color;
-    protected Enum bodyType;
+    protected Color color;
+    protected BodyType bodyType;
     protected Integer seats;
-    protected Enum transmission;
+    protected Transmission transmission;
 
     //Constructor
-    public CarPassenger(Integer id, String make, String model, Integer year, Integer mileage, Enum fuelSource, Integer enginePower, Enum color, Enum bodyType, Integer seats, Enum transmission) {
+    public CarPassenger(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Color color, BodyType bodyType, Integer seats, Transmission transmission) {
         super(id, make, model, year, mileage, fuelSource, enginePower);
         this.color = color;
         this.bodyType = bodyType;
@@ -16,11 +16,11 @@ public class CarPassenger extends Car {
     }
 
     //Getters
-    public Enum getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public Enum getBodyType() {
+    public BodyType getBodyType() {
         return bodyType;
     }
 
@@ -28,16 +28,16 @@ public class CarPassenger extends Car {
         return seats;
     }
 
-    public Enum getTransmission() {
+    public Transmission getTransmission() {
         return transmission;
     }
 
     //Setters
-    public void setColor(Enum color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
-    public void setBodyType(Enum bodyType) {
+    public void setBodyType(BodyType bodyType) {
         this.bodyType = bodyType;
     }
 
@@ -45,7 +45,7 @@ public class CarPassenger extends Car {
         this.seats = seats;
     }
 
-    public void setTransmission(Enum transmission) {
+    public void setTransmission(Transmission transmission) {
         this.transmission = transmission;
     }
 
