@@ -10,9 +10,8 @@ import java.util.List;
 public class CarMaker {
 
     //Methods to read created Cars - all at once or by ID
-    public static void readCar() {
-        List<Car> carCreated = createCarList();
-        System.out.println(carCreated);
+    public static List<Car> readCar() {
+        return createCarList();
     }
 
     public static void readCar(Integer id) {

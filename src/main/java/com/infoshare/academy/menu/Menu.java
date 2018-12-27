@@ -1,36 +1,41 @@
 package com.infoshare.academy.menu;
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.Scanner;
 
-public class Menu {
+import com.infoshare.academy.model.cars.Car;
+import com.infoshare.academy.model.carsservice.CarMaker;
+import com.infoshare.academy.reservation.ReservationControl;
 
-    public static void showMainMenu() {
-        Scanner in = new Scanner(System.in);
-        // Display the menu
-        System.out.println("1\t Lista samochodów");
-        System.out.println("2\t Szczegóły samochodu");
-        System.out.println("3\t Rezerwacja");
-        System.out.println("4\t Koniec");
-        System.out.println("Wybór:");
-        //Get user's choice
-        String choice = in.nextLine();
-        //Display the title of the chosen position
-        switch (choice) {
-            case "1":
-                System.out.println("Lista samochodów");
-                //implementation printListOfCar method
-                break;
-            case "2":
-                System.out.println("Szczegóły samochodu");
-                break;
-            case "3":
-                System.out.println("Rezerwacja");
-                break;
-            case "4":
-                System.out.println("Koniec");
-                break;
-            default:
-                System.out.println("Błędny wybór!");
+public class Menu {
+    static Scanner in = new Scanner(System.in);
+
+    public static void getUserDataInput() {
+       Date startDate = Menu.getDate("Wpisz datę rozpoczęcia rezerwacji( YYYY-MM-DD )");
+       Date endDate = Menu.getDate("Wpisz datę zakończenia rezerwacji( YYYY-MM-DD )");
+       if (startDate.compareTo(endDate) > 0) {
+          System.out.println("Data końcowa nie może być mniejsza niż data końcowa");
+            Menu.getUserDataInput();
+            return;
+       }
+        System.out.println("Wybierz auto");
+        for(Car car: CarMaker.readCar()){
+            if(ReservationControl.checkIfCarAvailable(car.getId(),startDate,endDate)){
+                System.out.println(car);
+            }
         }
+
+    }
+    public static Date getDate(String message) {
+        System.out.println(message);
+        Date date = new Date();
+        try {
+            date = ReservationControl.getDateFormatter().parse(in.nextLine());
+        } catch (ParseException e) {
+            System.out.println("Nieprawidłowa data spróbuj ponownie");
+            Menu.getDate(message);
+        }
+        return date;
     }
 }
