@@ -1,10 +1,12 @@
 package com.infoshare.academy.reservation;
 
+import com.infoshare.academy.model.AbstractModel;
+
 import java.text.ParseException;
 import java.util.Date;
 import java.util.UUID;
 
-public class Reservation {
+public class Reservation extends AbstractModel {
 
 
     protected String id;
@@ -91,8 +93,8 @@ public class Reservation {
                     data[0],
                     Integer.parseInt(data[1]),
                     Integer.parseInt(data[2]),
-                    ReservationControl.dateFormatter.parse(data[3]),
-                    ReservationControl.dateFormatter.parse(data[4])
+                    dateFormatter.parse(data[3]),
+                    dateFormatter.parse(data[4])
             );
         } catch (ParseException e) {
             System.out.println("Cannot Parse Data");
@@ -104,8 +106,8 @@ public class Reservation {
         newRow.append(this.id+ ",");
         newRow.append(this.carId+",");
         newRow.append(this.userId+",");
-        newRow.append(ReservationControl.dateFormatter.format(this.startDate)+",");
-        newRow.append(ReservationControl.dateFormatter.format(this.endDate));
+        newRow.append(dateFormatter.format(this.startDate)+",");
+        newRow.append(dateFormatter.format(this.endDate));
         return newRow.toString();
     }
 }

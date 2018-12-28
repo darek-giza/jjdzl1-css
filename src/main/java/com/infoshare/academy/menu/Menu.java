@@ -45,7 +45,7 @@ public class Menu {
         System.out.println(message);
         Date date = new Date();
         try {
-            date = ReservationControl.getDateFormatter().parse(in.nextLine());
+            date = Reservation.dateFormatter.parse(in.nextLine());
         } catch (ParseException e) {
             System.out.println("Nieprawidłowa data spróbuj ponownie");
             Menu.getDate(message);

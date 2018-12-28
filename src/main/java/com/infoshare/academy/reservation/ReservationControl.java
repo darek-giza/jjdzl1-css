@@ -1,15 +1,9 @@
 package com.infoshare.academy.reservation;
 
 import com.infoshare.academy.iostream.*;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ReservationControl {
-    public static SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
-
-    public static SimpleDateFormat getDateFormatter() {
-        return dateFormatter;
-    }
     public static Reservation addReservation(Integer carId, Integer userId, Date startDate, Date endDate) {
         Reservation reservation = new Reservation(carId, userId, startDate, endDate);
 
