@@ -8,11 +8,12 @@ import java.util.Scanner;
 
 import com.infoshare.academy.model.cars.Car;
 import com.infoshare.academy.model.carsservice.CarMaker;
+import com.infoshare.academy.reservation.Reservation;
 import com.infoshare.academy.reservation.ReservationControl;
 
 public class Menu {
     static Scanner in = new Scanner(System.in);
-    static List idList =new ArrayList();
+    static List idList = new ArrayList();
 
     public static void getUserDataInput() {
         Date startDate = Menu.getDate("Wpisz datę rozpoczęcia rezerwacji( YYYY-MM-DD )");
@@ -31,8 +32,11 @@ public class Menu {
         }
 
         Integer carId = getId("Wybierz id auta");
-        System.out.println(carId);
 
+        // user na sztywno bo nie ma logowania
+
+        Reservation reservation = ReservationControl.addReservation(carId, 1, startDate, endDate);
+        System.out.println("Dokonano rezerwacji " + reservation);
 
 
     }
@@ -52,7 +56,7 @@ public class Menu {
     public static Integer getId(String messege) {
         System.out.println(messege);
         Integer id = Integer.parseInt(in.nextLine());
-        if(idList.contains(id)){
+        if (idList.contains(id)) {
             return id;
         }
         System.out.println("Nieprawidłowy wybór");

@@ -1,29 +1,40 @@
 package com.infoshare.academy.reservation;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Reservation {
 
 
-    protected Integer id;
+    protected String id;
     protected Integer carId;
     protected Integer userId;
     protected Date startDate;
     protected Date endDate;
 
-    public Reservation(Integer id, Integer carId, Integer userId, Date startDate, Date endDate) {
+    public Reservation(Integer carId, Integer userId, Date startDate, Date endDate) {
+        this.id= generateId();
+        this.carId = carId;
+        this.userId = userId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+    public Reservation(String id, Integer carId, Integer userId, Date startDate, Date endDate) {
         this.id = id;
         this.carId = carId;
         this.userId = userId;
         this.startDate = startDate;
         this.endDate = endDate;
     }
+    public static String generateId(){
+        return UUID.randomUUID().toString();
+    }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String  id) {
         this.id = id;
     }
 
