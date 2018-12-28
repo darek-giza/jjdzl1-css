@@ -32,9 +32,9 @@ public class ReservationControl {
             try {
                Reservation reservation = new Reservation(Integer.parseInt(data[0]), Integer.parseInt(data[1]), Integer.parseInt(data[2]), ReservationControl.dateFormatter.parse(data[3]), ReservationControl.dateFormatter.parse(data[4]));
 
-               boolean isStartDateIncluded = reservation.getStartDate().compareTo(startDate) * startDate.compareTo(reservation.getEndDate()) > 0;
-               boolean isEndDateIncluded = reservation.getStartDate().compareTo(endDate) * endDate.compareTo(reservation.getEndDate()) > 0;
-               if(idCar == reservation.getCarId() && (isStartDateIncluded || isEndDateIncluded)){
+               boolean isStartDateContained = reservation.getStartDate().compareTo(startDate) <= 0 && reservation.getEndDate().compareTo(startDate) >= 0;
+               boolean isEndDateContained = reservation.getStartDate().compareTo(endDate) <= 0 && reservation.getEndDate().compareTo(endDate) >= 0;
+               if(idCar == reservation.getCarId() && (isStartDateContained || isEndDateContained)){
                    return false;
 
                }
