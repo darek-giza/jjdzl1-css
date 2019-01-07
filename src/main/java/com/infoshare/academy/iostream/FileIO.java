@@ -2,6 +2,7 @@ package com.infoshare.academy.iostream;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -44,5 +45,17 @@ public class FileIO {
             System.out.println("Zły numer linii @" + e);
         }
         return line;
+    }
+
+    public static void writeLine(Path path, String newLine) {
+        try {
+            FileWriter writer = new FileWriter(path.toString(), true);
+            writer.write(newLine + "\n");
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("Błąd we/wy @" + e);
+        }
+
     }
 }
