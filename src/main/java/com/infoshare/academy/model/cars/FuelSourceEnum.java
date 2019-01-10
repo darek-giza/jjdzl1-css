@@ -4,7 +4,8 @@ public enum FuelSourceEnum {
 
     PETROL,
     PETROLANDGAS,
-    DIESELOIL,
+    DIESEL,
     CNG,
     HYBRID,
+    ELECTRIC,
 }

@@ -1,56 +1,71 @@
 package com.infoshare.academy.model.cars;
 
 public class CarPassenger extends Car {
-    protected String type;
-    protected String destiny;
-    protected String seats;
-    protected String transmission;
+    protected Color color;
+    protected BodyType bodyType;
+    protected Integer seats;
+    protected Transmission transmission;
 
-
-    public String getType() {
-        return type;
+    //Constructor
+    public CarPassenger(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Color color, BodyType bodyType, Integer seats, Transmission transmission) {
+        super(id, make, model, year, mileage, fuelSource, enginePower);
+        this.color = color;
+        this.bodyType = bodyType;
+        this.seats = seats;
+        this.transmission = transmission;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    //Getters
+    public Color getColor() {
+        return color;
     }
 
-    public String getDestiny() {
-        return destiny;
+    public BodyType getBodyType() {
+        return bodyType;
     }
 
-    public void setDestiny(String destiny) {
-        this.destiny = destiny;
-    }
-
-    public String getSeats() {
+    public Integer getSeats() {
         return seats;
     }
 
-    public void setSeats(String seats) {
-        this.seats = seats;
-    }
-
-    public String getTransmission() {
+    public Transmission getTransmission() {
         return transmission;
     }
 
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
+    //Setters
+    public void setColor(Color color) {
+        this.color = color;
     }
 
-    public CarPassenger(Integer id, String make, String model, Integer year, Enum fuelSource, Integer power, Integer mileage, String type, String destiny, String seats, String transmission) {
-        super(id, make, model, year, fuelSource, power, mileage);
-        this.type = type;
-        this.destiny = destiny;
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    public void setSeats(Integer seats) {
         this.seats = seats;
-        this.transmission = transmission;
-
-
     }
 
+    public void setTransmission(Transmission transmission) {
+        this.transmission = transmission;
+    }
 
-
+    //Methods
+    @Override
+    public String toString() {
+        return "CarPassenger{" +
+                "id=" + id +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", mileage=" + mileage +
+                ", fuelSource=" + fuelSource +
+                ", enginePower=" + enginePower +
+                ", color=" + color +
+                ", bodyType=" + bodyType +
+                ", seats=" + seats +
+                ", transmission=" + transmission +
+                '}';
+    }
 }
 
 
