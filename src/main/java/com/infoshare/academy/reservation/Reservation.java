@@ -1,5 +1,7 @@
 package com.infoshare.academy.reservation;
 
+import com.infoshare.academy.menu.MessagesEnum;
+
 import java.text.ParseException;
 import java.util.Date;
 import java.util.UUID;
@@ -95,7 +97,7 @@ public class Reservation extends DateModel {
                     dateFormatter.parse(data[4])
             );
         } catch (ParseException e) {
-            System.out.println("Cannot Parse Data");
+            System.out.println(MessagesEnum.CANNOT_PARSE_DATA.getMessage());
         }
         return null;
     }

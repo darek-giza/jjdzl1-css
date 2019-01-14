@@ -1,6 +1,7 @@
 package com.infoshare.academy.reservation;
 
 import com.infoshare.academy.iostream.*;
+import com.infoshare.academy.menu.MessagesEnum;
 import com.infoshare.academy.model.cars.Car;
 import com.infoshare.academy.model.carsservice.CarMaker;
 
@@ -42,15 +43,15 @@ public class ReservationControl {
     }
 
     public static void getUserDateInput() {
-        Date startDate = getDate("Wpisz datę rozpoczęcia rezerwacji( YYYY-MM-DD )");
-        Date endDate = getDate("Wpisz datę zakończenia rezerwacji( YYYY-MM-DD )");
+        Date startDate = getDate(MessagesEnum.ENTER_START_DATE_OF_RESERVATION.getMessage());
+        Date endDate = getDate(MessagesEnum.ENTER_END_DATE_OF_RESERVATION.getMessage());
         if (startDate.compareTo(endDate) > 0) {
-            System.out.println("Data końcowa nie może być mniejsza niż data końcowa");
+            System.out.println(MessagesEnum.END_DATE_CANNOT_BE_LESS_THAN_END_DATE.getMessage());
             getUserDateInput();
             return;
         }
 
-        System.out.println("Lista dostępnych samochodów w podanym przedziale czasowym");
+        System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE);
         for (Car car : CarMaker.readCar()) {
             if (checkIfCarAvailable(car.getId(), startDate, endDate)) {
                 System.out.println(car);
@@ -58,10 +59,10 @@ public class ReservationControl {
             }
         }
 
-        Integer carId = getId("Wybierz id auta");
+        Integer carId = getId(MessagesEnum.CHOOSE_ID_CAR.getMessage());
         // user na sztywno bo nie ma logowania
         Reservation reservation = addReservation(carId, 1, startDate, endDate);
-        System.out.println("Dokonano rezerwacji " + reservation);
+        System.out.println(MessagesEnum.RESERVATION_WAS_MADE.getMessage() + reservation);
     }
 
     public static Date getDate(String message) {
@@ -70,7 +71,7 @@ public class ReservationControl {
         try {
             date = Reservation.dateFormatter.parse(in.nextLine());
         } catch (ParseException e) {
-            System.out.println("Nieprawidłowa data spróbuj ponownie");
+            System.out.println(MessagesEnum.INCORRECT_DATE_TRY_AGAIN.getMessage());
             getDate(message);
         }
         return date;
@@ -82,7 +83,7 @@ public class ReservationControl {
         if (idList.contains(id)) {
             return id;
         }
-        System.out.println("Nieprawidłowy wybór");
+        System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
 
         return getId(messege);
     }
