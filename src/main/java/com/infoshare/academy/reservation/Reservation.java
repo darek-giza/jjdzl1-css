@@ -1,12 +1,10 @@
 package com.infoshare.academy.reservation;
 
-import com.infoshare.academy.model.AbstractModel;
-
 import java.text.ParseException;
 import java.util.Date;
 import java.util.UUID;
 
-public class Reservation extends AbstractModel {
+public class Reservation extends DateModel {
 
 
     protected String id;

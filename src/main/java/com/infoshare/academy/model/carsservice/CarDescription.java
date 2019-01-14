@@ -1,11 +1,11 @@
-package com.infoshare.academy.model.carsControl;
+package com.infoshare.academy.model.carsservice;
 
 import com.infoshare.academy.model.cars.Car;
 import com.infoshare.academy.model.cars.CarOffRoad;
 import com.infoshare.academy.model.cars.CarPassenger;
 import com.infoshare.academy.model.cars.CarTruck;
 
-public class PrintDescription {
+public class CarDescription {
 
     public static String carDescription(Car car) {
         String description = String.format("Samochód nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s", car.getId(), car.getMake(), car.getModel(), car.getYear(), car.getFuelSource(), car.getEnginePower(), car.getMileage());
@@ -35,5 +35,4 @@ public class PrintDescription {
         System.out.println(descriptionTruck);
         return descriptionTruck;
     }
-
 }

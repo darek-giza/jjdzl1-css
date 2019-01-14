@@ -20,15 +20,15 @@ public class ReservationControl {
         FileIO.writeLine(FilePath.getReservationPath(), reservation.reservationToString());
 
         return reservation;
-
     }
+
     public static Boolean checkIfCarAvailable(Integer idCar, Date startDate, Date endDate) {
         String reservations = FileIO.readFile(FilePath.getReservationPath()).toString();
         for (String row : reservations.split("\n")) {
             if (row.isEmpty()) {
                 continue;
             }
-            Reservation reservation=Reservation.stringToReservation(row);
+            Reservation reservation = Reservation.stringToReservation(row);
             if (reservation == null) {
                 continue;
             }
@@ -41,15 +41,15 @@ public class ReservationControl {
         return true;
     }
 
-
-    public static void getUserDataInput() {
+    public static void getUserDateInput() {
         Date startDate = getDate("Wpisz datę rozpoczęcia rezerwacji( YYYY-MM-DD )");
         Date endDate = getDate("Wpisz datę zakończenia rezerwacji( YYYY-MM-DD )");
         if (startDate.compareTo(endDate) > 0) {
             System.out.println("Data końcowa nie może być mniejsza niż data końcowa");
-            getUserDataInput();
+            getUserDateInput();
             return;
         }
+
         System.out.println("Lista dostępnych samochodów w podanym przedziale czasowym");
         for (Car car : CarMaker.readCar()) {
             if (checkIfCarAvailable(car.getId(), startDate, endDate)) {
@@ -59,13 +59,9 @@ public class ReservationControl {
         }
 
         Integer carId = getId("Wybierz id auta");
-
         // user na sztywno bo nie ma logowania
-
         Reservation reservation = addReservation(carId, 1, startDate, endDate);
         System.out.println("Dokonano rezerwacji " + reservation);
-
-
     }
 
     public static Date getDate(String message) {

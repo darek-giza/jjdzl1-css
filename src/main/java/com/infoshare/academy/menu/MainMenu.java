@@ -2,7 +2,7 @@ package com.infoshare.academy.menu;
 
 import java.util.Scanner;
 
-public class Menu {
+public class MainMenu {
 
     public static void showMainMenu() {
         Scanner in = new Scanner(System.in);
@@ -33,5 +33,4 @@ public class Menu {
                 System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
         }
     }
-
 }

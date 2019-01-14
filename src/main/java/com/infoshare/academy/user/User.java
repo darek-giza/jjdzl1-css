@@ -1,4 +1,4 @@
-package com.infoshare.academy.user.user;
+package com.infoshare.academy.user;
 
 public class User {
 

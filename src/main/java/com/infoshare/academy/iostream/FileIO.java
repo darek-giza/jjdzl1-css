@@ -47,6 +47,7 @@ public class FileIO {
         return line;
     }
 
+    //3. Write new line to specified file
     public static void writeLine(Path path, String newLine) {
         try {
             FileWriter writer = new FileWriter(path.toString(), true);
