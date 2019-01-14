@@ -1,10 +1,10 @@
 package com.infoshare.academy;
 
-import com.infoshare.academy.reservation.ReservationControl;
+import com.infoshare.academy.menu.MainMenu;
 
 public class Main {
 
     public static void main(String[] args) {
-        ReservationControl.getUserDateInput();
+        MainMenu.appStart();
     }
 }
