@@ -16,6 +16,11 @@ public enum MessagesEnum {
     RESERVATION_WAS_MADE("Dokonano rezerwacji "),
     INCORRECT_DATE_TRY_AGAIN("Nieprawidłowa data spróbuj ponownie"),
 
+    //iostream
+    FILE_NOT_EXIST("Plik nie istnieje @"),
+    IO_ERROR("Błąd we/wy @"),
+    BAD_LINE_NUMBER("Zły numer linii @"),
+
     ;
 
 
