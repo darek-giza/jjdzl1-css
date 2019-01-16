@@ -1,10 +1,14 @@
 package com.infoshare.academy.menu;
 
 public enum MessagesEnum {
-    LIST_OF_CARS("Lista samochodów"),
-    PRINT_DESCRIPTION("Szczegóły samochodu"),
-    RESERVATION("Rezerwacja"),
-    END("Koniec"),
+    APP_START("   ___          ___ _             _           ___         _             \n  / __|__ _ _ _/ __| |_  __ _ _ _(_)_ _  __ _/ __|_  _ __| |_ ___ _ __  \n | (__/ _` | '_\\__ \\ ' \\/ _` | '_| | ' \\/ _` \\__ \\ || (_-<  _/ -_) '  \\ \n  \\___\\__,_|_| |___/_||_\\__,_|_| |_|_||_\\__, |___/\\_, /__/\\__\\___|_|_|_|\n                                        |___/     |__/                  "),
+    WELCOME("Witamy w programie!"),
+    LIST_OF_CARS("*Lista samochodów*"),
+    CHOICE("Wybór: "),
+    CHOOSE_CAR_TYPE("*Wybierz rodzaj samochodu*"),
+    PRINT_DESCRIPTION("*Szczegóły samochodu*"),
+    RESERVATION("*Rezerwacja*"),
+    END("Wyłączanie aplikacji..."),
     BAD_CHOICE("Błędny wybór!"),
 
     CANNOT_PARSE_DATA("Nie można przeanalizować danych"),
@@ -22,8 +26,6 @@ public enum MessagesEnum {
     BAD_LINE_NUMBER("Zły numer linii @"),
 
     ;
-
-
 
     private String message;
 
