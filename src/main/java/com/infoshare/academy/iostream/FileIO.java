@@ -1,5 +1,7 @@
 package com.infoshare.academy.iostream;
 
+import com.infoshare.academy.menu.MessagesEnum;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -25,9 +27,9 @@ public class FileIO {
                 text.delete(last, text.length());
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Plik nie istnieje @" + e);
+            System.out.println(MessagesEnum.FILE_NOT_EXIST.getMessage() + e);
         } catch (IOException e) {
-            System.out.println("Błąd we/wy @" + e);
+            System.out.println(MessagesEnum.IO_ERROR.getMessage() + e);
         }
         return text;
     }
@@ -38,11 +40,11 @@ public class FileIO {
         try {
             line = Files.readAllLines(path).get(n - 1);
         } catch (FileNotFoundException e) {
-            System.out.println("Plik nie istnieje @" + e);
+            System.out.println(MessagesEnum.FILE_NOT_EXIST.getMessage() + e);
         } catch (IOException e) {
-            System.out.println("Błąd we/wy @" + e);
+            System.out.println(MessagesEnum.IO_ERROR.getMessage() + e);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Zły numer linii @" + e);
+            System.out.println(MessagesEnum.BAD_LINE_NUMBER.getMessage() + e);
         }
         return line;
     }
@@ -55,7 +57,7 @@ public class FileIO {
             writer.flush();
             writer.close();
         } catch (IOException e) {
-            System.out.println("Błąd we/wy @" + e);
+            System.out.println(MessagesEnum.IO_ERROR.getMessage() + e);
         }
 
     }
