@@ -51,7 +51,7 @@ public class ReservationControl {
         }
 
         System.out.println("Lista dostępnych samochodów w podanym przedziale czasowym");
-        for (Car car : CarMaker.readCar()) {
+        for (Car car : CarMaker.createCarList()) {
             if (checkIfCarAvailable(car.getId(), startDate, endDate)) {
                 System.out.println(car);
                 idList.add(car.getId());
