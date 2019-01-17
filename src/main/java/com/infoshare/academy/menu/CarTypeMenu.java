@@ -1,6 +1,7 @@
 package com.infoshare.academy.menu;
 
 import com.infoshare.academy.model.carsservice.CarDescription;
+import com.infoshare.academy.reservation.ReservationControl;
 
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class CarTypeMenu {
         System.out.println("2\t Samochód terenowy");
         System.out.println("3\t Samochód ciężarowy");
         System.out.println("4\t Powrót do głównego Menu");
-        System.out.print(MessagesEnum.CHOICE.getMessage());
+        System.out.print("Wybór:");
     }
 
     public static String chooseCarType() {
@@ -20,7 +21,7 @@ public class CarTypeMenu {
         String choice = in.nextLine();
         switch (choice) {
             case "1":
-                CarDescription.carPassengerList();
+                System.out.println();
                 break;
             case "2":
                 CarDescription.carOffRoadList();

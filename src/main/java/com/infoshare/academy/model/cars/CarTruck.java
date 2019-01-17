@@ -4,15 +4,15 @@ public class CarTruck extends Car {
 
     protected Integer capacity;
     protected Integer cargoSpace;
-    protected String lift;
+    protected String haveLift;
 
 
     //Constructor
-    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, String lift) {
+    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, String haveLift) {
         super(id, make, model, year, mileage, fuelSource, enginePower);
         this.capacity = capacity;
         this.cargoSpace = cargoSpace;
-        this.lift = lift;
+        this.haveLift = haveLift;
     }
 
     //Getters
@@ -24,8 +24,8 @@ public class CarTruck extends Car {
         return cargoSpace;
     }
 
-    public String getLift() {
-        return lift;
+    public String getHaveLift() {
+        return haveLift;
     }
 
     //Setters
@@ -37,8 +37,8 @@ public class CarTruck extends Car {
         this.cargoSpace = cargoSpace;
     }
 
-    public void setLift(String lift) {
-        this.lift = lift;
+    public void setHaveLift(String  haveLift) {
+        this.haveLift = haveLift;
     }
 
     //Methods
@@ -54,7 +54,7 @@ public class CarTruck extends Car {
                 ", enginePower=" + enginePower +
                 ", capacity=" + capacity +
                 ", cargoSpace=" + cargoSpace +
-                ", lift='" + lift + '\'' +
+                ", haveLift='" + haveLift + '\'' +
                 "} ";
     }
 }
