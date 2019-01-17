@@ -53,8 +53,8 @@ public class ReservationControl {
             getUserDateInput();
             return;
         }
-        CarTypeMenu.chooseCarType();
-        Integer choice = in.nextInt();
+        CarTypeMenu.showChooseCarTypeMenuMessages();
+        Integer choice = Integer.parseInt(in.nextLine());
         switch (choice) {
             case 1:
                 System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE);

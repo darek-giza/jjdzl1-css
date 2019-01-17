@@ -6,13 +6,13 @@ import com.infoshare.academy.reservation.ReservationControl;
 import java.util.Scanner;
 
 public class CarTypeMenu {
-    public static void showChooseCarTypeMenuMessages(){
+    public static void showChooseCarTypeMenuMessages() {
         System.out.println(MessagesEnum.CHOOSE_CAR_TYPE.getMessage());
         System.out.println("1\t Samochód osobowy");
         System.out.println("2\t Samochód terenowy");
         System.out.println("3\t Samochód ciężarowy");
         System.out.println("4\t Powrót do głównego Menu");
-        System.out.print("Wybór:");
+        System.out.print(MessagesEnum.CHOICE.getMessage());
     }
 
     public static String chooseCarType() {

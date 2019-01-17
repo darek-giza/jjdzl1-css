@@ -21,7 +21,7 @@ public class CarDescription {
     }
 
     public static String carOffRosdDescription(CarOffRoad carOffRoad) {
-        String descriptionOffRoad = String.format("Samochód terenowy nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s, liczba miejsc: %s, napęd: %s, wyciągarka: %s, bagażnik: %s ", carOffRoad.getId(), carOffRoad.getMake(), carOffRoad.getModel(), carOffRoad.getYear(), carOffRoad.getFuelSource(), carOffRoad.getEnginePower(), carOffRoad.getMileage(), carOffRoad.getSeats(), carOffRoad.getDrive(), carOffRoad.getWinch(), carOffRoad.getTrunk());
+        String descriptionOffRoad = String.format("Samochód terenowy nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s, liczba miejsc: %s, napęd: %s, wyciągarka: %s, bagażnik: %s ", carOffRoad.getId(), carOffRoad.getMake(), carOffRoad.getModel(), carOffRoad.getYear(), carOffRoad.getFuelSource(), carOffRoad.getEnginePower(), carOffRoad.getMileage(), carOffRoad.getSeats(), carOffRoad.getDrive(), carOffRoad.getHaveWinch(), carOffRoad.getHaveTrunk());
         return descriptionOffRoad;
     }
 

@@ -4,11 +4,11 @@ public class CarTruck extends Car {
 
     protected Integer capacity;
     protected Integer cargoSpace;
-    protected String haveLift;
+    protected Boolean haveLift;
 
 
     //Constructor
-    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, String haveLift) {
+    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, Boolean haveLift) {
         super(id, make, model, year, mileage, fuelSource, enginePower);
         this.capacity = capacity;
         this.cargoSpace = cargoSpace;
@@ -24,7 +24,7 @@ public class CarTruck extends Car {
         return cargoSpace;
     }
 
-    public String getHaveLift() {
+    public Boolean getHaveLift() {
         return haveLift;
     }
 
@@ -37,7 +37,7 @@ public class CarTruck extends Car {
         this.cargoSpace = cargoSpace;
     }
 
-    public void setHaveLift(String  haveLift) {
+    public void setHaveLift(Boolean  haveLift) {
         this.haveLift = haveLift;
     }
 

@@ -79,6 +79,8 @@ public class CarMaker {
         return carList;
     }
 
+
+
     public static List<CarPassenger> createCarPassengerList() {
         List<CarPassenger> carList = new ArrayList<>();
         StringBuilder carData = FileIO.readFile(FilePath.getCarPassengerData());
@@ -125,11 +127,11 @@ public class CarMaker {
     }
 
     public static CarOffRoad returnCarOffRoad(String[] carPart) {
-        return new CarOffRoad(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), carPart[9], carPart[10]);
+        return new CarOffRoad(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), Boolean.parseBoolean(carPart[9]), Boolean.parseBoolean(carPart[10]));
     }
 
      public static CarTruck returnCarTruck(String[] carPart) {
-        return new CarTruck(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), carPart[9]);
+        return new CarTruck(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), Boolean.parseBoolean(carPart[9]));
     }
 }
 
