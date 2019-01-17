@@ -10,6 +10,7 @@ public class FilePath {
     private static Path carPassengerData = Paths.get("src/main/resources/carPassengerData.csv");
     private static Path carOffRoadData = Paths.get("src/main/resources/carOffRoadData.csv");
     private static Path carTruckData = Paths.get("src/main/resources/carTruckData.csv");
+    private static Path userData = Paths.get("src/main/resources/userData.csv");
 
     //Getters
     public static Path getCarData() {
@@ -30,5 +31,9 @@ public class FilePath {
 
     public static Path getCarTruckData() {
         return carTruckData;
+    }
+
+    public static Path getUserData() {
+        return userData;
     }
 }
