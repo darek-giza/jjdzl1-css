@@ -2,6 +2,7 @@ package com.infoshare.academy.user;
 
 import com.infoshare.academy.iostream.FileIO;
 import com.infoshare.academy.iostream.FilePath;
+import com.infoshare.academy.menu.MessagesEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,10 +12,10 @@ public class UserService {
 
     public static User logIn() {
         Scanner in = new Scanner(System.in);
-        System.out.println("*Panel logowania*");
-        System.out.print("Podaj nazwę użytkownika: ");
+        System.out.println(MessagesEnum.LOGIN_PANEL.getMessage());
+        System.out.print(MessagesEnum.ENTER_LOGIN.getMessage());
         String login = in.nextLine();
-        System.out.print("Podaj hasło: ");
+        System.out.print(MessagesEnum.ENTER_PASSWORD);
         String password = in.nextLine();
 
         List<User> userCreated = createUserList();
@@ -25,10 +26,10 @@ public class UserService {
                 .orElse(null);
 
         if (userLogin == null) {
-            System.out.println("Logowanie nieudane, spróbuj ponownie!");
+            System.out.println(MessagesEnum.LOGIN_FAILED.getMessage());
             logIn();
         } else if (userLogin.userAuth()) {
-            System.out.println("Zalogowano pomyślnie. Witaj " + userLogin.getLogin() + "!");
+            System.out.println(MessagesEnum.LOGIN_SUCCESSFULL + userLogin.getLogin() + "!");
         }
         return userLogin;
     }
