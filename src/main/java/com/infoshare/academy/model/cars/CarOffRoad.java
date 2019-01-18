@@ -8,8 +8,8 @@ public class CarOffRoad extends Car {
     protected Boolean hasTrunk;
 
     //Constructor
-    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer seats, Integer drive, Boolean hasWinch, Boolean hasTrunk) {
-        super(id, make, model, year, mileage, fuelSource, enginePower);
+    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower, Integer seats, Integer drive, Boolean hasWinch, Boolean hasTrunk) {
+        super(id, make, model, year, mileage, fuelSourceEnum, enginePower);
         this.seats = seats;
         this.drive = drive;
         this.hasWinch = hasWinch;
@@ -59,7 +59,7 @@ public class CarOffRoad extends Car {
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", mileage=" + mileage +
-                ", fuelSource=" + fuelSource +
+                ", fuelSourceEnum=" + fuelSourceEnum +
                 ", enginePower=" + enginePower +
                 ", seats=" + seats +
                 ", drive=" + drive +

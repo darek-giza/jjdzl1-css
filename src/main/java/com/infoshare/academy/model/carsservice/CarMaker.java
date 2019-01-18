@@ -117,19 +117,19 @@ public class CarMaker {
 
     //Methods to return Car objects from String line
     public static Car returnCar(String[] carPart) {
-        return new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]));
+        return new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]));
     }
 
     public static CarPassenger returnCarPassenger(String[] carPart) {
-        return new CarPassenger(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Color.valueOf(carPart[7]), BodyType.valueOf(carPart[8]), Integer.parseInt(carPart[9]), Transmission.valueOf(carPart[10]));
+        return new CarPassenger(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), ColorEnum.valueOf(carPart[7]), BodyTypeEnum.valueOf(carPart[8]), Integer.parseInt(carPart[9]), TransmissionEnum.valueOf(carPart[10]));
     }
 
     public static CarOffRoad returnCarOffRoad(String[] carPart) {
-        return new CarOffRoad(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), Boolean.parseBoolean(carPart[9]), Boolean.parseBoolean(carPart[10]));
+        return new CarOffRoad(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), Boolean.parseBoolean(carPart[9]), Boolean.parseBoolean(carPart[10]));
     }
 
      public static CarTruck returnCarTruck(String[] carPart) {
-        return new CarTruck(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), Boolean.parseBoolean(carPart[9]));
+        return new CarTruck(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), Boolean.parseBoolean(carPart[9]));
     }
 }
 
@@ -140,7 +140,7 @@ public class CarMaker {
             String[] carLine = carData.toString().split("\\n");
             for (String s : carLine) {
                 String[] carPart = s.split(",");
-                Car carCreated = new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6]));
+                Car carCreated = new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]));
                 carList.add(carCreated);
             }
             return carList;
@@ -153,7 +153,7 @@ public class CarMaker {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] carPart = line.split(",");
-                Car carCreated = (new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSource.valueOf(carPart[5]), Integer.parseInt(carPart[6])));
+                Car carCreated = (new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6])));
                 carList.add(carCreated);
             }
         } catch (FileNotFoundException e) {

@@ -8,17 +8,17 @@ public class Car implements Vehicle {
     protected String model;
     protected Integer year;
     protected Integer mileage;
-    protected FuelSource fuelSource;
+    protected FuelSourceEnum fuelSourceEnum;
     protected Integer enginePower;
 
     //Constructor
-    public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower) {
+    public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower) {
         this.id = id;
         this.make = make;
         this.model = model;
         this.year = year;
         this.mileage = mileage;
-        this.fuelSource = fuelSource;
+        this.fuelSourceEnum = fuelSourceEnum;
         this.enginePower = enginePower;
     }
 
@@ -43,8 +43,8 @@ public class Car implements Vehicle {
         return mileage;
     }
 
-    public FuelSource getFuelSource() {
-        return fuelSource;
+    public FuelSourceEnum getFuelSourceEnum() {
+        return fuelSourceEnum;
     }
 
     public Integer getEnginePower() {
@@ -72,8 +72,8 @@ public class Car implements Vehicle {
         this.mileage = mileage;
     }
 
-    public void setFuelSource(FuelSource fuelSource) {
-        this.fuelSource = fuelSource;
+    public void setFuelSourceEnum(FuelSourceEnum fuelSourceEnum) {
+        this.fuelSourceEnum = fuelSourceEnum;
     }
 
     public void setEnginePower(Integer enginePower) {
@@ -89,7 +89,7 @@ public class Car implements Vehicle {
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", mileage=" + mileage +
-                ", fuelSource=" + fuelSource +
+                ", fuelSourceEnum=" + fuelSourceEnum +
                 ", enginePower=" + enginePower +
                 '}';
     }
