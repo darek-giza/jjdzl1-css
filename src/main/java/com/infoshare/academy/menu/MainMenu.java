@@ -40,7 +40,7 @@ public class MainMenu {
                     break;
                 case "2":
                     System.out.println(MessagesEnum.PRINT_DESCRIPTION.getMessage());
-                    //TODO: Implement showing car details
+                    CarTypeMenu.detailedCarMenu();
                     break;
                 case "3":
                     System.out.println(MessagesEnum.RESERVATION.getMessage());

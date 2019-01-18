@@ -16,7 +16,7 @@ public class CarDescription {
     public static String carPassengerDescription(CarPassenger carPassenger) {
         String descriptionPassenger = String.format("Samochód osobowy o id=%s: %s %s, " +
                 "rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s," +
-                " typ: %s, kolor: %s, ilość miejsc: %s, skrzynia biegów; %s", carPassenger.getId(), carPassenger.getMake(), carPassenger.getModel(), carPassenger.getYear(), carPassenger.getFuelSourceEnum().getFuel(), carPassenger.getEnginePower(), carPassenger.getMileage(), carPassenger.getBodyTypeEnum().getMessage(), carPassenger.getColorEnum().getColor(), carPassenger.getSeats(), carPassenger.getTransmissionEnum().getTransmission());
+                " typ: %s, kolor: %s, ilość miejsc: %s, skrzynia biegów: %s", carPassenger.getId(), carPassenger.getMake(), carPassenger.getModel(), carPassenger.getYear(), carPassenger.getFuelSourceEnum().getFuel(), carPassenger.getEnginePower(), carPassenger.getMileage(), carPassenger.getBodyTypeEnum().getMessage(), carPassenger.getColorEnum().getColor(), carPassenger.getSeats(), carPassenger.getTransmissionEnum().getTransmission());
         return descriptionPassenger;
     }
 
