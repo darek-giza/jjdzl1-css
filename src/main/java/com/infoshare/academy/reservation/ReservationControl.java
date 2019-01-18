@@ -1,15 +1,16 @@
 package com.infoshare.academy.reservation;
 
 import com.infoshare.academy.iostream.*;
+import com.infoshare.academy.menu.CarTypeMenu;
+import com.infoshare.academy.menu.MainMenu;
 import com.infoshare.academy.menu.MessagesEnum;
 import com.infoshare.academy.model.cars.Car;
+import com.infoshare.academy.model.cars.CarOffRoad;
+import com.infoshare.academy.model.cars.CarTruck;
 import com.infoshare.academy.model.carsservice.CarMaker;
 
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class ReservationControl {
     static Scanner in = new Scanner(System.in);
@@ -50,13 +51,43 @@ public class ReservationControl {
             getUserDateInput();
             return;
         }
-
-        System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE);
-        for (Car car : CarMaker.createCarList()) {
-            if (checkIfCarAvailable(car.getId(), startDate, endDate)) {
-                System.out.println(car);
-                idList.add(car.getId());
-            }
+        CarTypeMenu.showChooseCarTypeMenuMessages();
+        Integer choice = Integer.parseInt(in.nextLine());
+        switch (choice) {
+            case 1:
+                System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
+                for (Car car : CarMaker.createCarList()) {
+                    if (checkIfCarAvailable(car.getId(), startDate, endDate)) {
+                        System.out.println(car);
+                        idList.add(car.getId());
+                    }
+                }
+                break;
+            case 2:
+                System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
+                for (CarOffRoad carOffRoad : CarMaker.createCarOffRoadList()) {
+                    if (checkIfCarAvailable(carOffRoad.getId(), startDate, endDate)) {
+                        System.out.println(carOffRoad);
+                        idList.add(carOffRoad.getId());
+                    }
+                }
+                break;
+            case 3:
+                System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
+                for (CarTruck carTruck : CarMaker.createCarTruckList()) {
+                    if (checkIfCarAvailable(carTruck.getId(), startDate, endDate)) {
+                        System.out.println(carTruck);
+                        idList.add(carTruck.getId());
+                    }
+                }
+                break;
+            case 4:
+                MainMenu.showMainMenu();
+                break;
+            default:
+                System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
+                getUserDateInput();
+                return;
         }
 
         Integer carId = getId(MessagesEnum.CHOOSE_ID_CAR.getMessage());
@@ -77,14 +108,13 @@ public class ReservationControl {
         return date;
     }
 
-    public static Integer getId(String messege) {
-        System.out.println(messege);
+    public static Integer getId(String message) {
+        System.out.println(message);
         Integer id = Integer.parseInt(in.nextLine());
         if (idList.contains(id)) {
             return id;
         }
         System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
-
-        return getId(messege);
+        return getId(message);
     }
 }

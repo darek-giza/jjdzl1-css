@@ -4,16 +4,16 @@ public class CarOffRoad extends Car {
 
     protected Integer seats;
     protected Integer drive;
-    protected String winch;
-    protected String trunk;
+    protected Boolean hasWinch;
+    protected Boolean hasTrunk;
 
     //Constructor
-    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer seats, Integer drive, String winch, String trunk) {
+    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer seats, Integer drive, Boolean hasWinch, Boolean hasTrunk) {
         super(id, make, model, year, mileage, fuelSource, enginePower);
         this.seats = seats;
         this.drive = drive;
-        this.winch = winch;
-        this.trunk = trunk;
+        this.hasWinch = hasWinch;
+        this.hasTrunk = hasTrunk;
     }
 
     //Getters
@@ -25,12 +25,12 @@ public class CarOffRoad extends Car {
         return drive;
     }
 
-    public String getWinch() {
-        return winch;
+    public Boolean getHasWinch() {
+        return hasWinch;
     }
 
-    public String getTrunk() {
-        return trunk;
+    public Boolean getHasTrunk() {
+        return hasTrunk;
     }
 
     //Setters
@@ -42,12 +42,12 @@ public class CarOffRoad extends Car {
         this.drive = drive;
     }
 
-    public void setWinch(String winch) {
-        this.winch = winch;
+    public void setHasWinch(Boolean hasWinch) {
+        this.hasWinch = hasWinch;
     }
 
-    public void setTrunk(String trunk) {
-        this.trunk = trunk;
+    public void setHasTrunk(Boolean hasTrunk) {
+        this.hasTrunk = hasTrunk;
     }
 
     //Methods
@@ -63,8 +63,8 @@ public class CarOffRoad extends Car {
                 ", enginePower=" + enginePower +
                 ", seats=" + seats +
                 ", drive=" + drive +
-                ", winch='" + winch + '\'' +
-                ", trunk='" + trunk + '\'' +
+                ", hasWinch='" + hasWinch + '\'' +
+                ", hasTrunk='" + hasTrunk + '\'' +
                 "} ";
     }
 }

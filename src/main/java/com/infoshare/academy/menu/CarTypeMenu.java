@@ -5,7 +5,7 @@ import com.infoshare.academy.model.carsservice.CarDescription;
 import java.util.Scanner;
 
 public class CarTypeMenu {
-    public static void showChooseCarTypeMenuMessages(){
+    public static void showChooseCarTypeMenuMessages() {
         System.out.println(MessagesEnum.CHOOSE_CAR_TYPE.getMessage());
         System.out.println("1\t Samochód osobowy");
         System.out.println("2\t Samochód terenowy");

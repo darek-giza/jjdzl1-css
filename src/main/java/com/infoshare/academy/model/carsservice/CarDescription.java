@@ -7,7 +7,7 @@ import com.infoshare.academy.model.cars.CarTruck;
 
 public class CarDescription {
 
-    //Show description for chosen car type (returns String)
+    //Show full description for chosen car type (returns String)
     public static String carDescription(Car car) {
         String description = String.format("Samochód nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s", car.getId(), car.getMake(), car.getModel(), car.getYear(), car.getFuelSource(), car.getEnginePower(), car.getMileage());
         return description;
@@ -20,14 +20,14 @@ public class CarDescription {
         return descriptionPassenger;
     }
 
-    public static String carOffRosdDescription(CarOffRoad carOffRoad) {
-        String descriptionOffRoad = String.format("Samochód terenowy nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s, liczba miejsc: %s, napęd: %s, wyciągarka: %s, bagażnik: %s ", carOffRoad.getId(), carOffRoad.getMake(), carOffRoad.getModel(), carOffRoad.getYear(), carOffRoad.getFuelSource(), carOffRoad.getEnginePower(), carOffRoad.getMileage(), carOffRoad.getSeats(), carOffRoad.getDrive(), carOffRoad.getWinch(), carOffRoad.getTrunk());
+    public static String carOffRoadDescription(CarOffRoad carOffRoad) {
+        String descriptionOffRoad = String.format("Samochód terenowy nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s, przebieg: %s, liczba miejsc: %s, napęd na koła: %s, wciągarka: %s, bagażnik: %s ", carOffRoad.getId(), carOffRoad.getMake(), carOffRoad.getModel(), carOffRoad.getYear(), carOffRoad.getFuelSource(), carOffRoad.getEnginePower(), carOffRoad.getMileage(), carOffRoad.getSeats(), carOffRoad.getDrive(), carOffRoad.getHasWinch(), carOffRoad.getHasTrunk());
         return descriptionOffRoad;
     }
 
     public static String carTruckDescription(CarTruck carTruck) {
         String descriptionTruck = String.format("Samochód ciężarowy nr %s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %s,przebieg: %s, ładowność: %s, przestrzeń ładunkowa: %s, winda: %s "
-                , carTruck.getId(), carTruck.getMake(), carTruck.getModel(), carTruck.getYear(), carTruck.getFuelSource(), carTruck.getEnginePower(), carTruck.getMileage(), carTruck.getCapacity(), carTruck.getCargoSpace(), carTruck.getLift());
+                , carTruck.getId(), carTruck.getMake(), carTruck.getModel(), carTruck.getYear(), carTruck.getFuelSource(), carTruck.getEnginePower(), carTruck.getMileage(), carTruck.getCapacity(), carTruck.getCargoSpace(), carTruck.getHasLift());
         return descriptionTruck;
     }
 
@@ -46,7 +46,7 @@ public class CarDescription {
 
     public static void carTruckList() {
         CarMaker.createCarTruckList().stream()
-                .map(CarTruck -> "Samochód terenowy o id=" + CarTruck.getId() + ": " + CarTruck.getMake() + " " + CarTruck.getModel() + ", rok produkcji: " + CarTruck.getYear())
+                .map(CarTruck -> "Samochód ciężarowy o id=" + CarTruck.getId() + ": " + CarTruck.getMake() + " " + CarTruck.getModel() + ", rok produkcji: " + CarTruck.getYear())
                 .forEach(System.out::println);
     }
 }
