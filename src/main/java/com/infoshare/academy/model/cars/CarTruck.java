@@ -4,15 +4,15 @@ public class CarTruck extends Car {
 
     protected Integer capacity;
     protected Integer cargoSpace;
-    protected Boolean haveLift;
+    protected Boolean hasLift;
 
 
     //Constructor
-    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, Boolean haveLift) {
+    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Integer capacity, Integer cargoSpace, Boolean hasLift) {
         super(id, make, model, year, mileage, fuelSource, enginePower);
         this.capacity = capacity;
         this.cargoSpace = cargoSpace;
-        this.haveLift = haveLift;
+        this.hasLift = hasLift;
     }
 
     //Getters
@@ -24,8 +24,8 @@ public class CarTruck extends Car {
         return cargoSpace;
     }
 
-    public Boolean getHaveLift() {
-        return haveLift;
+    public Boolean getHasLift() {
+        return hasLift;
     }
 
     //Setters
@@ -37,8 +37,8 @@ public class CarTruck extends Car {
         this.cargoSpace = cargoSpace;
     }
 
-    public void setHaveLift(Boolean  haveLift) {
-        this.haveLift = haveLift;
+    public void setHasLift(Boolean hasLift) {
+        this.hasLift = hasLift;
     }
 
     //Methods
@@ -54,7 +54,7 @@ public class CarTruck extends Car {
                 ", enginePower=" + enginePower +
                 ", capacity=" + capacity +
                 ", cargoSpace=" + cargoSpace +
-                ", haveLift='" + haveLift + '\'' +
+                ", haveLift='" + hasLift + '\'' +
                 "} ";
     }
 }

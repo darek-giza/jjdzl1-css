@@ -1,7 +1,6 @@
 package com.infoshare.academy.menu;
 
 import com.infoshare.academy.model.carsservice.CarDescription;
-import com.infoshare.academy.reservation.ReservationControl;
 
 import java.util.Scanner;
 
@@ -21,7 +20,7 @@ public class CarTypeMenu {
         String choice = in.nextLine();
         switch (choice) {
             case "1":
-                System.out.println();
+                CarDescription.carPassengerList();
                 break;
             case "2":
                 CarDescription.carOffRoadList();
