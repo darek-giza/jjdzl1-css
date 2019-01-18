@@ -1,6 +1,6 @@
 package com.infoshare.academy.model.cars;
 
-public enum Color {
+public enum ColorEnum {
     BIEGE("Beżowy"),
     BLACK("Czarny"),
     BLUE("Niebieski"),
@@ -18,7 +18,7 @@ public enum Color {
 
     private String color;
 
-    Color(String color) {
+    ColorEnum(String color) {
         this.color = color;
     }
 

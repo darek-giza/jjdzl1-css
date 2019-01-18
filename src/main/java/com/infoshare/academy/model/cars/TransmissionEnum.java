@@ -1,6 +1,6 @@
 package com.infoshare.academy.model.cars;
 
-public enum Transmission {
+public enum TransmissionEnum {
     AUTOMATIC("Automatyczna"),
     MANUAL("Manualna"),
     SEMIAUTO("Półautomatyczna")
@@ -9,7 +9,7 @@ public enum Transmission {
 
     private String transmission;
 
-    Transmission(String transmission) {
+    TransmissionEnum(String transmission) {
         this.transmission = transmission;
     }
 

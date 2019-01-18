@@ -1,52 +1,52 @@
 package com.infoshare.academy.model.cars;
 
 public class CarPassenger extends Car {
-    protected Color color;
-    protected BodyType bodyType;
+    protected ColorEnum colorEnum;
+    protected BodyTypeEnum bodyTypeEnum;
     protected Integer seats;
-    protected Transmission transmission;
+    protected TransmissionEnum transmissionEnum;
 
     //Constructor
-    public CarPassenger(Integer id, String make, String model, Integer year, Integer mileage, FuelSource fuelSource, Integer enginePower, Color color, BodyType bodyType, Integer seats, Transmission transmission) {
-        super(id, make, model, year, mileage, fuelSource, enginePower);
-        this.color = color;
-        this.bodyType = bodyType;
+    public CarPassenger(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower, ColorEnum colorEnum, BodyTypeEnum bodyTypeEnum, Integer seats, TransmissionEnum transmissionEnum) {
+        super(id, make, model, year, mileage, fuelSourceEnum, enginePower);
+        this.colorEnum = colorEnum;
+        this.bodyTypeEnum = bodyTypeEnum;
         this.seats = seats;
-        this.transmission = transmission;
+        this.transmissionEnum = transmissionEnum;
     }
 
     //Getters
-    public Color getColor() {
-        return color;
+    public ColorEnum getColorEnum() {
+        return colorEnum;
     }
 
-    public BodyType getBodyType() {
-        return bodyType;
+    public BodyTypeEnum getBodyTypeEnum() {
+        return bodyTypeEnum;
     }
 
     public Integer getSeats() {
         return seats;
     }
 
-    public Transmission getTransmission() {
-        return transmission;
+    public TransmissionEnum getTransmissionEnum() {
+        return transmissionEnum;
     }
 
     //Setters
-    public void setColor(Color color) {
-        this.color = color;
+    public void setColorEnum(ColorEnum colorEnum) {
+        this.colorEnum = colorEnum;
     }
 
-    public void setBodyType(BodyType bodyType) {
-        this.bodyType = bodyType;
+    public void setBodyTypeEnum(BodyTypeEnum bodyTypeEnum) {
+        this.bodyTypeEnum = bodyTypeEnum;
     }
 
     public void setSeats(Integer seats) {
         this.seats = seats;
     }
 
-    public void setTransmission(Transmission transmission) {
-        this.transmission = transmission;
+    public void setTransmissionEnum(TransmissionEnum transmissionEnum) {
+        this.transmissionEnum = transmissionEnum;
     }
 
     //Methods
@@ -58,12 +58,12 @@ public class CarPassenger extends Car {
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", mileage=" + mileage +
-                ", fuelSource=" + fuelSource +
+                ", fuelSourceEnum=" + fuelSourceEnum +
                 ", enginePower=" + enginePower +
-                ", color=" + color +
-                ", bodyType=" + bodyType +
+                ", colorEnum=" + colorEnum +
+                ", bodyTypeEnum=" + bodyTypeEnum +
                 ", seats=" + seats +
-                ", transmission=" + transmission +
+                ", transmissionEnum=" + transmissionEnum +
                 '}';
     }
 }

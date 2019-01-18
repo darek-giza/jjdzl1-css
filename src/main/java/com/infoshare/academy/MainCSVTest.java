@@ -1,6 +1,6 @@
 package com.infoshare.academy;
 
-import com.infoshare.academy.model.cars.Color;
+import com.infoshare.academy.model.cars.ColorEnum;
 import com.infoshare.academy.model.carsservice.CarMaker;
 
 public class MainCSVTest {
@@ -31,7 +31,7 @@ public class MainCSVTest {
 
     public static void carStreamColor() {
         CarMaker.createCarPassengerList().stream()
-                .filter(CarPassenger -> CarPassenger.getColor().equals(Color.BLACK))
+                .filter(CarPassenger -> CarPassenger.getColorEnum().equals(ColorEnum.BLACK))
                 .map(CarPassenger -> "Znaleziono samochód o id=" +CarPassenger.getId() + ": "+ CarPassenger.getMake() + " " + CarPassenger.getModel() + ", rok produkcji: " + CarPassenger.getYear())
                 .forEach(System.out::println);
     }

@@ -1,6 +1,6 @@
 package com.infoshare.academy.model.cars;
 
-public enum BodyType {
+public enum BodyTypeEnum {
 
     CABRIOLET("Kabriolet"),
     COUPE("Coupe"),
@@ -16,7 +16,7 @@ public enum BodyType {
 
     private String message;
 
-    BodyType(String message) {
+    BodyTypeEnum(String message) {
         this.message = message;
     }
 

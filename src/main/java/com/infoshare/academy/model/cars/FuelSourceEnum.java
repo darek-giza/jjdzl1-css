@@ -1,6 +1,6 @@
 package com.infoshare.academy.model.cars;
 
-public enum FuelSource {
+public enum FuelSourceEnum {
 
     PETROL("Bezołowiowa"),
     PETROLANDGAS("LPG"),
@@ -13,7 +13,7 @@ public enum FuelSource {
 
     private String fuel;
 
-    FuelSource(String fuel) {
+    FuelSourceEnum(String fuel) {
         this.fuel = fuel;
     }
 
