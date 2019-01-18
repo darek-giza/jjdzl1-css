@@ -10,19 +10,36 @@ import java.util.List;
 public class CarMaker {
 
     //Methods to read created Cars - all at once or by ID
+
     public static void readCar() {
         List<Car> carCreated = createCarList();
-        System.out.println(carCreated);
+        for (Car car : carCreated){
+            System.out.println(CarDescription.carDescription(car));
+        }
     }
 
+/*    public static void readCar() {
+        List<Car> carCreated = createCarList();
+        System.out.println(carCreated);
+    }*/
+
     public static void readCar(Integer id) {
+        List<Car> carCreated = createCarList();
+        for (Car car : carCreated) {
+            if (car.getId().equals(id)) {
+                System.out.println(CarDescription.carDescription(car));
+            }
+        }
+    }
+
+/*    public static void readCar(Integer id) {
         List<Car> carCreated = createCarList();
         for (Car car : carCreated) {
             if (car.getId().equals(id)) {
                 System.out.println(car);
             }
         }
-    }
+    }*/
 
     public static void readCarPassenger() {
         List<CarPassenger> carCreated = createCarPassengerList();
