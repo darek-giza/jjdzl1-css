@@ -4,8 +4,8 @@ import com.infoshare.academy.iostream.*;
 import com.infoshare.academy.menu.CarTypeMenu;
 import com.infoshare.academy.menu.MainMenu;
 import com.infoshare.academy.menu.MessagesEnum;
-import com.infoshare.academy.model.cars.Car;
 import com.infoshare.academy.model.cars.CarOffRoad;
+import com.infoshare.academy.model.cars.CarPassenger;
 import com.infoshare.academy.model.cars.CarTruck;
 import com.infoshare.academy.model.carsservice.CarMaker;
 
@@ -56,10 +56,10 @@ public class ReservationControl {
         switch (choice) {
             case 1:
                 System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
-                for (Car car : CarMaker.createCarList()) {
-                    if (checkIfCarAvailable(car.getId(), startDate, endDate)) {
-                        System.out.println(car);
-                        idList.add(car.getId());
+                for (CarPassenger carPassenger : CarMaker.createCarPassengerList()) {
+                    if (checkIfCarAvailable(carPassenger.getId(), startDate, endDate)) {
+                        System.out.println(carPassenger);
+                        idList.add(carPassenger.getId());
                     }
                 }
                 break;
