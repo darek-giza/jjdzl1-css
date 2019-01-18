@@ -2,15 +2,13 @@ package com.infoshare.academy.user;
 
 public class User {
 
-
-    //poles
+    private Integer id;
     private String login;
     private String email;
     private String password;
     private Long phoneNumber;
     private String firstName;
     private String lastname;
-    private Integer id;
     private String adress;
     private Integer houseNumber;
     private Integer parcelNumber;
@@ -18,8 +16,13 @@ public class User {
     private String city;
     private boolean adult;
 
-    //constructor
-
+    //Constructor
+    public User(Integer id, String login, String email, String password) {
+        this.id = id;
+        this.login = login;
+        this.email = email;
+        this.password = password;
+    }
 
     public User(String login, String email, String password, Long phoneNumber, String firstName, String lastname,
                 Integer id, String adress, Integer houseNumber, Integer parcelNumber, String postCode, String city,
@@ -39,7 +42,10 @@ public class User {
         this.adult = adult;
     }
 
-    //getters
+    //Getters
+    public Integer getId() {
+        return id;
+    }
 
     public String getLogin() {
         return login;
@@ -63,10 +69,6 @@ public class User {
 
     public String getLastname() {
         return lastname;
-    }
-
-    public Integer getId() {
-        return id;
     }
 
     public String getAdress() {
@@ -93,8 +95,10 @@ public class User {
         return adult;
     }
 
-    //setters
-
+    //Setters
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public void setLogin(String login) {
         this.login = login;
@@ -120,10 +124,6 @@ public class User {
         this.lastname = lastname;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public void setAdress(String adress) {
         this.adress = adress;
     }
@@ -146,6 +146,15 @@ public class User {
 
     public void setAdult(boolean adult) {
         this.adult = adult;
+    }
+
+    //Methods
+    public boolean userAuth() {
+        if (getLogin().equals(login) && getPassword().equals(password)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override

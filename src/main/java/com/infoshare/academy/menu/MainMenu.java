@@ -2,6 +2,7 @@ package com.infoshare.academy.menu;
 
 import com.infoshare.academy.model.carsservice.CarMaker;
 import com.infoshare.academy.reservation.ReservationControl;
+import com.infoshare.academy.user.UserService;
 
 import java.util.Scanner;
 
@@ -10,7 +11,7 @@ public class MainMenu {
     public static void appStart() {
         System.out.println(MessagesEnum.APP_START.getMessage());
         System.out.println(MessagesEnum.WELCOME.getMessage());
-        //TODO: add user login here
+        UserService.logIn();
         showMainMenu();
     }
 
