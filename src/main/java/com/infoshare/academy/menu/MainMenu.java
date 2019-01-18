@@ -1,6 +1,6 @@
 package com.infoshare.academy.menu;
 
-import com.infoshare.academy.model.carsservice.CarMaker;
+import com.infoshare.academy.AboutAuthors;
 import com.infoshare.academy.reservation.ReservationControl;
 import com.infoshare.academy.user.UserService;
 
@@ -25,7 +25,8 @@ public class MainMenu {
             System.out.println("1\t Lista samochodów");
             System.out.println("2\t Szczegóły samochodu");
             System.out.println("3\t Rezerwacja");
-            System.out.println("4\t Wyjście");
+            System.out.println("4\t O Autorach");
+            System.out.println("5\t Wyjście");
             System.out.print("Wybór: ");
 
             //Get user's input choice
@@ -44,6 +45,10 @@ public class MainMenu {
                     ReservationControl.getUserDateInput();
                     break;
                 case "4":
+                    quit = true;
+                    AboutAuthors.printAuthors();
+                    break;
+                case "5":
                     quit = true;
                     System.out.println(MessagesEnum.END.getMessage());
                     break;
