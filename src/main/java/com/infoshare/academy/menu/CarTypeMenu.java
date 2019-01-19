@@ -44,14 +44,17 @@ public class CarTypeMenu {
         String choice = in.nextLine();
         switch (choice) {
             case "1":
+                showCarPassengerIds();
                 System.out.print(MessagesEnum.GET_ID.getMessage());
                 CarMaker.readCarPassenger(getCarIdInput());
                 break;
             case "2":
+                showCarOffRoadIds();
                 System.out.print(MessagesEnum.GET_ID.getMessage());
                 CarMaker.readCarOffRoad(getCarIdInput());
                 break;
             case "3":
+                showCarTruckIds();
                 System.out.print(MessagesEnum.GET_ID.getMessage());
                 CarMaker.readCarTruck(getCarIdInput());
                 break;
@@ -75,5 +78,29 @@ public class CarTypeMenu {
             getCarIdInput();
         }
         return choice;
+    }
+
+    public static void showCarPassengerIds(){
+        System.out.print(MessagesEnum.ID_LIST.getMessage());
+        CarMaker.createCarPassengerList().stream()
+                .map(Car -> Car.getId() + " ")
+                .forEach(System.out::print);
+        System.out.println(" ");
+    }
+
+    public static void showCarOffRoadIds(){
+        System.out.print(MessagesEnum.ID_LIST.getMessage());
+        CarMaker.createCarOffRoadList().stream()
+                .map(Car -> Car.getId() + " ")
+                .forEach(System.out::print);
+        System.out.println(" ");
+    }
+
+    public static void showCarTruckIds(){
+        System.out.print(MessagesEnum.ID_LIST.getMessage());
+        CarMaker.createCarTruckList().stream()
+                .map(Car -> Car.getId() + " ")
+                .forEach(System.out::print);
+        System.out.println(" ");
     }
 }

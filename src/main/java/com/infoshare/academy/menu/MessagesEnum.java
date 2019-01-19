@@ -12,6 +12,7 @@ public enum MessagesEnum {
     END("Wyłączanie aplikacji..."),
     BAD_CHOICE("Błędny wybór!"),
     GET_ID("Podaj id: "),
+    ID_LIST("Lista id: "),
 
     CANNOT_PARSE_DATA("Nie można przeanalizować danych"),
     ENTER_START_DATE_OF_RESERVATION("Wpisz datę rozpoczęcia rezerwacji( YYYY-MM-DD )"),
