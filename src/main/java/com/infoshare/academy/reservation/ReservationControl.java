@@ -91,12 +91,12 @@ public class ReservationControl {
         }
 
         Integer carId = getId(MessagesEnum.CHOOSE_ID_CAR.getMessage());
-        Reservation reservation = addReservation(carId,userId, startDate, endDate);
+        Reservation reservation = addReservation(carId, userId, startDate, endDate);
         System.out.println(MessagesEnum.RESERVATION_WAS_MADE.getMessage() + reservation);
     }
 
     public static Date getDate(String message) {
-        System.out.println(message);
+        System.out.print(message);
         Date date = new Date();
         try {
             date = Reservation.dateFormatter.parse(in.nextLine());
