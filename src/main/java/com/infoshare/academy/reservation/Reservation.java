@@ -81,9 +81,17 @@ public class Reservation extends DateModel {
                 "id=" + id +
                 ", carId=" + carId +
                 ", userId=" + userId +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
+                ", startDate=" + dateFormatter.format(startDate) +
+                ", endDate=" + dateFormatter.format(endDate) +
                 '}';
+    }
+
+    public String description() {
+        return "o numerze id=" + id +
+                ", id samochodu=" + carId +
+                ", id użytkownika=" + userId +
+                ", od dnia " + dateFormatter.format(startDate) +
+                " do " + dateFormatter.format(endDate);
     }
 
     public static Reservation stringToReservation(String csvRow) {
