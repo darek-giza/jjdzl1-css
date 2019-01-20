@@ -2,6 +2,7 @@ package com.infoshare.academy.model.carsservice;
 
 import com.infoshare.academy.iostream.FileIO;
 import com.infoshare.academy.iostream.FilePath;
+import com.infoshare.academy.menu.CarTypeMenu;
 import com.infoshare.academy.model.cars.*;
 
 import java.util.ArrayList;
@@ -12,56 +13,64 @@ public class CarMaker {
     //Methods to read created Cars - all at once or by ID
     public static void readCar() {
         List<Car> carCreated = createCarList();
-        System.out.println(carCreated);
+        for (Car car : carCreated){
+            System.out.println(CarDescription.carDescription(car));
+        }
     }
 
     public static void readCar(Integer id) {
         List<Car> carCreated = createCarList();
         for (Car car : carCreated) {
             if (car.getId().equals(id)) {
-                System.out.println(car);
+                System.out.println(CarDescription.carDescription(car));
             }
         }
     }
 
     public static void readCarPassenger() {
         List<CarPassenger> carCreated = createCarPassengerList();
-        System.out.println(carCreated);
+        for (CarPassenger carPassenger : carCreated){
+            System.out.println(CarDescription.carPassengerDescription(carPassenger));
+        }
     }
 
     public static void readCarPassenger(Integer id) {
         List<CarPassenger> carCreated = createCarPassengerList();
-        for (Car car : carCreated) {
-            if (car.getId().equals(id)) {
-                System.out.println(car);
+        for (CarPassenger carPassenger : carCreated) {
+            if (carPassenger.getId().equals(id)) {
+                System.out.println(CarDescription.carPassengerDescription(carPassenger));
             }
         }
     }
 
     public static void readCarOffRoad() {
         List<CarOffRoad> carCreated = createCarOffRoadList();
-        System.out.println(carCreated);
+        for (CarOffRoad carOffRoad : carCreated){
+            System.out.println(CarDescription.carOffRoadDescription(carOffRoad));
+        }
     }
 
     public static void readCarOffRoad(Integer id) {
         List<CarOffRoad> carCreated = createCarOffRoadList();
-        for (Car car : carCreated) {
-            if (car.getId().equals(id)) {
-                System.out.println(car);
+        for (CarOffRoad carOffRoad : carCreated) {
+            if (carOffRoad.getId().equals(id)) {
+                System.out.println(CarDescription.carOffRoadDescription(carOffRoad));
             }
         }
     }
 
     public static void readCarTruck() {
         List<CarTruck> carCreated = createCarTruckList();
-        System.out.println(carCreated);
+        for (CarTruck carTruck : carCreated){
+            System.out.println(CarDescription.carTruckDescription(carTruck));
+        }
     }
 
     public static void readCarTruck(Integer id) {
         List<CarTruck> carCreated = createCarTruckList();
-        for (Car car : carCreated) {
-            if (car.getId().equals(id)) {
-                System.out.println(car);
+        for (CarTruck carTruck : carCreated) {
+            if (carTruck.getId().equals(id)) {
+                System.out.println(CarDescription.carTruckDescription(carTruck));
             }
         }
     }

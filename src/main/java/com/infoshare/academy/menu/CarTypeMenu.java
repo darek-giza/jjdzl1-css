@@ -1,6 +1,7 @@
 package com.infoshare.academy.menu;
 
 import com.infoshare.academy.model.carsservice.CarDescription;
+import com.infoshare.academy.model.carsservice.CarMaker;
 
 import java.util.Scanner;
 
@@ -35,5 +36,71 @@ public class CarTypeMenu {
                 System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
         }
         return choice;
+    }
+
+    public static void detailedCarMenu() {
+        Scanner in = new Scanner(System.in);
+        showChooseCarTypeMenuMessages();
+        String choice = in.nextLine();
+        switch (choice) {
+            case "1":
+                showCarPassengerIds();
+                System.out.print(MessagesEnum.GET_ID.getMessage());
+                CarMaker.readCarPassenger(getCarIdInput());
+                break;
+            case "2":
+                showCarOffRoadIds();
+                System.out.print(MessagesEnum.GET_ID.getMessage());
+                CarMaker.readCarOffRoad(getCarIdInput());
+                break;
+            case "3":
+                showCarTruckIds();
+                System.out.print(MessagesEnum.GET_ID.getMessage());
+                CarMaker.readCarTruck(getCarIdInput());
+                break;
+            case "4":
+                MainMenu.showMainMenu();
+                break;
+            default:
+                System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
+        }
+
+
+    }
+
+    public static Integer getCarIdInput(){
+        Scanner in = new Scanner(System.in);
+        Integer choice = 0;
+        if(in.hasNextInt()) {
+            choice = in.nextInt();
+        } else {
+            System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
+            getCarIdInput();
+        }
+        return choice;
+    }
+
+    public static void showCarPassengerIds(){
+        System.out.print(MessagesEnum.ID_LIST.getMessage());
+        CarMaker.createCarPassengerList().stream()
+                .map(Car -> Car.getId() + " ")
+                .forEach(System.out::print);
+        System.out.println(" ");
+    }
+
+    public static void showCarOffRoadIds(){
+        System.out.print(MessagesEnum.ID_LIST.getMessage());
+        CarMaker.createCarOffRoadList().stream()
+                .map(Car -> Car.getId() + " ")
+                .forEach(System.out::print);
+        System.out.println(" ");
+    }
+
+    public static void showCarTruckIds(){
+        System.out.print(MessagesEnum.ID_LIST.getMessage());
+        CarMaker.createCarTruckList().stream()
+                .map(Car -> Car.getId() + " ")
+                .forEach(System.out::print);
+        System.out.println(" ");
     }
 }

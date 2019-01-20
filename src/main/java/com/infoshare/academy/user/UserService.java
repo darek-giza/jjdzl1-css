@@ -15,7 +15,7 @@ public class UserService {
         System.out.println(MessagesEnum.LOGIN_PANEL.getMessage());
         System.out.print(MessagesEnum.ENTER_LOGIN.getMessage());
         String login = in.nextLine();
-        System.out.print(MessagesEnum.ENTER_PASSWORD);
+        System.out.print(MessagesEnum.ENTER_PASSWORD.getMessage());
         String password = in.nextLine();
 
         List<User> userCreated = createUserList();
@@ -29,7 +29,7 @@ public class UserService {
             System.out.println(MessagesEnum.LOGIN_FAILED.getMessage());
             logIn();
         } else if (userLogin.userAuth()) {
-            System.out.println(MessagesEnum.LOGIN_SUCCESSFULL + userLogin.getLogin() + "!");
+            System.out.println(MessagesEnum.LOGIN_SUCCESSFULL.getMessage() + userLogin.getLogin() + "!");
         }
         return userLogin;
     }

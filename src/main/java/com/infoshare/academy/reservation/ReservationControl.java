@@ -4,9 +4,10 @@ import com.infoshare.academy.iostream.*;
 import com.infoshare.academy.menu.CarTypeMenu;
 import com.infoshare.academy.menu.MainMenu;
 import com.infoshare.academy.menu.MessagesEnum;
-import com.infoshare.academy.model.cars.Car;
 import com.infoshare.academy.model.cars.CarOffRoad;
+import com.infoshare.academy.model.cars.CarPassenger;
 import com.infoshare.academy.model.cars.CarTruck;
+import com.infoshare.academy.model.carsservice.CarDescription;
 import com.infoshare.academy.model.carsservice.CarMaker;
 
 import java.text.ParseException;
@@ -56,10 +57,10 @@ public class ReservationControl {
         switch (choice) {
             case 1:
                 System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
-                for (Car car : CarMaker.createCarList()) {
-                    if (checkIfCarAvailable(car.getId(), startDate, endDate)) {
-                        System.out.println(car);
-                        idList.add(car.getId());
+                for (CarPassenger carPassenger : CarMaker.createCarPassengerList()) {
+                    if (checkIfCarAvailable(carPassenger.getId(), startDate, endDate)) {
+                        System.out.println(CarDescription.carPassengerDescription(carPassenger));
+                        idList.add(carPassenger.getId());
                     }
                 }
                 break;
@@ -67,7 +68,7 @@ public class ReservationControl {
                 System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
                 for (CarOffRoad carOffRoad : CarMaker.createCarOffRoadList()) {
                     if (checkIfCarAvailable(carOffRoad.getId(), startDate, endDate)) {
-                        System.out.println(carOffRoad);
+                        System.out.println(CarDescription.carOffRoadDescription(carOffRoad));
                         idList.add(carOffRoad.getId());
                     }
                 }
@@ -76,7 +77,7 @@ public class ReservationControl {
                 System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
                 for (CarTruck carTruck : CarMaker.createCarTruckList()) {
                     if (checkIfCarAvailable(carTruck.getId(), startDate, endDate)) {
-                        System.out.println(carTruck);
+                        System.out.println(CarDescription.carTruckDescription(carTruck));
                         idList.add(carTruck.getId());
                     }
                 }

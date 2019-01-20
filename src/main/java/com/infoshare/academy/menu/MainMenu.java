@@ -41,14 +41,13 @@ public class MainMenu {
                     break;
                 case "2":
                     System.out.println(MessagesEnum.PRINT_DESCRIPTION.getMessage());
-                    //TODO: Implement showing car details
+                    CarTypeMenu.detailedCarMenu();
                     break;
                 case "3":
                     System.out.println(MessagesEnum.RESERVATION.getMessage());
                     ReservationControl.createReservation(currentUser.getId());
                     break;
                 case "4":
-                    quit = true;
                     AboutAuthors.printAuthors();
                     break;
                 case "5":
