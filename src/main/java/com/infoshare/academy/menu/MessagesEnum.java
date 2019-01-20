@@ -17,7 +17,7 @@ public enum MessagesEnum {
     END_DATE_CANNOT_BE_LESS_THAN_END_DATE("Data końcowa nie może być mniejsza niż data końcowa!"),
     LIST_AVAILABLE_CARS_IN_TIME_RANGE("Lista dostępnych samochodów w podanym przedziale czasowym:"),
     CHOOSE_ID_CAR("Wybierz id auta: "),
-    RESERVATION_WAS_MADE("Dokonano rezerwacji: "),
+    RESERVATION_WAS_MADE("Dokonano rezerwacji "),
     INCORRECT_DATE_TRY_AGAIN("Nieprawidłowa data spróbuj ponownie"),
 
     //iostream
