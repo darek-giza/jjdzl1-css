@@ -44,12 +44,12 @@ public class ReservationControl {
         return true;
     }
 
-    public static void getUserDateInput() {
+    public static void createReservation(Integer userId) {
         Date startDate = getDate(MessagesEnum.ENTER_START_DATE_OF_RESERVATION.getMessage());
         Date endDate = getDate(MessagesEnum.ENTER_END_DATE_OF_RESERVATION.getMessage());
         if (startDate.compareTo(endDate) > 0) {
             System.out.println(MessagesEnum.END_DATE_CANNOT_BE_LESS_THAN_END_DATE.getMessage());
-            getUserDateInput();
+            createReservation(userId);
             return;
         }
         CarTypeMenu.showChooseCarTypeMenuMessages();
@@ -87,18 +87,17 @@ public class ReservationControl {
                 break;
             default:
                 System.out.println(MessagesEnum.BAD_CHOICE.getMessage());
-                getUserDateInput();
+                createReservation(userId);
                 return;
         }
 
         Integer carId = getId(MessagesEnum.CHOOSE_ID_CAR.getMessage());
-        // user na sztywno bo nie ma logowania
-        Reservation reservation = addReservation(carId, 1, startDate, endDate);
-        System.out.println(MessagesEnum.RESERVATION_WAS_MADE.getMessage() + reservation);
+        Reservation reservation = addReservation(carId, userId, startDate, endDate);
+        System.out.println(MessagesEnum.RESERVATION_WAS_MADE.getMessage() + reservation.description());
     }
 
     public static Date getDate(String message) {
-        System.out.println(message);
+        System.out.print(message);
         Date date = new Date();
         try {
             date = Reservation.dateFormatter.parse(in.nextLine());
@@ -110,7 +109,7 @@ public class ReservationControl {
     }
 
     public static Integer getId(String message) {
-        System.out.println(message);
+        System.out.print(message);
         Integer id = Integer.parseInt(in.nextLine());
         if (idList.contains(id)) {
             return id;

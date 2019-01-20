@@ -9,12 +9,13 @@ import java.util.Scanner;
 
 public class MainMenu {
 
-    public static User appStart() {
+    private static User currentUser;
+
+    public static void appStart() {
         System.out.println(MessagesEnum.APP_START.getMessage());
         System.out.println(MessagesEnum.WELCOME.getMessage());
-        User loggedUser = UserService.logIn();
+        currentUser = UserService.logIn();
         showMainMenu();
-        return loggedUser;
     }
 
     public static void showMainMenu() {
@@ -44,7 +45,7 @@ public class MainMenu {
                     break;
                 case "3":
                     System.out.println(MessagesEnum.RESERVATION.getMessage());
-                    ReservationControl.getUserDateInput();
+                    ReservationControl.createReservation(currentUser.getId());
                     break;
                 case "4":
                     AboutAuthors.printAuthors();
