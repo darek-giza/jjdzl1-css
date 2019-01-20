@@ -9,12 +9,12 @@ import java.util.Scanner;
 
 public class MainMenu {
 
-    private static User carrentUser;
+    private static User currentUser;
 
     public static void appStart() {
         System.out.println(MessagesEnum.APP_START.getMessage());
         System.out.println(MessagesEnum.WELCOME.getMessage());
-        carrentUser=UserService.logIn();
+        currentUser = UserService.logIn();
         showMainMenu();
     }
 
@@ -45,7 +45,7 @@ public class MainMenu {
                     break;
                 case "3":
                     System.out.println(MessagesEnum.RESERVATION.getMessage());
-                    ReservationControl.createReservation(carrentUser.getId());
+                    ReservationControl.createReservation(currentUser.getId());
                     break;
                 case "4":
                     quit = true;

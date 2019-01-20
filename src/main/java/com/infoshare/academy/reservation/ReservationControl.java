@@ -108,7 +108,7 @@ public class ReservationControl {
     }
 
     public static Integer getId(String message) {
-        System.out.println(message);
+        System.out.print(message);
         Integer id = Integer.parseInt(in.nextLine());
         if (idList.contains(id)) {
             return id;
