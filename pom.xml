@@ -15,4 +15,21 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
+  <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+  <dependencies>
+    <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.13</version>
+  </dependency>
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.4</version>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
 </project>

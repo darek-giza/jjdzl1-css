@@ -12,6 +12,7 @@ public class Car implements Vehicle {
     protected Integer enginePower;
 
     //Constructor
+    public Car(){}
     public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower) {
         this.id = id;
         this.make = make;
