@@ -1,6 +1,7 @@
 package com.infoshare.academy.database;
 
 import com.infoshare.academy.model.cars.Car;
+import com.infoshare.academy.model.cars.FuelSourceEnum;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ public class CarsDAO {
     Connection connection = null;
 
     public CarsDAO() {
-        String url = "jdbc:mysql://192.168.99.100:9001/css";
+        String url = "jdbc:mysql://localhost:9001/css";
         String user = "root";
         String password = "root";
         try {
@@ -36,6 +37,7 @@ public class CarsDAO {
                 tempCar.setModel(resultSet.getString("model"));
                 tempCar.setYear(resultSet.getInt("year"));
                 tempCar.setMileage(resultSet.getInt("mileage"));
+                tempCar.setFuelSourceEnum(FuelSourceEnum.getFuelEnum(resultSet.getString("fuelsource")));
 
                 cars.add(tempCar);
             }

@@ -9,7 +9,7 @@ public class CarDescription {
 
     //Show full description for chosen car type (returns String)
     public static String carDescription(Car car) {
-        String description = String.format("Samochód o id=%s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %sKM, przebieg: %skm", car.getId(), car.getMake(), car.getModel(), car.getYear(), car.getFuelSourceEnum(), car.getEnginePower(), car.getMileage());
+        String description = String.format("Samochód o id=%s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %sKM, przebieg: %skm", car.getId(), car.getMake(), car.getModel(), car.getYear(), car.getFuelSourceEnum().getFuel(), car.getEnginePower(), car.getMileage());
         return description;
     }
 
