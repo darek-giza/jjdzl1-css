@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jjdzl1-css:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="jjdzl1-css.war">
+      <element id="artifact" artifact-name="jjdzl1-css:war exploded" />
+    </root>
+  </artifact>
+</component>
