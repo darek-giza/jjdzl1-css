@@ -37,7 +37,7 @@ public class CarsDAO {
                 tempCar.setModel(resultSet.getString("model"));
                 tempCar.setYear(resultSet.getInt("year"));
                 tempCar.setMileage(resultSet.getInt("mileage"));
-                tempCar.setFuelSourceEnum(FuelSourceEnum.getFuelEnum(resultSet.getString("fuelsource")));
+                tempCar.setFuelSourceEnum(FuelSourceEnum.getFuelEnum(resultSet.getString("fuel_source")));
 
                 cars.add(tempCar);
             }
