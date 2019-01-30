@@ -8,8 +8,8 @@ public class User {
     private String password;
     private Long phoneNumber;
     private String firstName;
-    private String lastname;
-    private String adress;
+    private String lastName;
+    private String address;
     private Integer houseNumber;
     private Integer parcelNumber;
     private String postCode;
@@ -24,17 +24,17 @@ public class User {
         this.password = password;
     }
 
-    public User(String login, String email, String password, Long phoneNumber, String firstName, String lastname,
-                Integer id, String adress, Integer houseNumber, Integer parcelNumber, String postCode, String city,
+    public User(String login, String email, String password, Long phoneNumber, String firstName, String lastName,
+                Integer id, String address, Integer houseNumber, Integer parcelNumber, String postCode, String city,
                 boolean adult) {
         this.login = login;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.firstName = firstName;
-        this.lastname = lastname;
+        this.lastName = lastName;
         this.id = id;
-        this.adress = adress;
+        this.address = address;
         this.houseNumber = houseNumber;
         this.parcelNumber = parcelNumber;
         this.postCode = postCode;
@@ -67,12 +67,12 @@ public class User {
         return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
     public Integer getHouseNumber() {
@@ -120,12 +120,12 @@ public class User {
         this.firstName = firstName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public void setHouseNumber(Integer houseNumber) {
@@ -165,9 +165,9 @@ public class User {
                 ", password='" + password + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", firstName='" + firstName + '\'' +
-                ", lastname='" + lastname + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", id=" + id +
-                ", adress='" + adress + '\'' +
+                ", address='" + address + '\'' +
                 ", houseNumber=" + houseNumber +
                 ", parcelNumber=" + parcelNumber +
                 ", postCode='" + postCode + '\'' +

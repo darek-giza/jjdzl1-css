@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: asgard-mysql
--- Czas generowania: 30 Sty 2019, 13:52
+-- Czas generowania: 30 Sty 2019, 21:03
 -- Wersja serwera: 8.0.14
 -- Wersja PHP: 7.2.13
 
@@ -21,6 +21,71 @@ SET time_zone = "+00:00";
 --
 -- Baza danych: `css`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `carOffRoad`
+--
+
+CREATE TABLE `carOffRoad` (
+  `car_id` int(11) NOT NULL,
+  `make` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `model` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `year` int(4) NOT NULL,
+  `milage` int(10) NOT NULL,
+  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `engine_power` int(4) NOT NULL,
+  `seats` int(2) NOT NULL,
+  `drive` int(2) NOT NULL,
+  `has_winch` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `has_trunk` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Zrzut danych tabeli `carOffRoad`
+--
+
+INSERT INTO `carOffRoad` (`car_id`, `make`, `model`, `year`, `milage`, `fuel_source`, `engine_power`, `seats`, `drive`, `has_winch`, `has_trunk`) VALUES
+(201, 'Mercedes', 'ML350', 2010, 100000, 'PETROL', 250, 5, 4, 'false', 'false'),
+(202, 'Jeep', 'Cherokee', 2010, 100000, 'DIESEL', 180, 5, 4, 'false', 'false'),
+(203, 'Mitsubishi', 'L200', 2012, 100000, 'DIESEL', 220, 5, 4, 'true', 'true');
+
+-- --------------------------------------------------------
+
+--
+-- Struktura tabeli dla tabeli `carPassenger`
+--
+
+CREATE TABLE `carPassenger` (
+  `car_id` int(11) NOT NULL,
+  `make` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `model` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `year` int(4) NOT NULL,
+  `mileage` int(10) NOT NULL,
+  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `engine_power` int(3) NOT NULL,
+  `colorEnum` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `bodyTypeEnum` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `seats` int(2) NOT NULL,
+  `transmissionEnum` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Zrzut danych tabeli `carPassenger`
+--
+
+INSERT INTO `carPassenger` (`car_id`, `make`, `model`, `year`, `mileage`, `fuel_source`, `engine_power`, `colorEnum`, `bodyTypeEnum`, `seats`, `transmissionEnum`) VALUES
+(101, 'Audi', 'A4', 2004, 160000, 'PETROL', 163, 'BLACK', 'SEDAN', 5, 'MANUAL'),
+(102, 'Audi', 'A4', 2006, 317000, 'DIESEL', 140, 'RED', 'WAGON', 5, 'SEMIAUTO'),
+(103, 'Audi', 'R8', 2014, 113000, 'PETROL', 435, 'SILVER', 'COUPE', 5, 'AUTOMATIC'),
+(104, 'BMW', 'E90', 2008, 270000, 'DIESEL', 210, 'WHITE', 'SEDAN', 5, 'MANUAL'),
+(105, 'BMW', 'X3', 2010, 193000, 'DIESEL', 140, 'WHITE', 'SUV', 5, 'AUTOMATIC'),
+(106, 'Opel', 'Astra', 2003, 205000, 'PETROLANDGAS', 125, 'RED', 'HATCHBACK', 5, 'MANUAL'),
+(107, 'Opel', 'Meriva', 2004, 240000, 'PETROL', 101, 'BLACK', 'MINIVAN', 5, 'SEMIAUTO'),
+(108, 'Opel', 'Vectra', 1998, 320000, 'PETROL', 85, 'BIEGE', 'SEDAN', 5, 'MANUAL'),
+(109, 'Toyota', 'C-HR', 2017, 18000, 'HYBRID', 136, 'PURPLE', 'CROSSOVER', 5, 'AUTOMATIC'),
+(110, 'Porsche', 'Cayenne', 2013, 139000, 'DIESEL', 385, 'ORANGE', 'SUV', 5, 'SEMIAUTO');
 
 -- --------------------------------------------------------
 
@@ -55,12 +120,40 @@ INSERT INTO `cars` (`car_id`, `make`, `model`, `year`, `mileage`, `fuel_source`,
 -- --------------------------------------------------------
 
 --
+-- Struktura tabeli dla tabeli `carTruck`
+--
+
+CREATE TABLE `carTruck` (
+  `car_id` int(11) NOT NULL,
+  `make` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `model` varchar(8) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `year` int(4) NOT NULL,
+  `milage` int(6) NOT NULL,
+  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `engine_power` int(30) NOT NULL,
+  `capacity` int(10) NOT NULL,
+  `cargoSpace` int(10) NOT NULL,
+  `hasLift` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Zrzut danych tabeli `carTruck`
+--
+
+INSERT INTO `carTruck` (`car_id`, `make`, `model`, `year`, `milage`, `fuel_source`, `engine_power`, `capacity`, `cargoSpace`, `hasLift`) VALUES
+(301, 'Mercedes', 'Sprinter', 2005, 150000, 'DIESEL', 150, 1000, 15, 'false'),
+(302, 'Mercedes', 'Vito', 2010, 150000, 'DIESEL', 150, 1000, 10, 'false'),
+(303, 'Iveco', 'Daily', 2010, 150000, 'DIESEL', 200, 2500, 25, 'true');
+
+-- --------------------------------------------------------
+
+--
 -- Struktura tabeli dla tabeli `car_types`
 --
 
 CREATE TABLE `car_types` (
   `type_id` int(2) NOT NULL,
-  `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -68,8 +161,8 @@ CREATE TABLE `car_types` (
 --
 
 INSERT INTO `car_types` (`type_id`, `type`) VALUES
-(1, 'passenger'),
 (2, 'offroad'),
+(1, 'passenger'),
 (3, 'truck');
 
 -- --------------------------------------------------------
@@ -115,17 +208,22 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `login` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+  `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `phone_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `first_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `last_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `adult` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`user_id`, `login`, `email`, `password`) VALUES
-(1, 'admin', 'admin@google.com', '12345'),
-(2, 'user1', 'user1@google.com', 'pass123'),
-(3, 'user2', 'user2@google.com', '123pass');
+INSERT INTO `users` (`user_id`, `login`, `email`, `password`, `phone_number`, `first_name`, `last_name`, `address`, `adult`) VALUES
+(1, 'admin', 'admin@google.com', '12345', '0', '0', '0', '0', NULL),
+(2, 'user1', 'user1@google.com', 'pass123', '0', '0', '0', '0', NULL),
+(3, 'user2', 'user2@google.com', '123pass', '0', '0', '0', '0', NULL);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -138,10 +236,17 @@ ALTER TABLE `cars`
   ADD PRIMARY KEY (`car_id`);
 
 --
+-- Indeksy dla tabeli `carTruck`
+--
+ALTER TABLE `carTruck`
+  ADD PRIMARY KEY (`car_id`);
+
+--
 -- Indeksy dla tabeli `car_types`
 --
 ALTER TABLE `car_types`
-  ADD PRIMARY KEY (`type_id`);
+  ADD PRIMARY KEY (`type_id`),
+  ADD UNIQUE KEY `type` (`type`);
 
 --
 -- Indeksy dla tabeli `users`
