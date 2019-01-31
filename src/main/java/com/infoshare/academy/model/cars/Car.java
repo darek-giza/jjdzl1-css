@@ -1,19 +1,27 @@
 package com.infoshare.academy.model.cars;
 
+import java.sql.ResultSet;
+
 public class Car implements Vehicle {
 
     protected Integer id;
-//    protected Boolean isReserved;
+    //    protected Boolean isReserved;
     protected String make;
     protected String model;
     protected Integer year;
     protected Integer mileage;
     protected FuelSourceEnum fuelSourceEnum;
     protected Integer enginePower;
+    protected ColorEnum colorEnum;
+    protected BodyTypeEnum bodyTypeEnum;
+    protected Integer seats;
+    protected TransmissionEnum transmissionEnum;
 
     //Constructor
-    public Car(){}
-    public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower) {
+    public Car() {
+    }
+
+    public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower, ColorEnum colorEnum, BodyTypeEnum bodyTypeEnum, Integer seats, TransmissionEnum transmissionEnum) {
         this.id = id;
         this.make = make;
         this.model = model;
@@ -21,6 +29,10 @@ public class Car implements Vehicle {
         this.mileage = mileage;
         this.fuelSourceEnum = fuelSourceEnum;
         this.enginePower = enginePower;
+        this.colorEnum = colorEnum;
+        this.bodyTypeEnum = bodyTypeEnum;
+        this.seats = seats;
+        this.transmissionEnum = transmissionEnum;
     }
 
     //Getters
@@ -52,6 +64,14 @@ public class Car implements Vehicle {
         return enginePower;
     }
 
+    public ColorEnum getColorEnum() { return colorEnum; }
+
+    public BodyTypeEnum getBodyTypeEnum() { return bodyTypeEnum; }
+
+    public Integer getSeats() { return seats; }
+
+    public TransmissionEnum getTransmissionEnum() { return transmissionEnum; }
+
     //Setters
     public void setId(Integer id) {
         this.id = id;
@@ -81,7 +101,25 @@ public class Car implements Vehicle {
         this.enginePower = enginePower;
     }
 
+    public void setColorEnum(ColorEnum colorEnum) {
+        this.colorEnum = colorEnum;
+    }
+
+    public void setBodyTypeEnum(BodyTypeEnum bodyTypeEnum) {
+        this.bodyTypeEnum = bodyTypeEnum;
+    }
+
+    public void setSeats(Integer seats) {
+        this.seats = seats;
+    }
+
+    public void setTransmissionEnum(TransmissionEnum transmissionEnum) {
+        this.transmissionEnum = transmissionEnum;
+    }
+
+
     //Methods
+
     @Override
     public String toString() {
         return "Car{" +
@@ -92,8 +130,19 @@ public class Car implements Vehicle {
                 ", mileage=" + mileage +
                 ", fuelSourceEnum=" + fuelSourceEnum +
                 ", enginePower=" + enginePower +
+                ", colorEnum=" + colorEnum +
+                ", bodyTypeEnum=" + bodyTypeEnum +
+                ", seats=" + seats +
+                ", transmissionEnum=" + transmissionEnum +
                 '}';
     }
+
+
+}
+
+
+
+
 
 /*    @Override
     public void checkIfReserved() {
@@ -103,4 +152,4 @@ public class Car implements Vehicle {
             System.out.println("Vehicle id=" + getId() + " is available.");
         }
     }*/
-}
+

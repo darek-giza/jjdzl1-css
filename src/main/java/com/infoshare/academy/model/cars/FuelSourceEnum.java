@@ -11,15 +11,13 @@ public enum FuelSourceEnum {
 
     private String fuel;
 
-    FuelSourceEnum(String fuel) {
-        this.fuel = fuel;
-    }
+    FuelSourceEnum(String fuel) { this.fuel = fuel; }
 
     public String getFuel() {
         return fuel;
     }
 
-    public static FuelSourceEnum getFuelEnum(String fuel) {
+    public  static FuelSourceEnum getFuelEnum(String fuel) {
         switch (fuel) {
             case "PETROL":
                 return PETROL;
@@ -38,6 +36,7 @@ public enum FuelSourceEnum {
 
         }
     }
+
 
     public void Messages(String text) {
         this.fuel = text;

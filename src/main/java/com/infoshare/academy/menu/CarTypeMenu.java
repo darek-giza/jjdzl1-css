@@ -46,7 +46,7 @@ public class CarTypeMenu {
             case "1":
                 showCarPassengerIds();
                 System.out.print(MessagesEnum.GET_ID.getMessage());
-                CarMaker.readCarPassenger(getCarIdInput());
+                CarMaker.readCar(getCarIdInput());
                 break;
             case "2":
                 showCarOffRoadIds();
@@ -82,7 +82,7 @@ public class CarTypeMenu {
 
     public static void showCarPassengerIds(){
         System.out.print(MessagesEnum.ID_LIST.getMessage());
-        CarMaker.createCarPassengerList().stream()
+        CarMaker.createCarList().stream()
                 .map(Car -> Car.getId() + " ")
                 .forEach(System.out::print);
         System.out.println(" ");

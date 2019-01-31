@@ -3,9 +3,9 @@ package com.infoshare.academy.model.cars;
 public enum TransmissionEnum {
     AUTOMATIC("Automatyczna"),
     MANUAL("Manualna"),
-    SEMIAUTO("Półautomatyczna")
+    SEMIAUTO("Półautomatyczna");
 
-    ;
+
 
     private String transmission;
 
@@ -15,6 +15,19 @@ public enum TransmissionEnum {
 
     public String getTransmission() {
         return transmission;
+    }
+
+    public static TransmissionEnum getTransmissionEnum(String transmission) {
+        switch (transmission){
+            case "AUTOMATIC":
+                return AUTOMATIC;
+            case "MANUAL":
+                return MANUAL;
+            case "SEMIAUTO":
+                return SEMIAUTO;
+                default:
+                    throw new IllegalArgumentException("Transmission not recognized");
+        }
     }
 
     public void Messages(String text) {

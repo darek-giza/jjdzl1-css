@@ -1,3 +1,5 @@
+package com.infoshare.academy;
+
 import com.infoshare.academy.database.CarsDAO;
 import com.infoshare.academy.model.cars.Car;
 import com.infoshare.academy.model.carsservice.CarDescription;
@@ -9,7 +11,7 @@ public class MainDBTest {
         CarsDAO carsDAO = new CarsDAO();
 
         List<Car> cars = carsDAO.getCarList();
-        for (Car car : cars){
+        for (Car car : cars) {
             System.out.println(CarDescription.carDescription(car));
         }
 
