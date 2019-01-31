@@ -22,24 +22,26 @@ public class CarsDAO {
     }
 
 
-    public List<Car> getCarList(){
+    public List<Car> getCarList() {
         List<Car> cars = new ArrayList<>();
         Statement statement = null;
         try {
             statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM cars");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM car");
 
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 Car tempCar = new Car();
-                tempCar.setId(resultSet.getInt("car_id"));
+                tempCar.setId(resultSet.getInt("id"));
                 tempCar.setMake(resultSet.getString("make"));
                 tempCar.setModel(resultSet.getString("model"));
                 tempCar.setYear(resultSet.getInt("year"));
                 tempCar.setMileage(resultSet.getInt("mileage"));
-                tempCar.setFuelSourceEnum(FuelSourceEnum.getFuelEnum(resultSet.getString("fuel_source")));
 
-                cars.add(tempCar);
+                //tempCar.setFuelSourceEnum(FuelSourceEnum.getFuelEnum(resultSet.getString("fuelSourceEnum")));
+                //nie rozpoznaje mi enuma fuel w bazie !!!!
+
+                        cars.add(tempCar);
             }
             resultSet.close();
             statement.close();

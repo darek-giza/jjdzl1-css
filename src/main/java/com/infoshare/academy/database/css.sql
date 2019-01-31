@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: asgard-mysql
--- Czas generowania: 30 Sty 2019, 21:03
+-- Czas generowania: 30 Sty 2019, 23:55
 -- Wersja serwera: 8.0.14
--- Wersja PHP: 7.2.13
+-- Wersja PHP: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,125 +25,50 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `carOffRoad`
+-- Struktura tabeli dla tabeli `car`
 --
 
-CREATE TABLE `carOffRoad` (
-  `car_id` int(11) NOT NULL,
-  `make` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `model` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+CREATE TABLE `car` (
+  `id` int(3) NOT NULL,
+  `make` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `model` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `year` int(4) NOT NULL,
-  `milage` int(10) NOT NULL,
-  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `engine_power` int(4) NOT NULL,
-  `seats` int(2) NOT NULL,
-  `drive` int(2) NOT NULL,
-  `has_winch` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `has_trunk` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
---
--- Zrzut danych tabeli `carOffRoad`
---
-
-INSERT INTO `carOffRoad` (`car_id`, `make`, `model`, `year`, `milage`, `fuel_source`, `engine_power`, `seats`, `drive`, `has_winch`, `has_trunk`) VALUES
-(201, 'Mercedes', 'ML350', 2010, 100000, 'PETROL', 250, 5, 4, 'false', 'false'),
-(202, 'Jeep', 'Cherokee', 2010, 100000, 'DIESEL', 180, 5, 4, 'false', 'false'),
-(203, 'Mitsubishi', 'L200', 2012, 100000, 'DIESEL', 220, 5, 4, 'true', 'true');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `carPassenger`
---
-
-CREATE TABLE `carPassenger` (
-  `car_id` int(11) NOT NULL,
-  `make` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `model` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `year` int(4) NOT NULL,
-  `mileage` int(10) NOT NULL,
-  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `engine_power` int(3) NOT NULL,
-  `colorEnum` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `bodyTypeEnum` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `seats` int(2) NOT NULL,
-  `transmissionEnum` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
-
---
--- Zrzut danych tabeli `carPassenger`
---
-
-INSERT INTO `carPassenger` (`car_id`, `make`, `model`, `year`, `mileage`, `fuel_source`, `engine_power`, `colorEnum`, `bodyTypeEnum`, `seats`, `transmissionEnum`) VALUES
-(101, 'Audi', 'A4', 2004, 160000, 'PETROL', 163, 'BLACK', 'SEDAN', 5, 'MANUAL'),
-(102, 'Audi', 'A4', 2006, 317000, 'DIESEL', 140, 'RED', 'WAGON', 5, 'SEMIAUTO'),
-(103, 'Audi', 'R8', 2014, 113000, 'PETROL', 435, 'SILVER', 'COUPE', 5, 'AUTOMATIC'),
-(104, 'BMW', 'E90', 2008, 270000, 'DIESEL', 210, 'WHITE', 'SEDAN', 5, 'MANUAL'),
-(105, 'BMW', 'X3', 2010, 193000, 'DIESEL', 140, 'WHITE', 'SUV', 5, 'AUTOMATIC'),
-(106, 'Opel', 'Astra', 2003, 205000, 'PETROLANDGAS', 125, 'RED', 'HATCHBACK', 5, 'MANUAL'),
-(107, 'Opel', 'Meriva', 2004, 240000, 'PETROL', 101, 'BLACK', 'MINIVAN', 5, 'SEMIAUTO'),
-(108, 'Opel', 'Vectra', 1998, 320000, 'PETROL', 85, 'BIEGE', 'SEDAN', 5, 'MANUAL'),
-(109, 'Toyota', 'C-HR', 2017, 18000, 'HYBRID', 136, 'PURPLE', 'CROSSOVER', 5, 'AUTOMATIC'),
-(110, 'Porsche', 'Cayenne', 2013, 139000, 'DIESEL', 385, 'ORANGE', 'SUV', 5, 'SEMIAUTO');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `cars`
---
-
-CREATE TABLE `cars` (
-  `car_id` int(11) NOT NULL,
-  `make` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `model` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `year` int(4) NOT NULL,
-  `mileage` int(10) NOT NULL,
-  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `engine_power` float NOT NULL,
-  `seats` int(2) DEFAULT NULL,
-  `drive` int(2) DEFAULT NULL,
-  `has_winch` tinyint(1) NOT NULL DEFAULT '0',
-  `has_trunk` tinyint(1) NOT NULL DEFAULT '0',
-  `car_type` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
-
---
--- Zrzut danych tabeli `cars`
---
-
-INSERT INTO `cars` (`car_id`, `make`, `model`, `year`, `mileage`, `fuel_source`, `engine_power`, `seats`, `drive`, `has_winch`, `has_trunk`, `car_type`) VALUES
-(1, 'Audi', 'A4', 2004, 160000, 'PETROL', 1.6, NULL, NULL, 0, 0, 0),
-(2, 'Audi', 'R8', 2014, 60000, 'PETROL', 2, NULL, NULL, 0, 0, 0),
-(3, 'Honda', 'Civic', 2010, 115000, 'DIESEL', 1.9, NULL, NULL, 0, 0, 0);
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `carTruck`
---
-
-CREATE TABLE `carTruck` (
-  `car_id` int(11) NOT NULL,
-  `make` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `model` varchar(8) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `year` int(4) NOT NULL,
-  `milage` int(6) NOT NULL,
-  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `engine_power` int(30) NOT NULL,
-  `capacity` int(10) NOT NULL,
-  `cargoSpace` int(10) NOT NULL,
+  `mileage` int(6) NOT NULL,
+  `fuelSourceEnum` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `enginePower` int(3) NOT NULL,
+  `colorEnum` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `bodyTypeEnum` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `seats` int(1) NOT NULL,
+  `transmissionEnum` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `drive` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `hasWinch` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `hasTrunk` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `capacity` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `cargoSpace` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `hasLift` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Zrzut danych tabeli `carTruck`
+-- Zrzut danych tabeli `car`
 --
 
-INSERT INTO `carTruck` (`car_id`, `make`, `model`, `year`, `milage`, `fuel_source`, `engine_power`, `capacity`, `cargoSpace`, `hasLift`) VALUES
-(301, 'Mercedes', 'Sprinter', 2005, 150000, 'DIESEL', 150, 1000, 15, 'false'),
-(302, 'Mercedes', 'Vito', 2010, 150000, 'DIESEL', 150, 1000, 10, 'false'),
-(303, 'Iveco', 'Daily', 2010, 150000, 'DIESEL', 200, 2500, 25, 'true');
+INSERT INTO `car` (`id`, `make`, `model`, `year`, `mileage`, `fuelSourceEnum`, `enginePower`, `colorEnum`, `bodyTypeEnum`, `seats`, `transmissionEnum`, `drive`, `hasWinch`, `hasTrunk`, `capacity`, `cargoSpace`, `hasLift`) VALUES
+(101, 'Audi      ', 'A4      ', 2004, 160000, 'PETROL      ', 163, 'BLACK ', 'SEDAN    ', 5, 'MANUAL   ', ' ', '     ', '     ', '    ', '  ', ''),
+(102, 'Audi      ', 'A4      ', 2006, 317000, 'DIESEL      ', 140, 'RED   ', 'WAGON    ', 5, 'SEMIAUTO ', ' ', '     ', '     ', '    ', '  ', ''),
+(103, 'Audi      ', 'R8      ', 2014, 113000, 'PETROL      ', 435, 'SILVER', 'COUPE    ', 5, 'AUTOMATIC', ' ', '     ', '     ', '    ', '  ', ''),
+(104, 'BMW       ', 'E90     ', 2008, 270000, 'DIESEL      ', 210, 'WHITE ', 'SEDAN    ', 5, 'MANUAL   ', ' ', '     ', '     ', '    ', '  ', ''),
+(105, 'BMW       ', 'X3      ', 2010, 193000, 'DIESEL      ', 140, 'WHITE ', 'SUV      ', 5, 'AUTOMATIC', ' ', '     ', '     ', '    ', '  ', ''),
+(106, 'Opel      ', 'Astra   ', 2003, 205000, 'PETROLANDGAS', 125, 'RED   ', 'HATCHBACK', 5, 'MANUAL   ', ' ', '     ', '     ', '    ', '  ', ''),
+(107, 'Opel      ', 'Meriva  ', 2004, 240000, 'PETROL      ', 101, 'BLACK ', 'MINIVAN  ', 5, 'SEMIAUTO ', ' ', '     ', '     ', '    ', '  ', ''),
+(108, 'Opel      ', 'Vectra  ', 1998, 320000, 'PETROL      ', 85, 'BIEGE ', 'SEDAN    ', 5, 'MANUAL   ', ' ', '     ', '     ', '    ', '  ', ''),
+(109, 'Toyota    ', 'C-HR    ', 2017, 18000, 'HYBRID      ', 136, 'PURPLE', 'CROSSOVER', 5, 'AUTOMATIC', ' ', '     ', '     ', '    ', '  ', ''),
+(110, 'Porsche   ', 'Cayenne ', 2013, 139000, 'DIESEL      ', 385, 'ORANGE', 'SUV      ', 5, 'SEMIAUTO ', ' ', '     ', '     ', '    ', '  ', ''),
+(201, 'Mercedes  ', 'ML350   ', 2010, 100000, 'PETROL      ', 250, 'BLACK ', 'SUV      ', 5, 'AUTOMATIC', '4', 'false', 'false', '    ', '  ', ''),
+(202, 'Jeep      ', 'Cherokee', 2010, 100000, 'DIESEL      ', 180, 'RED   ', 'SUV      ', 5, 'AUTOMATIC', '4', 'false', 'false', '    ', '  ', ''),
+(203, 'Mitsubishi', 'L200    ', 2012, 100000, 'DIESEL      ', 220, 'RED   ', 'SUV      ', 5, 'AUTOMATIC', '4', 'true ', 'true ', '    ', '  ', ''),
+(301, 'Mercedes  ', 'Sprinter', 2005, 150000, 'DIESEL      ', 150, 'WHITE ', 'WAGON    ', 3, 'AUTOMATIC', '2', '     ', '     ', '1000', '15', 'false'),
+(302, 'Mercedes  ', 'Vito    ', 2010, 150000, 'DIESEL      ', 150, 'WHITE ', 'WAGON    ', 3, 'AUTOMATIC', '2', '     ', '     ', '1000', '10', 'false'),
+(303, 'Iveco     ', 'Daily   ', 2010, 150000, 'DIESEL      ', 200, 'WHITE ', 'WAGON    ', 3, 'MANUAL   ', '2', '     ', '     ', '2500', '25', 'true');
 
 -- --------------------------------------------------------
 
@@ -230,18 +155,6 @@ INSERT INTO `users` (`user_id`, `login`, `email`, `password`, `phone_number`, `f
 --
 
 --
--- Indeksy dla tabeli `cars`
---
-ALTER TABLE `cars`
-  ADD PRIMARY KEY (`car_id`);
-
---
--- Indeksy dla tabeli `carTruck`
---
-ALTER TABLE `carTruck`
-  ADD PRIMARY KEY (`car_id`);
-
---
 -- Indeksy dla tabeli `car_types`
 --
 ALTER TABLE `car_types`
@@ -257,12 +170,6 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
-
---
--- AUTO_INCREMENT dla tabeli `cars`
---
-ALTER TABLE `cars`
-  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT dla tabeli `car_types`
