@@ -1,7 +1,5 @@
 package com.infoshare.academy.database;
-
-import com.infoshare.academy.model.cars.Car;
-import com.infoshare.academy.model.cars.FuelSourceEnum;
+import com.infoshare.academy.model.cars.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -28,20 +26,22 @@ public class CarsDAO {
         try {
             statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM car");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM cars");
 
             while (resultSet.next()) {
                 Car tempCar = new Car();
-                tempCar.setId(resultSet.getInt("id"));
+                tempCar.setId(resultSet.getInt("car_id"));
                 tempCar.setMake(resultSet.getString("make"));
                 tempCar.setModel(resultSet.getString("model"));
                 tempCar.setYear(resultSet.getInt("year"));
                 tempCar.setMileage(resultSet.getInt("mileage"));
-
-                //tempCar.setFuelSourceEnum(FuelSourceEnum.getFuelEnum(resultSet.getString("fuelSourceEnum")));
-                //nie rozpoznaje mi enuma fuel w bazie !!!!
-
-                        cars.add(tempCar);
+                tempCar.setFuelSourceEnum(FuelSourceEnum.getFuelEnum(resultSet.getString("fuel_source")));
+                tempCar.setEnginePower(resultSet.getInt("engine_power"));
+                tempCar.setColorEnum(ColorEnum.getColorEnum(resultSet.getString("color")));
+                tempCar.setBodyTypeEnum(BodyTypeEnum.getBodyTypeEnum(resultSet.getString("body_type")));
+                tempCar.setSeats(resultSet.getInt("seats"));
+                tempCar.setTransmissionEnum(TransmissionEnum.getTransmissionEnum(resultSet.getString("transmission")));
+                cars.add(tempCar);
             }
             resultSet.close();
             statement.close();
@@ -51,5 +51,6 @@ public class CarsDAO {
         }
         return cars;
     }
+
 
 }

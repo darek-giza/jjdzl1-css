@@ -13,7 +13,7 @@ public class CarMaker {
     //Methods to read created Cars - all at once or by ID
     public static void readCar() {
         List<Car> carCreated = createCarList();
-        for (Car car : carCreated){
+        for (Car car : carCreated) {
             System.out.println(CarDescription.carDescription(car));
         }
     }
@@ -27,25 +27,10 @@ public class CarMaker {
         }
     }
 
-    public static void readCarPassenger() {
-        List<CarPassenger> carCreated = createCarPassengerList();
-        for (CarPassenger carPassenger : carCreated){
-            System.out.println(CarDescription.carPassengerDescription(carPassenger));
-        }
-    }
-
-    public static void readCarPassenger(Integer id) {
-        List<CarPassenger> carCreated = createCarPassengerList();
-        for (CarPassenger carPassenger : carCreated) {
-            if (carPassenger.getId().equals(id)) {
-                System.out.println(CarDescription.carPassengerDescription(carPassenger));
-            }
-        }
-    }
 
     public static void readCarOffRoad() {
         List<CarOffRoad> carCreated = createCarOffRoadList();
-        for (CarOffRoad carOffRoad : carCreated){
+        for (CarOffRoad carOffRoad : carCreated) {
             System.out.println(CarDescription.carOffRoadDescription(carOffRoad));
         }
     }
@@ -61,7 +46,7 @@ public class CarMaker {
 
     public static void readCarTruck() {
         List<CarTruck> carCreated = createCarTruckList();
-        for (CarTruck carTruck : carCreated){
+        for (CarTruck carTruck : carCreated) {
             System.out.println(CarDescription.carTruckDescription(carTruck));
         }
     }
@@ -88,17 +73,6 @@ public class CarMaker {
         return carList;
     }
 
-    public static List<CarPassenger> createCarPassengerList() {
-        List<CarPassenger> carList = new ArrayList<>();
-        StringBuilder carData = FileIO.readFile(FilePath.getCarPassengerData());
-        String[] carLine = carData.toString().split("\\n");
-        for (String s : carLine) {
-            String[] carPart = s.split(",");
-            CarPassenger carObject = returnCarPassenger(carPart);
-            carList.add(carObject);
-        }
-        return carList;
-    }
 
     public static List<CarOffRoad> createCarOffRoadList() {
         List<CarOffRoad> carList = new ArrayList<>();
@@ -126,19 +100,26 @@ public class CarMaker {
 
     //Methods to return Car objects from String line
     public static Car returnCar(String[] carPart) {
-        return new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]));
+        return new Car(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4])
+                , FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), ColorEnum.valueOf(carPart[7]), BodyTypeEnum.valueOf(carPart[8])
+                , Integer.parseInt(carPart[9]), TransmissionEnum.valueOf(carPart[10]));
+
+
     }
 
-    public static CarPassenger returnCarPassenger(String[] carPart) {
-        return new CarPassenger(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), ColorEnum.valueOf(carPart[7]), BodyTypeEnum.valueOf(carPart[8]), Integer.parseInt(carPart[9]), TransmissionEnum.valueOf(carPart[10]));
-    }
 
     public static CarOffRoad returnCarOffRoad(String[] carPart) {
-        return new CarOffRoad(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), Boolean.parseBoolean(carPart[9]), Boolean.parseBoolean(carPart[10]));
+        return new CarOffRoad(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4])
+                , FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), ColorEnum.valueOf(carPart[7]), BodyTypeEnum.valueOf(carPart[8])
+                , Integer.parseInt(carPart[9]), TransmissionEnum.valueOf(carPart[10]), Integer.parseInt(carPart[11]), Boolean.parseBoolean(carPart[12])
+                , Boolean.parseBoolean(carPart[13]));
     }
 
-     public static CarTruck returnCarTruck(String[] carPart) {
-        return new CarTruck(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4]), FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), Integer.parseInt(carPart[7]), Integer.parseInt(carPart[8]), Boolean.parseBoolean(carPart[9]));
+    public static CarTruck returnCarTruck(String[] carPart) {
+        return new CarTruck(Integer.parseInt(carPart[0]), carPart[1], carPart[2], Integer.parseInt(carPart[3]), Integer.parseInt(carPart[4])
+                , FuelSourceEnum.valueOf(carPart[5]), Integer.parseInt(carPart[6]), ColorEnum.valueOf(carPart[7]), BodyTypeEnum.valueOf(carPart[8])
+                , Integer.parseInt(carPart[9]), TransmissionEnum.valueOf(carPart[10]), Integer.parseInt(carPart[11]), Integer.parseInt(carPart[12])
+                , Boolean.parseBoolean(carPart[13]));
     }
 }
 

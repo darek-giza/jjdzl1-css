@@ -1,26 +1,13 @@
 package com.infoshare.academy.model.carsservice;
 
-import com.infoshare.academy.model.cars.Car;
-import com.infoshare.academy.model.cars.CarOffRoad;
-import com.infoshare.academy.model.cars.CarPassenger;
-import com.infoshare.academy.model.cars.CarTruck;
+import com.infoshare.academy.model.cars.*;
 
 public class CarDescription {
 
     //Show full description for chosen car type (returns String)
     public static String carDescription(Car car) {
-        String description=String.format("id="+car.getId()+"   "+car.getMake()+" "+car.getModel())+" "+car.getYear()+" "+car.getFuelSourceEnum();
-        //
-        //String description = String.format("Samochód o id=%s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %sKM, przebieg: %skm", car.getId(), car.getMake(), car.getModel(), car.getYear(), car.getFuelSourceEnum().getFuel(), car.getEnginePower(), car.getMileage());
-        //
+        String description = String.format("Samochód o id=%s: %s %s, rok produkcji: %s, źródło paliwa: %s, moc: %sKM, przebieg: %skm, color: %s, skrzynia biegów: %s, typ nadwozia: %s", car.getId(), car.getMake(), car.getModel(), car.getYear(), car.getFuelSourceEnum().getFuel(), car.getEnginePower(), car.getMileage(), car.getColorEnum().getColor(),car.getTransmissionEnum().getTransmission(),car.getBodyTypeEnum().getType());
         return description;
-    }
-
-    public static String carPassengerDescription(CarPassenger carPassenger) {
-        String descriptionPassenger = String.format("Samochód osobowy o id=%s: %s %s, " +
-                "rok produkcji: %s, źródło paliwa: %s, moc: %sKM, przebieg: %skm," +
-                " typ: %s, kolor: %s, ilość miejsc: %s, skrzynia biegów: %s", carPassenger.getId(), carPassenger.getMake(), carPassenger.getModel(), carPassenger.getYear(), carPassenger.getFuelSourceEnum().getFuel(), carPassenger.getEnginePower(), carPassenger.getMileage(), carPassenger.getBodyTypeEnum().getMessage(), carPassenger.getColorEnum().getColor(), carPassenger.getSeats(), carPassenger.getTransmissionEnum().getTransmission());
-        return descriptionPassenger;
     }
 
     public static String carOffRoadDescription(CarOffRoad carOffRoad) {
@@ -36,8 +23,8 @@ public class CarDescription {
 
     //Methods to show simple list of the car type
     public static void carPassengerList() {
-        CarMaker.createCarPassengerList().stream()
-                .map(CarPassenger -> "Samochód osobowy o id=" + CarPassenger.getId() + ": " + CarPassenger.getMake() + " " + CarPassenger.getModel() + ", rok produkcji: " + CarPassenger.getYear())
+        CarMaker.createCarList().stream()
+                .map(CarPassenger -> "Samochód osobowy o id=" + CarPassenger.getId() + ": " + CarPassenger.getMake() + " " + CarPassenger.getModel() + ", rok produkcji: " + CarPassenger.getYear() + " " + CarPassenger.getFuelSourceEnum())
                 .forEach(System.out::println);
     }
 

@@ -11,7 +11,7 @@ public class MainDBTest {
         CarsDAO carsDAO = new CarsDAO();
 
         List<Car> cars = carsDAO.getCarList();
-        for (Car car : cars){
+        for (Car car : cars) {
             System.out.println(CarDescription.carDescription(car));
         }
 

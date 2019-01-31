@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: asgard-mysql
--- Czas generowania: 30 Sty 2019, 23:55
+-- Czas generowania: 31 Sty 2019, 20:58
 -- Wersja serwera: 8.0.14
 -- Wersja PHP: 7.2.14
 
@@ -25,50 +25,55 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `car`
+-- Struktura tabeli dla tabeli `cars`
 --
 
-CREATE TABLE `car` (
-  `id` int(3) NOT NULL,
-  `make` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `model` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+CREATE TABLE `cars` (
+  `car_id` int(11) NOT NULL,
+  `car_type` int(4) NOT NULL,
+  `make` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `model` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `year` int(4) NOT NULL,
-  `mileage` int(6) NOT NULL,
-  `fuelSourceEnum` text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `enginePower` int(3) NOT NULL,
-  `colorEnum` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `bodyTypeEnum` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `seats` int(1) NOT NULL,
-  `transmissionEnum` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `drive` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `hasWinch` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `hasTrunk` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `capacity` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `cargoSpace` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `hasLift` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+  `mileage` int(10) NOT NULL,
+  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `engine_power` float NOT NULL,
+  `color` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `body_type` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `seats` int(2) NOT NULL,
+  `transmission` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `capacity` int(4) DEFAULT NULL,
+  `cargo_space` int(4) DEFAULT NULL,
+  `has_lift` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `drive` int(2) DEFAULT NULL,
+  `has_winch` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `has_trunk` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `is_reserved` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
 
 --
--- Zrzut danych tabeli `car`
+-- Zrzut danych tabeli `cars`
 --
 
-INSERT INTO `car` (`id`, `make`, `model`, `year`, `mileage`, `fuelSourceEnum`, `enginePower`, `colorEnum`, `bodyTypeEnum`, `seats`, `transmissionEnum`, `drive`, `hasWinch`, `hasTrunk`, `capacity`, `cargoSpace`, `hasLift`) VALUES
-(101, 'Audi      ', 'A4      ', 2004, 160000, 'PETROL      ', 163, 'BLACK ', 'SEDAN    ', 5, 'MANUAL   ', ' ', '     ', '     ', '    ', '  ', ''),
-(102, 'Audi      ', 'A4      ', 2006, 317000, 'DIESEL      ', 140, 'RED   ', 'WAGON    ', 5, 'SEMIAUTO ', ' ', '     ', '     ', '    ', '  ', ''),
-(103, 'Audi      ', 'R8      ', 2014, 113000, 'PETROL      ', 435, 'SILVER', 'COUPE    ', 5, 'AUTOMATIC', ' ', '     ', '     ', '    ', '  ', ''),
-(104, 'BMW       ', 'E90     ', 2008, 270000, 'DIESEL      ', 210, 'WHITE ', 'SEDAN    ', 5, 'MANUAL   ', ' ', '     ', '     ', '    ', '  ', ''),
-(105, 'BMW       ', 'X3      ', 2010, 193000, 'DIESEL      ', 140, 'WHITE ', 'SUV      ', 5, 'AUTOMATIC', ' ', '     ', '     ', '    ', '  ', ''),
-(106, 'Opel      ', 'Astra   ', 2003, 205000, 'PETROLANDGAS', 125, 'RED   ', 'HATCHBACK', 5, 'MANUAL   ', ' ', '     ', '     ', '    ', '  ', ''),
-(107, 'Opel      ', 'Meriva  ', 2004, 240000, 'PETROL      ', 101, 'BLACK ', 'MINIVAN  ', 5, 'SEMIAUTO ', ' ', '     ', '     ', '    ', '  ', ''),
-(108, 'Opel      ', 'Vectra  ', 1998, 320000, 'PETROL      ', 85, 'BIEGE ', 'SEDAN    ', 5, 'MANUAL   ', ' ', '     ', '     ', '    ', '  ', ''),
-(109, 'Toyota    ', 'C-HR    ', 2017, 18000, 'HYBRID      ', 136, 'PURPLE', 'CROSSOVER', 5, 'AUTOMATIC', ' ', '     ', '     ', '    ', '  ', ''),
-(110, 'Porsche   ', 'Cayenne ', 2013, 139000, 'DIESEL      ', 385, 'ORANGE', 'SUV      ', 5, 'SEMIAUTO ', ' ', '     ', '     ', '    ', '  ', ''),
-(201, 'Mercedes  ', 'ML350   ', 2010, 100000, 'PETROL      ', 250, 'BLACK ', 'SUV      ', 5, 'AUTOMATIC', '4', 'false', 'false', '    ', '  ', ''),
-(202, 'Jeep      ', 'Cherokee', 2010, 100000, 'DIESEL      ', 180, 'RED   ', 'SUV      ', 5, 'AUTOMATIC', '4', 'false', 'false', '    ', '  ', ''),
-(203, 'Mitsubishi', 'L200    ', 2012, 100000, 'DIESEL      ', 220, 'RED   ', 'SUV      ', 5, 'AUTOMATIC', '4', 'true ', 'true ', '    ', '  ', ''),
-(301, 'Mercedes  ', 'Sprinter', 2005, 150000, 'DIESEL      ', 150, 'WHITE ', 'WAGON    ', 3, 'AUTOMATIC', '2', '     ', '     ', '1000', '15', 'false'),
-(302, 'Mercedes  ', 'Vito    ', 2010, 150000, 'DIESEL      ', 150, 'WHITE ', 'WAGON    ', 3, 'AUTOMATIC', '2', '     ', '     ', '1000', '10', 'false'),
-(303, 'Iveco     ', 'Daily   ', 2010, 150000, 'DIESEL      ', 200, 'WHITE ', 'WAGON    ', 3, 'MANUAL   ', '2', '     ', '     ', '2500', '25', 'true');
+INSERT INTO `cars` (`car_id`, `car_type`, `make`, `model`, `year`, `mileage`, `fuel_source`, `engine_power`, `color`, `body_type`, `seats`, `transmission`, `capacity`, `cargo_space`, `has_lift`, `drive`, `has_winch`, `has_trunk`, `is_reserved`) VALUES
+(1, 1, 'BMW', 'M5', 2015, 65000, 'PETROL', 350, 'WHITE', 'SEDAN', 5, 'MANUAL', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(2, 1, 'Audi', 'R8', 2015, 35000, 'PETROL', 435, 'RED', 'COUPE', 5, 'AUTOMATIC', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(3, 1, 'BMW', 'E90', 2011, 65000, 'DIESEL', 220, 'WHITE', 'SEDAN', 5, 'MANUAL', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(4, 1, 'Audi', 'Q5', 2017, 60000, 'DIESEL', 240, 'SILVER', 'COUPE', 5, 'AUTOMATIC', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(5, 1, 'BMW', 'M3', 2015, 120000, 'DIESEL', 435, 'BLACK', 'COUPE', 4, 'MANUAL', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(6, 1, 'BMW', 'X3', 2016, 15000, 'DIESEL', 200, 'SILVER', 'SUV', 7, 'AUTOMATIC', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(7, 1, 'Opel', 'Astra', 2018, 15000, 'PETROLANDGAS', 75, 'RED', 'SEDAN', 5, 'MANUAL', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(8, 1, 'Opel', 'Meriva', 2014, 35000, 'DIESEL', 130, 'BEIGE', 'SEDAN', 7, 'AUTOMATIC', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(9, 1, 'Opel', 'Insignia', 2019, 5000, 'DIESEL', 180, 'BLACK', 'COUPE', 5, 'AUTOMATIC', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(10, 1, 'Toyota', 'C-HR', 2017, 25000, 'DIESEL', 170, 'WHITE', 'SUV', 7, 'AUTOMATIC', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(11, 1, 'Porsche', 'Cayenne', 2016, 35000, 'PETROL', 280, 'BLACK', 'SUV', 5, 'AUTOMATIC', 0, 0, NULL, NULL, NULL, NULL, NULL),
+(101, 2, 'Mercedes', 'ML350', 2016, 115000, 'PETROL', 280, 'BLACK', 'SUV', 7, 'AUTOMATIC', NULL, NULL, NULL, 4, 'false', 'false', NULL),
+(102, 2, 'Jeep', 'Cherokee', 2018, 15000, 'DIESEL', 180, 'RED', 'SUV', 7, 'AUTOMATIC', NULL, NULL, NULL, 4, 'true', 'false', NULL),
+(103, 2, 'Mitsubishi', 'L200', 2013, 76000, 'DIESEL', 235, 'BLACK', 'SUV', 7, 'AUTOMATIC', NULL, NULL, NULL, 4, 'true', 'true', NULL),
+(104, 2, 'Mercedes', 'GLK', 2009, 160000, 'DIESEL', 265, 'BLACK', 'SUV', 7, 'AUTOMATIC', NULL, NULL, NULL, 4, 'true', 'true', NULL),
+(301, 3, 'Mercedes', 'Sprinter', 2016, 60000, 'DIESEL', 190, 'WHITE', 'WAGON', 3, 'MANUAL', 1000, 16, 'false', NULL, NULL, NULL, NULL),
+(302, 3, 'Mercedes', 'Sprinter', 2018, 35000, 'DIESEL', 180, 'WHITE', 'WAGON', 3, 'MANUAL', 1200, 20, 'false', NULL, NULL, NULL, NULL),
+(303, 3, 'Mercedes', 'Vito', 2013, 130000, 'DIESEL', 130, 'WHITE', 'WAGON', 3, 'MANUAL', 700, 10, 'false', NULL, NULL, NULL, NULL),
+(304, 3, 'Iveco', 'Daily', 2015, 235000, 'DIESEL', 280, 'WHITE', 'WAGON', 3, 'MANUAL', 2500, 30, 'true', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -155,6 +160,12 @@ INSERT INTO `users` (`user_id`, `login`, `email`, `password`, `phone_number`, `f
 --
 
 --
+-- Indeksy dla tabeli `cars`
+--
+ALTER TABLE `cars`
+  ADD PRIMARY KEY (`car_id`) USING BTREE;
+
+--
 -- Indeksy dla tabeli `car_types`
 --
 ALTER TABLE `car_types`
@@ -170,6 +181,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT dla tabeli `cars`
+--
+ALTER TABLE `cars`
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
 
 --
 -- AUTO_INCREMENT dla tabeli `car_types`

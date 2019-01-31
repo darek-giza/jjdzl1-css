@@ -8,12 +8,15 @@ public class CarTruck extends Car {
 
 
     //Constructor
-    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower, Integer capacity, Integer cargoSpace, Boolean hasLift) {
-        super(id, make, model, year, mileage, fuelSourceEnum, enginePower);
+
+    public CarTruck(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower, ColorEnum colorEnum, BodyTypeEnum bodyTypeEnum, Integer seats, TransmissionEnum transmissionEnum, Integer capacity, Integer cargoSpace, Boolean hasLift) {
+        super(id, make, model, year, mileage, fuelSourceEnum, enginePower, colorEnum, bodyTypeEnum, seats, transmissionEnum);
         this.capacity = capacity;
         this.cargoSpace = cargoSpace;
         this.hasLift = hasLift;
     }
+
+
 
     //Getters
     public Integer getCapacity() {
@@ -42,19 +45,25 @@ public class CarTruck extends Car {
     }
 
     //Methods
+
     @Override
     public String toString() {
         return "CarTruck{" +
-                "id=" + id +
+                "capacity=" + capacity +
+                ", cargoSpace=" + cargoSpace +
+                ", hasLift=" + hasLift +
+                ", id=" + id +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", mileage=" + mileage +
                 ", fuelSourceEnum=" + fuelSourceEnum +
                 ", enginePower=" + enginePower +
-                ", capacity=" + capacity +
-                ", cargoSpace=" + cargoSpace +
-                ", haveLift='" + hasLift + '\'' +
-                "} ";
+                ", colorEnum=" + colorEnum +
+                ", bodyTypeEnum=" + bodyTypeEnum +
+                ", seats=" + seats +
+                ", transmissionEnum=" + transmissionEnum +
+                '}';
     }
 }
+
