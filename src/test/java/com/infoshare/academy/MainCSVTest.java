@@ -31,7 +31,7 @@ public class MainCSVTest {
 
     public static void carStreamColor() {
         CarMaker.createCarList().stream()
-                .filter(CarPassenger -> CarPassenger.getColorEnum().equals(ColorEnum.BLACK))
+                .filter(CarPassenger -> CarPassenger.getColor().equals(ColorEnum.BLACK))
                 .map(CarPassenger -> "Znaleziono samochód o id=" +CarPassenger.getId() + ": "+ CarPassenger.getMake() + " " + CarPassenger.getModel() + ", rok produkcji: " + CarPassenger.getYear())
                 .forEach(System.out::println);
     }

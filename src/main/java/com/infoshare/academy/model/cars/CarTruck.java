@@ -57,12 +57,12 @@ public class CarTruck extends Car {
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", mileage=" + mileage +
-                ", fuelSourceEnum=" + fuelSourceEnum +
+                ", fuelSource=" + fuelSource +
                 ", enginePower=" + enginePower +
-                ", colorEnum=" + colorEnum +
-                ", bodyTypeEnum=" + bodyTypeEnum +
+                ", color=" + color +
+                ", bodyType=" + bodyType +
                 ", seats=" + seats +
-                ", transmissionEnum=" + transmissionEnum +
+                ", transmission=" + transmission +
                 '}';
     }
 }

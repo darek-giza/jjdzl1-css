@@ -1,7 +1,5 @@
 package com.infoshare.academy.model.cars;
 
-import java.sql.ResultSet;
-
 public class Car implements Vehicle {
 
     protected Integer id;
@@ -10,29 +8,29 @@ public class Car implements Vehicle {
     protected String model;
     protected Integer year;
     protected Integer mileage;
-    protected FuelSourceEnum fuelSourceEnum;
+    protected FuelSourceEnum fuelSource;
     protected Integer enginePower;
-    protected ColorEnum colorEnum;
-    protected BodyTypeEnum bodyTypeEnum;
+    protected ColorEnum color;
+    protected BodyTypeEnum bodyType;
     protected Integer seats;
-    protected TransmissionEnum transmissionEnum;
+    protected TransmissionEnum transmission;
 
     //Constructor
     public Car() {
     }
 
-    public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower, ColorEnum colorEnum, BodyTypeEnum bodyTypeEnum, Integer seats, TransmissionEnum transmissionEnum) {
+    public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSource, Integer enginePower, ColorEnum color, BodyTypeEnum bodyType, Integer seats, TransmissionEnum transmission) {
         this.id = id;
         this.make = make;
         this.model = model;
         this.year = year;
         this.mileage = mileage;
-        this.fuelSourceEnum = fuelSourceEnum;
+        this.fuelSource = fuelSource;
         this.enginePower = enginePower;
-        this.colorEnum = colorEnum;
-        this.bodyTypeEnum = bodyTypeEnum;
+        this.color = color;
+        this.bodyType = bodyType;
         this.seats = seats;
-        this.transmissionEnum = transmissionEnum;
+        this.transmission = transmission;
     }
 
     //Getters
@@ -56,21 +54,21 @@ public class Car implements Vehicle {
         return mileage;
     }
 
-    public FuelSourceEnum getFuelSourceEnum() {
-        return fuelSourceEnum;
+    public FuelSourceEnum getFuelSource() {
+        return fuelSource;
     }
 
     public Integer getEnginePower() {
         return enginePower;
     }
 
-    public ColorEnum getColorEnum() { return colorEnum; }
+    public ColorEnum getColor() { return color; }
 
-    public BodyTypeEnum getBodyTypeEnum() { return bodyTypeEnum; }
+    public BodyTypeEnum getBodyType() { return bodyType; }
 
     public Integer getSeats() { return seats; }
 
-    public TransmissionEnum getTransmissionEnum() { return transmissionEnum; }
+    public TransmissionEnum getTransmission() { return transmission; }
 
     //Setters
     public void setId(Integer id) {
@@ -93,28 +91,28 @@ public class Car implements Vehicle {
         this.mileage = mileage;
     }
 
-    public void setFuelSourceEnum(FuelSourceEnum fuelSourceEnum) {
-        this.fuelSourceEnum = fuelSourceEnum;
+    public void setFuelSource(FuelSourceEnum fuelSource) {
+        this.fuelSource = fuelSource;
     }
 
     public void setEnginePower(Integer enginePower) {
         this.enginePower = enginePower;
     }
 
-    public void setColorEnum(ColorEnum colorEnum) {
-        this.colorEnum = colorEnum;
+    public void setColor(ColorEnum color) {
+        this.color = color;
     }
 
-    public void setBodyTypeEnum(BodyTypeEnum bodyTypeEnum) {
-        this.bodyTypeEnum = bodyTypeEnum;
+    public void setBodyType(BodyTypeEnum bodyType) {
+        this.bodyType = bodyType;
     }
 
     public void setSeats(Integer seats) {
         this.seats = seats;
     }
 
-    public void setTransmissionEnum(TransmissionEnum transmissionEnum) {
-        this.transmissionEnum = transmissionEnum;
+    public void setTransmission(TransmissionEnum transmission) {
+        this.transmission = transmission;
     }
 
 
@@ -128,12 +126,12 @@ public class Car implements Vehicle {
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", mileage=" + mileage +
-                ", fuelSourceEnum=" + fuelSourceEnum +
+                ", fuelSource=" + fuelSource +
                 ", enginePower=" + enginePower +
-                ", colorEnum=" + colorEnum +
-                ", bodyTypeEnum=" + bodyTypeEnum +
+                ", color=" + color +
+                ", bodyType=" + bodyType +
                 ", seats=" + seats +
-                ", transmissionEnum=" + transmissionEnum +
+                ", transmission=" + transmission +
                 '}';
     }
 

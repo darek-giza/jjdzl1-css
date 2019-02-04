@@ -35,12 +35,12 @@ public class CarsDAO {
                 tempCar.setModel(resultSet.getString("model"));
                 tempCar.setYear(resultSet.getInt("year"));
                 tempCar.setMileage(resultSet.getInt("mileage"));
-                tempCar.setFuelSourceEnum(FuelSourceEnum.getFuelEnum(resultSet.getString("fuel_source")));
+                tempCar.setFuelSource(FuelSourceEnum.getFuelEnum(resultSet.getString("fuel_source")));
                 tempCar.setEnginePower(resultSet.getInt("engine_power"));
-                tempCar.setColorEnum(ColorEnum.getColorEnum(resultSet.getString("color")));
-                tempCar.setBodyTypeEnum(BodyTypeEnum.getBodyTypeEnum(resultSet.getString("body_type")));
+                tempCar.setColor(ColorEnum.getColorEnum(resultSet.getString("color")));
+                tempCar.setBodyType(BodyTypeEnum.getBodyTypeEnum(resultSet.getString("body_type")));
                 tempCar.setSeats(resultSet.getInt("seats"));
-                tempCar.setTransmissionEnum(TransmissionEnum.getTransmissionEnum(resultSet.getString("transmission")));
+                tempCar.setTransmission(TransmissionEnum.getTransmissionEnum(resultSet.getString("transmission")));
                 cars.add(tempCar);
             }
             resultSet.close();
