@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: asgard-mysql
--- Czas generowania: 31 Sty 2019, 20:58
+-- Czas generowania: 04 Lut 2019, 21:32
 -- Wersja serwera: 8.0.14
 -- Wersja PHP: 7.2.14
 
@@ -143,6 +143,10 @@ CREATE TABLE `users` (
   `first_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `last_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `house_number` int(10) NOT NULL,
+  `parcel_number` int(10) NOT NULL,
+  `post_code` varchar(10) NOT NULL,
+  `city` varchar(20) NOT NULL,
   `adult` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -150,10 +154,10 @@ CREATE TABLE `users` (
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`user_id`, `login`, `email`, `password`, `phone_number`, `first_name`, `last_name`, `address`, `adult`) VALUES
-(1, 'admin', 'admin@google.com', '12345', '0', '0', '0', '0', NULL),
-(2, 'user1', 'user1@google.com', 'pass123', '0', '0', '0', '0', NULL),
-(3, 'user2', 'user2@google.com', '123pass', '0', '0', '0', '0', NULL);
+INSERT INTO `users` (`user_id`, `login`, `email`, `password`, `phone_number`, `first_name`, `last_name`, `address`, `house_number`, `parcel_number`, `post_code`, `city`, `adult`) VALUES
+(1, 'admin', 'admin@google.com', '12345', '0', '0', '0', '0', 0, 0, '0', '', NULL),
+(2, 'user1', 'user1@google.com', 'pass123', '0', '0', '0', '0', 0, 0, '0', '', NULL),
+(3, 'user2', 'user2@google.com', '123pass', '0', '0', '0', '0', 0, 0, '0', '', NULL);
 
 --
 -- Indeksy dla zrzutów tabel

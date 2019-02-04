@@ -2,19 +2,19 @@ package com.infoshare.academy.menu;
 
 import com.infoshare.academy.AboutAuthors;
 import com.infoshare.academy.reservation.ReservationControl;
-import com.infoshare.academy.user.User;
+import com.infoshare.academy.user.Users;
 import com.infoshare.academy.user.UserService;
 
 import java.util.Scanner;
 
 public class MainMenu {
 
-    private static User currentUser;
+    private static Users currentUsers;
 
     public static void appStart() {
         System.out.println(MessagesEnum.APP_START.getMessage());
         System.out.println(MessagesEnum.WELCOME.getMessage());
-        currentUser = UserService.logIn();
+        currentUsers = UserService.logIn();
         showMainMenu();
     }
 
@@ -45,7 +45,7 @@ public class MainMenu {
                     break;
                 case "3":
                     System.out.println(MessagesEnum.RESERVATION.getMessage());
-                    ReservationControl.createReservation(currentUser.getId());
+                    ReservationControl.createReservation(currentUsers.getId());
                     break;
                 case "4":
                     AboutAuthors.printAuthors();

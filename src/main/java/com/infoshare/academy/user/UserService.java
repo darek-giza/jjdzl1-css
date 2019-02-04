@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class UserService {
 
-    public static User logIn() {
+    public static Users logIn() {
         Scanner in = new Scanner(System.in);
         System.out.println(MessagesEnum.LOGIN_PANEL.getMessage());
         System.out.print(MessagesEnum.ENTER_LOGIN.getMessage());
@@ -18,35 +18,35 @@ public class UserService {
         System.out.print(MessagesEnum.ENTER_PASSWORD.getMessage());
         String password = in.nextLine();
 
-        List<User> userCreated = createUserList();
+        List<Users> usersCreated = createUserList();
 
-        User userLogin = userCreated.stream()
-                .filter(user -> login.equals(user.getLogin()) && password.equals(user.getPassword()))
+        Users usersLogin = usersCreated.stream()
+                .filter(users -> login.equals(users.getLogin()) && password.equals(users.getPassword()))
                 .findAny()
                 .orElse(null);
 
-        if (userLogin == null) {
+        if (usersLogin == null) {
             System.out.println(MessagesEnum.LOGIN_FAILED.getMessage());
             logIn();
-        } else if (userLogin.userAuth()) {
-            System.out.println(MessagesEnum.LOGIN_SUCCESSFULL.getMessage() + userLogin.getLogin() + "!");
+        } else if (usersLogin.userAuth()) {
+            System.out.println(MessagesEnum.LOGIN_SUCCESSFULL.getMessage() + usersLogin.getLogin() + "!");
         }
-        return userLogin;
+        return usersLogin;
     }
 
-    public static List<User> createUserList() {
-        List<User> userList = new ArrayList<>();
+    public static List<Users> createUserList() {
+        List<Users> usersList = new ArrayList<>();
         StringBuilder userData = FileIO.readFile(FilePath.getUserData());
         String[] userLine = userData.toString().split("\\n");
         for (String s : userLine) {
             String[] userPart = s.split(",");
-            User userNext = returnUser(userPart);
-            userList.add(userNext);
+            Users usersNext = returnUser(userPart);
+            usersList.add(usersNext);
         }
-        return userList;
+        return usersList;
     }
 
-    public static User returnUser(String[] userPart) {
-        return new User(Integer.parseInt(userPart[0]), userPart[1], userPart[2], userPart[3]);
+    public static Users returnUser(String[] userPart) {
+        return new Users(Integer.parseInt(userPart[0]), userPart[1], userPart[2], userPart[3]);
     }
 }

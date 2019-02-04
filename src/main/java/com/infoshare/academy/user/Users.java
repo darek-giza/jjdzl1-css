@@ -1,32 +1,56 @@
 package com.infoshare.academy.user;
 
-public class User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "users")
+public class Users {
+    @Id
+    @Column(name = "user_id")
     private Integer id;
+    @Column(name = "login")
     private String login;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "phone_number")
     private Long phoneNumber;
+    @Column(name = "first_name")
     private String firstName;
+    @Column(name = "last_name")
     private String lastName;
+    @Column(name = "address")
     private String address;
+    @Column(name = "house_number")
     private Integer houseNumber;
+    @Column(name = "parcel_number")
     private Integer parcelNumber;
+    @Column(name = "post_code")
     private String postCode;
+    @Column(name = "city")
     private String city;
+    @Column(name = "adult")
     private boolean adult;
 
     //Constructor
-    public User(Integer id, String login, String email, String password) {
+
+    public Users() {
+    }
+
+    public Users(Integer id, String login, String email, String password) {
         this.id = id;
         this.login = login;
         this.email = email;
         this.password = password;
     }
 
-    public User(String login, String email, String password, Long phoneNumber, String firstName, String lastName,
-                Integer id, String address, Integer houseNumber, Integer parcelNumber, String postCode, String city,
-                boolean adult) {
+    public Users(String login, String email, String password, Long phoneNumber, String firstName, String lastName,
+                 Integer id, String address, Integer houseNumber, Integer parcelNumber, String postCode, String city,
+                 boolean adult) {
         this.login = login;
         this.email = email;
         this.password = password;
@@ -159,7 +183,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Users{" +
                 "login='" + login + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
