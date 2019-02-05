@@ -6,7 +6,8 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
-public class GetUserApp {
+public class UpdateMenagedUserApp {
+
     public static void main(String[] args) {
         Configuration conf = new Configuration();
         conf.configure("hibernate.cfg.xml");
@@ -15,14 +16,12 @@ public class GetUserApp {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
-        List resultList = session.createQuery("select email from User").getResultList();
-        for (Object s: resultList){
-            System.out.println(s);
-        }
-
-
-            session.getTransaction().commit();
+        User user = session.get(User.class,4);
+        user.setEmail("darek_giza@op.pl");
+        session.getTransaction().commit();
+        System.out.println("Zaktualizowane dane użytkownika: " + user);
         sessionFactory.close();
 
     }
 }
+
