@@ -12,14 +12,13 @@ public class SaveUserApp {
         SessionFactory sessionFactory = conf.buildSessionFactory();
         Session session=sessionFactory.getCurrentSession();
         Users users = new Users();
-        users.setId(4);
         users.setLogin("darek");
-        users.setEmail("darek_giza@op.pl");
+        users.setEmail("darek@op.pl");
         users.setPassword("0000");
-        users.setPhoneNumber((long) 513083053);
+        users.setPhoneNumber((long) 100083053);
         users.setFirstName("Darek");
         users.setLastName("Giza");
-        users.setAddress("Al.Królewska");
+        users.setAddress("Al.Królew");
         users.setHouseNumber(11);
         users.setParcelNumber(25);
         users.setPostCode("24-100");
