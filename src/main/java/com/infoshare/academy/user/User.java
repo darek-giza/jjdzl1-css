@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class Users {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -36,19 +36,19 @@ public class Users {
 
     //Constructor
 
-    public Users() {
+    public User() {
     }
 
-    public Users(Integer id, String login, String email, String password) {
+    public User(Integer id, String login, String email, String password) {
         this.id = id;
         this.login = login;
         this.email = email;
         this.password = password;
     }
 
-    public Users(String login, String email, String password, Long phoneNumber, String firstName, String lastName,
-                 Integer id, String address, Integer houseNumber, Integer parcelNumber, String postCode, String city,
-                 boolean adult) {
+    public User(String login, String email, String password, Long phoneNumber, String firstName, String lastName,
+                Integer id, String address, Integer houseNumber, Integer parcelNumber, String postCode, String city,
+                boolean adult) {
         this.login = login;
         this.email = email;
         this.password = password;
@@ -181,7 +181,7 @@ public class Users {
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "User{" +
                 "login='" + login + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

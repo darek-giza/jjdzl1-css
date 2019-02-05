@@ -10,7 +10,7 @@ public class GetUserApp {
     public static void main(String[] args) {
         Configuration conf = new Configuration();
         conf.configure("hibernate.cfg.xml");
-        conf.addAnnotatedClass(Users.class);
+        conf.addAnnotatedClass(User.class);
         SessionFactory sessionFactory = conf.buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();

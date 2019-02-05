@@ -131,10 +131,10 @@ INSERT INTO `reservations` (`reservation_id`, `car_id`, `user_id`, `start_date`,
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `users`
+-- Struktura tabeli dla tabeli `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
   `login` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -151,10 +151,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `users`
+-- Zrzut danych tabeli `user`
 --
 
-INSERT INTO `users` (`user_id`, `login`, `email`, `password`, `phone_number`, `first_name`, `last_name`, `address`, `house_number`, `parcel_number`, `post_code`, `city`, `adult`) VALUES
+INSERT INTO `user` (`user_id`, `login`, `email`, `password`, `phone_number`, `first_name`, `last_name`, `address`, `house_number`, `parcel_number`, `post_code`, `city`, `adult`) VALUES
 (1, 'admin', 'admin@google.com', '12345', '0', '0', '0', '0', 0, 0, '0', '', NULL),
 (2, 'user1', 'user1@google.com', 'pass123', '0', '0', '0', '0', 0, 0, '0', '', NULL),
 (3, 'user2', 'user2@google.com', '123pass', '0', '0', '0', '0', 0, 0, '0', '', NULL);
@@ -177,9 +177,9 @@ ALTER TABLE `car_types`
   ADD UNIQUE KEY `type` (`type`);
 
 --
--- Indeksy dla tabeli `users`
+-- Indeksy dla tabeli `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -199,9 +199,9 @@ ALTER TABLE `car_types`
   MODIFY `type_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT dla tabeli `users`
+-- AUTO_INCREMENT dla tabeli `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
