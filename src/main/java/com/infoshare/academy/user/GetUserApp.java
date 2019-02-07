@@ -3,6 +3,7 @@ package com.infoshare.academy.user;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -14,15 +15,15 @@ public class GetUserApp {
         SessionFactory sessionFactory = conf.buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
+        String from = "FROM User";
 
-        List resultList = session.createQuery("select email from User").getResultList();
-        for (Object s: resultList){
-            System.out.println(s);
+        Query query = session.createQuery(from);
+        List<User> list = query.getResultList();
+        session.getTransaction().commit();
+        for (User user : list) {
+            System.out.println(user);
         }
-
-
-            session.getTransaction().commit();
+        session.getTransaction().commit();
         sessionFactory.close();
-
     }
 }
