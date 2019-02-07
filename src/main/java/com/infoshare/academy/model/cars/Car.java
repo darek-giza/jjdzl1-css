@@ -1,18 +1,36 @@
 package com.infoshare.academy.model.cars;
 
-public class Car implements Vehicle {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "cars")
+public class Car implements Vehicle {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "car_id")
     protected Integer id;
     //    protected Boolean isReserved;
+    @Column(name = "car_type")
+    protected Integer carType;
+    @Column(name = "make")
     protected String make;
+    @Column(name = "model")
     protected String model;
+    @Column(name = "year")
     protected Integer year;
+    @Column(name = "mileage")
     protected Integer mileage;
+    @Column(name = "fuel_source")
     protected FuelSourceEnum fuelSource;
+    @Column(name = "engine_power")
     protected Integer enginePower;
+    @Column(name = "color")
     protected ColorEnum color;
+    @Column(name = "body_type")
     protected BodyTypeEnum bodyType;
+    @Column(name = "seats")
     protected Integer seats;
+    @Column(name = "transmission")
     protected TransmissionEnum transmission;
 
     //Constructor
@@ -36,6 +54,10 @@ public class Car implements Vehicle {
     //Getters
     public Integer getId() {
         return id;
+    }
+
+    public Integer getCarType() {
+        return carType;
     }
 
     public String getMake() {
@@ -62,17 +84,29 @@ public class Car implements Vehicle {
         return enginePower;
     }
 
-    public ColorEnum getColor() { return color; }
+    public ColorEnum getColor() {
+        return color;
+    }
 
-    public BodyTypeEnum getBodyType() { return bodyType; }
+    public BodyTypeEnum getBodyType() {
+        return bodyType;
+    }
 
-    public Integer getSeats() { return seats; }
+    public Integer getSeats() {
+        return seats;
+    }
 
-    public TransmissionEnum getTransmission() { return transmission; }
+    public TransmissionEnum getTransmission() {
+        return transmission;
+    }
 
     //Setters
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void setCarType(Integer carType) {
+        this.carType = carType;
     }
 
     public void setMake(String make) {
@@ -118,10 +152,12 @@ public class Car implements Vehicle {
 
     //Methods
 
+
     @Override
     public String toString() {
         return "Car{" +
                 "id=" + id +
+                ", carType=" + carType +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
