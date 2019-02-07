@@ -1,6 +1,7 @@
 package com.infoshare.academy.model.carsservice;
 
 import com.infoshare.academy.model.cars.*;
+import com.infoshare.academy.model.cars.entity.Car;
 
 public class CarDescription {
 

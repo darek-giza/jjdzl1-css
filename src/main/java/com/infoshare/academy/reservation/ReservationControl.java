@@ -4,7 +4,7 @@ import com.infoshare.academy.iostream.*;
 import com.infoshare.academy.menu.CarTypeMenu;
 import com.infoshare.academy.menu.MainMenu;
 import com.infoshare.academy.menu.MessagesEnum;
-import com.infoshare.academy.model.cars.Car;
+import com.infoshare.academy.model.cars.entity.Car;
 import com.infoshare.academy.model.cars.CarOffRoad;
 import com.infoshare.academy.model.cars.CarTruck;
 import com.infoshare.academy.model.carsservice.CarDescription;

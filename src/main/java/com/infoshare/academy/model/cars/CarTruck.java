@@ -1,5 +1,7 @@
 package com.infoshare.academy.model.cars;
 
+import com.infoshare.academy.model.cars.entity.Car;
+
 public class CarTruck extends Car {
 
     protected Integer capacity;

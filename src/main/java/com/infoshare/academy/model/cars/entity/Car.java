@@ -1,4 +1,6 @@
-package com.infoshare.academy.model.cars;
+package com.infoshare.academy.model.cars.entity;
+
+import com.infoshare.academy.model.cars.*;
 
 import javax.persistence.*;
 

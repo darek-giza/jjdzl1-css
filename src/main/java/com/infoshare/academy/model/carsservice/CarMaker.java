@@ -2,8 +2,8 @@ package com.infoshare.academy.model.carsservice;
 
 import com.infoshare.academy.iostream.FileIO;
 import com.infoshare.academy.iostream.FilePath;
-import com.infoshare.academy.menu.CarTypeMenu;
 import com.infoshare.academy.model.cars.*;
+import com.infoshare.academy.model.cars.entity.Car;
 
 import java.util.ArrayList;
 import java.util.List;

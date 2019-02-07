@@ -1,6 +1,6 @@
-package com.infoshare.academy.model.cars.entity;
+package com.infoshare.academy.model.cars;
 
-import com.infoshare.academy.model.cars.*;
+import com.infoshare.academy.model.cars.entity.Car;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

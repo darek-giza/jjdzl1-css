@@ -1,5 +1,6 @@
 package com.infoshare.academy.database;
 import com.infoshare.academy.model.cars.*;
+import com.infoshare.academy.model.cars.entity.Car;
 
 import java.sql.*;
 import java.util.ArrayList;
