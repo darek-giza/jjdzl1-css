@@ -4,6 +4,7 @@ import com.infoshare.academy.model.cars.entity.Car;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
@@ -20,7 +21,10 @@ public class GetCarApp {
 
         //rozpoczecie transakcji
         session.beginTransaction();
-        List<Car> listFromCar = session.createQuery("from Car").getResultList();
+        String from = "from Car";
+
+        Query query = session.createQuery(from);
+        List<Car> listFromCar = query.getResultList();
         for (Car car : listFromCar) {
             System.out.println(car);
         }

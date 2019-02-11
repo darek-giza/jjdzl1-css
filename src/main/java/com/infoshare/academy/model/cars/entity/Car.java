@@ -11,7 +11,6 @@ public class Car implements Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "car_id")
     protected Integer id;
-    //    protected Boolean isReserved;
     @Column(name = "car_type")
     protected Integer carType;
     @Column(name = "make")
@@ -22,18 +21,28 @@ public class Car implements Vehicle {
     protected Integer year;
     @Column(name = "mileage")
     protected Integer mileage;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "fuel_source")
     protected FuelSourceEnum fuelSource;
     @Column(name = "engine_power")
     protected Integer enginePower;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "color")
     protected ColorEnum color;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "body_type")
     protected BodyTypeEnum bodyType;
     @Column(name = "seats")
     protected Integer seats;
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "transmission")
     protected TransmissionEnum transmission;
+    @Column(name = "is_reserved")
+    protected Boolean isReserved;
 
     //Constructor
     public Car() {
@@ -51,6 +60,8 @@ public class Car implements Vehicle {
         this.bodyType = bodyType;
         this.seats = seats;
         this.transmission = transmission;
+        this.isReserved = isReserved;
+
     }
 
     //Getters
@@ -102,6 +113,11 @@ public class Car implements Vehicle {
         return transmission;
     }
 
+    public Boolean getReserved() {
+        return isReserved;
+    }
+
+
     //Setters
     public void setId(Integer id) {
         this.id = id;
@@ -151,6 +167,9 @@ public class Car implements Vehicle {
         this.transmission = transmission;
     }
 
+    public void setReserved(Boolean reserved) {
+        this.isReserved = reserved;
+    }
 
     //Methods
 
@@ -170,10 +189,9 @@ public class Car implements Vehicle {
                 ", bodyType=" + bodyType +
                 ", seats=" + seats +
                 ", transmission=" + transmission +
+                ", isReserved=" + isReserved +
                 '}';
     }
-
-
 }
 
 
