@@ -32,7 +32,7 @@ public class User {
     @Column(name = "city")
     private String city;
     @Column(name = "adult")
-    private boolean adult;
+    private Boolean adult;
 
     //Constructor
 
@@ -113,7 +113,7 @@ public class User {
         return city;
     }
 
-    public boolean isAdult() {
+    public Boolean isAdult() {
         return adult;
     }
 
@@ -166,7 +166,7 @@ public class User {
         this.city = city;
     }
 
-    public void setAdult(boolean adult) {
+    public void setAdult(Boolean adult) {
         this.adult = adult;
     }
 

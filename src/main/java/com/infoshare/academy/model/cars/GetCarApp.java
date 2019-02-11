@@ -13,6 +13,8 @@ public class GetCarApp {
         Configuration conf = new Configuration();
         conf.configure("hibernate.cfg.xml");
         conf.addAnnotatedClass(Car.class);
+        conf.addAnnotatedClass(CarOffRoad.class);
+        conf.addAnnotatedClass(CarTruck.class);
         SessionFactory sessionFactory = conf.buildSessionFactory();
         Session session = sessionFactory.getCurrentSession();
 

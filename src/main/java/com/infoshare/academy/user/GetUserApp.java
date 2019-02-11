@@ -16,10 +16,8 @@ public class GetUserApp {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         String from = "FROM User";
-
         Query query = session.createQuery(from);
         List<User> list = query.getResultList();
-        session.getTransaction().commit();
         for (User user : list) {
             System.out.println(user);
         }

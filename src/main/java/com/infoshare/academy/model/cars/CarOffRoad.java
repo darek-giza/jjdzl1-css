@@ -2,10 +2,19 @@ package com.infoshare.academy.model.cars;
 
 import com.infoshare.academy.model.cars.entity.Car;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cars")
 public class CarOffRoad extends Car {
 
+    @Column(name = "drive")
     protected Integer drive;
+    @Column(name = "has_winch")
     protected Boolean hasWinch;
+    @Column(name = "has_trunk")
     protected Boolean hasTrunk;
 
     //Constructor
