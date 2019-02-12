@@ -1,3 +1,4 @@
+/*
 package com.infoshare.academy.user;
 
 import org.hibernate.Session;
@@ -13,8 +14,9 @@ public class SaveUserApp {
         Session session=sessionFactory.getCurrentSession();
         User user = new User();
         user.setLogin("darek");
-        user.setEmail("darek@op.pl");
         user.setPassword("0000");
+        user.setEmail("darek@op.pl");
+
         user.setPhoneNumber((long) 100083053);
         user.setFirstName("Darek");
         user.setLastName("Giza");
@@ -36,3 +38,4 @@ public class SaveUserApp {
 
     }
 }
+*/

@@ -5,63 +5,49 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
     @Column(name = "login")
     private String login;
-    @Column(name = "email")
-    private String email;
     @Column(name = "password")
     private String password;
+    @Column(name = "email")
+    private String email;
     @Column(name = "phone_number")
     private Long phoneNumber;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "address")
-    private String address;
-    @Column(name = "house_number")
-    private Integer houseNumber;
-    @Column(name = "parcel_number")
-    private Integer parcelNumber;
-    @Column(name = "post_code")
-    private String postCode;
-    @Column(name = "city")
-    private String city;
-    @Column(name = "adult")
-    private Boolean adult;
+    @Column(name = "is_adult")
+    private Boolean isAdult;
+    @Embedded
+    private Address address;
 
-    //Constructor
-
+    //Constructors
     public User() {
     }
 
-    public User(Integer id, String login, String email, String password) {
+    public User(Integer id, String login, String password, String email) {
         this.id = id;
         this.login = login;
-        this.email = email;
         this.password = password;
+        this.email = email;
     }
 
-    public User(String login, String email, String password, Long phoneNumber, String firstName, String lastName,
-                Integer id, String address, Integer houseNumber, Integer parcelNumber, String postCode, String city,
-                boolean adult) {
+    public User(Integer id, String login, String password, String email, Long phoneNumber, String firstName, String lastName, Boolean isAdult, Address address) {
+        this.id = id;
         this.login = login;
-        this.email = email;
         this.password = password;
+        this.email = email;
         this.phoneNumber = phoneNumber;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.id = id;
+        this.isAdult = isAdult;
         this.address = address;
-        this.houseNumber = houseNumber;
-        this.parcelNumber = parcelNumber;
-        this.postCode = postCode;
-        this.city = city;
-        this.adult = adult;
     }
 
     //Getters
@@ -73,12 +59,12 @@ public class User {
         return login;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public String getPassword() {
         return password;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public Long getPhoneNumber() {
@@ -93,31 +79,14 @@ public class User {
         return lastName;
     }
 
-    public String getAddress() {
+    public Boolean getAdult() {
+        return isAdult;
+    }
+
+    public Address getAddress() {
         return address;
     }
 
-    public Integer getHouseNumber() {
-        return houseNumber;
-    }
-
-    public Integer getParcelNumber() {
-        return parcelNumber;
-    }
-
-    public String getPostCode() {
-        return postCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public Boolean isAdult() {
-        return adult;
-    }
-
-    //Setters
     public void setId(Integer id) {
         this.id = id;
     }
@@ -126,12 +95,12 @@ public class User {
         this.login = login;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setPhoneNumber(Long phoneNumber) {
@@ -146,28 +115,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setHouseNumber(Integer houseNumber) {
-        this.houseNumber = houseNumber;
-    }
-
-    public void setParcelNumber(Integer parcelNumber) {
-        this.parcelNumber = parcelNumber;
-    }
-
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public void setAdult(Boolean adult) {
-        this.adult = adult;
+        isAdult = adult;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     //Methods
@@ -182,19 +135,15 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='***'" +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", id=" + id +
-                ", address='" + address + '\'' +
-                ", houseNumber=" + houseNumber +
-                ", parcelNumber=" + parcelNumber +
-                ", postCode='" + postCode + '\'' +
-                ", city='" + city + '\'' +
-                ", adult=" + adult +
+                ", isAdult=" + isAdult +
+                ", address=" + address +
                 '}';
     }
 }
