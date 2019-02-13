@@ -13,6 +13,15 @@ public class Address {
     @Column(name = "city")
     private String city;
 
+    public Address() {
+    }
+
+    public Address(String streetAddress, String postalCode, String city) {
+        this.streetAddress = streetAddress;
+        this.postalCode = postalCode;
+        this.city = city;
+    }
+
     public String getStreetAddress() {
         return streetAddress;
     }
