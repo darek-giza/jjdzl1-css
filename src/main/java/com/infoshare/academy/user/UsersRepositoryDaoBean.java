@@ -17,7 +17,12 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
 
     @Override
     public User getUserById(int id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        User user = session.createQuery("Select u FROM User u WHERE id='" + id + "'", User.class).getSingleResult();
+        session.getTransaction().commit();
+        session.close();
+        return user;
     }
 
     @Override
@@ -31,7 +36,7 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
         session.beginTransaction();
         List<User> usersList = session.createQuery("Select u FROM User u", User.class).getResultList();
         session.getTransaction().commit();
-        sessionFactory.close();
+        session.close();
         return usersList;
     }
 

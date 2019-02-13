@@ -16,5 +16,7 @@ public class MainUserList {
             System.out.println(user.toString());
         }
 
+        HibernateConf.getSessionFactory().close();
+
     }
 }
