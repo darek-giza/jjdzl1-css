@@ -6,7 +6,7 @@ public interface UsersRepositoryDao {
     void addUser(User user);
     User getUserById(int id);
     User getUserByLogin(String login);
-    List<User> getUsersList();
+    List getUsersList();
     void updateUser(User user, String[] parameters);
     void deleteUserById(int id);
     void deleteUserByLogin(String login);
