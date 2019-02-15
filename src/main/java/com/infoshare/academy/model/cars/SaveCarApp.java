@@ -1,20 +1,14 @@
 package com.infoshare.academy.model.cars;
 
+import com.infoshare.academy.database.HibernateConf;
 import com.infoshare.academy.model.cars.entity.Car;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 public class SaveCarApp {
     public static void main(String[] args) {
-        //stworzenie obiektu Configuration
-        Configuration conf = new Configuration();
-        //wczytanie pliku konfiguracyjnego
-        conf.configure("hibernate.cfg.xml");
-        //wczytanie adnotacji
-        conf.addAnnotatedClass(Car.class);
-        //stworzenie obiektu SessionFactory
-        SessionFactory sessionFactory = conf.buildSessionFactory();
+
+        SessionFactory sessionFactory = HibernateConf.getSessionFactory();
         //pobranie sesji
         Session session = sessionFactory.getCurrentSession();
         //stworzenie obiektu
