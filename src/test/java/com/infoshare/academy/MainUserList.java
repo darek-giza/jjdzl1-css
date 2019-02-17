@@ -16,6 +16,9 @@ public class MainUserList {
             System.out.println(user.toString());
         }
 
+
+        User userById = usersRepo.getUserById(1);
+        System.out.println(userById);
         HibernateConf.getSessionFactory().close();
 
     }

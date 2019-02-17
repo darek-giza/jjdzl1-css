@@ -7,7 +7,10 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateConf {
-    public static SessionFactory getSessionFactory() {
+
+    private static SessionFactory sessionFactory = sessionFactory();
+
+    public static SessionFactory sessionFactory() {
         Configuration conf = new Configuration();
         conf.configure("hibernate.cfg.xml");
         conf.addAnnotatedClass(User.class);
@@ -16,4 +19,7 @@ public class HibernateConf {
         return sessionFactory;
     }
 
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
 }

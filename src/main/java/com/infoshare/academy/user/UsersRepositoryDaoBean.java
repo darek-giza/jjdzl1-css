@@ -1,14 +1,14 @@
 package com.infoshare.academy.user;
 
-import com.infoshare.academy.database.HibernateConf;
+
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
 import java.util.List;
 
+import static com.infoshare.academy.database.HibernateConf.getSessionFactory;
+
 public class UsersRepositoryDaoBean implements UsersRepositoryDao {
 
-    SessionFactory sessionFactory = HibernateConf.getSessionFactory();
 
     @Override
     public void addUser(User user) {
@@ -17,7 +17,7 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
 
     @Override
     public User getUserById(int id) {
-        Session session = sessionFactory.getCurrentSession();
+        Session session = getSessionFactory().getCurrentSession();
         session.beginTransaction();
         User user = session.createQuery("Select u FROM User u WHERE id='" + id + "'", User.class).getSingleResult();
         session.getTransaction().commit();
@@ -32,7 +32,7 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
 
     @Override
     public List<User> getUsersList() {
-        Session session = sessionFactory.getCurrentSession();
+        Session session = getSessionFactory().getCurrentSession();
         session.beginTransaction();
         List<User> usersList = session.createQuery("Select u FROM User u", User.class).getResultList();
         session.getTransaction().commit();
