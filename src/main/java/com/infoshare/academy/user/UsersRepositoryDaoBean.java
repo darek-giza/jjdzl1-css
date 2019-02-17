@@ -1,13 +1,16 @@
 package com.infoshare.academy.user;
 
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.hibernate.Session;
 
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import java.util.List;
 
 import static com.infoshare.academy.database.HibernateConf.getSessionFactory;
 
+@Named
+@RequestScoped
 public class UsersRepositoryDaoBean implements UsersRepositoryDao {
 
 
