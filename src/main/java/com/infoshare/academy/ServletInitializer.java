@@ -1,3 +1,6 @@
+package com.infoshare.academy;
+
+import com.infoshare.academy.Jjdzl1CssApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
