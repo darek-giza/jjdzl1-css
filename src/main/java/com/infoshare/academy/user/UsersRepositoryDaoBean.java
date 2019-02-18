@@ -13,7 +13,6 @@ import static com.infoshare.academy.database.HibernateConf.getSessionFactory;
 @RequestScoped
 public class UsersRepositoryDaoBean implements UsersRepositoryDao {
 
-
     @Override
     public void addUser(User user) {
         Session session = getSession();
@@ -39,7 +38,6 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
         session.close();
         return user;
     }
-
 
     @Override
     public List<User> getUsersList() {

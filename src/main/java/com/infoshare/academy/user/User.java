@@ -27,11 +27,11 @@ public class User {
     @Embedded
     private Address address;
 
-    //Constructors
     public User() {
     }
 
     public User(Integer id, String login, String password, String email) {
+        this.id = id;
         this.login = login;
         this.password = password;
         this.email = email;
@@ -49,7 +49,6 @@ public class User {
         this.address = address;
     }
 
-    //Getters
     public Integer getId() {
         return id;
     }
@@ -122,7 +121,6 @@ public class User {
         this.address = address;
     }
 
-    //Methods
     public boolean userAuth() {
         if (getLogin().equals(login) && getPassword().equals(password)) {
             return true;
