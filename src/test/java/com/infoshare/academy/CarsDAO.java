@@ -1,4 +1,4 @@
-package com.infoshare.academy.database;
+package com.infoshare.academy;
 import com.infoshare.academy.model.cars.*;
 import com.infoshare.academy.model.cars.entity.Car;
 

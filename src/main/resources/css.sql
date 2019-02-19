@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: asgard-mysql
--- Czas generowania: 04 Lut 2019, 21:32
--- Wersja serwera: 8.0.14
--- Wersja PHP: 7.2.14
+-- Host: 127.0.0.1
+-- Czas generowania: 19 Lut 2019, 20:11
+-- Wersja serwera: 10.1.36-MariaDB
+-- Wersja PHP: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -38,9 +38,9 @@ CREATE TABLE `cars` (
   `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `engine_power` float NOT NULL,
   `color` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `body_type` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `body_type` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `seats` int(2) NOT NULL,
-  `transmission` varchar(30) CHARACTER SET utf8 COLLATE utf8_polish_ci NOT NULL,
+  `transmission` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `capacity` int(4) DEFAULT NULL,
   `cargo_space` int(4) DEFAULT NULL,
   `has_lift` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `cars` (
   `has_winch` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `has_trunk` varchar(10) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `is_reserved` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_polish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Zrzut danych tabeli `cars`
@@ -83,7 +83,7 @@ INSERT INTO `cars` (`car_id`, `car_type`, `make`, `model`, `year`, `mileage`, `f
 
 CREATE TABLE `car_types` (
   `type_id` int(2) NOT NULL,
-  `type` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `type` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -102,7 +102,7 @@ INSERT INTO `car_types` (`type_id`, `type`) VALUES
 --
 
 CREATE TABLE `reservations` (
-  `reservation_id` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `reservation_id` varchar(100) NOT NULL,
   `car_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `start_date` date DEFAULT NULL,
@@ -131,33 +131,32 @@ INSERT INTO `reservations` (`reservation_id`, `car_id`, `user_id`, `start_date`,
 -- --------------------------------------------------------
 
 --
--- Struktura tabeli dla tabeli `user`
+-- Struktura tabeli dla tabeli `users`
 --
 
-CREATE TABLE `user` (
-  `user_id` int(11) NOT NULL,
-  `login` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `phone_number` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `first_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `last_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `address` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `house_number` int(10) NOT NULL,
-  `parcel_number` int(10) NOT NULL,
-  `post_code` varchar(10) NOT NULL,
-  `city` varchar(20) NOT NULL,
-  `adult` tinyint(1) DEFAULT NULL
+CREATE TABLE `users` (
+  `user_id` int(12) NOT NULL,
+  `login` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `phone_number` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `first_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `is_adult` tinyint(1) DEFAULT NULL,
+  `street_address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `postal_code` varchar(6) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `city` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Zrzut danych tabeli `user`
+-- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `user` (`user_id`, `login`, `email`, `password`, `phone_number`, `first_name`, `last_name`, `address`, `house_number`, `parcel_number`, `post_code`, `city`, `adult`) VALUES
-(1, 'admin', 'admin@google.com', '12345', '0', '0', '0', '0', 0, 0, '0', '', NULL),
-(2, 'user1', 'user1@google.com', 'pass123', '0', '0', '0', '0', 0, 0, '0', '', NULL),
-(3, 'user2', 'user2@google.com', '123pass', '0', '0', '0', '0', 0, 0, '0', '', NULL);
+INSERT INTO `users` (`user_id`, `login`, `password`, `email`, `phone_number`, `first_name`, `last_name`, `is_adult`, `street_address`, `postal_code`, `city`) VALUES
+(1, 'admin', '12345', 'admin@example.com', '601001001', 'Admin', 'Aplikacji', 1, 'Chopina 10', '20-140', 'Lublin'),
+(2, 'marek', 'maro123', 'marek@example.com', '691029123', 'Marek', 'Kowalski', 1, 'Koncertowa 4', '20-155', 'Lublin'),
+(3, 'Ewa', 'eww11.', 'ewa@example.com', '691029123', 'Ewa', 'Konieczna', 1, 'Nadbystrzycka 48A', '20-123', 'Lublin'),
+(4, 'darek', '0000', 'darek_giza@op.pl', '772123124', 'Darek', 'Giza', 1, 'Al. Królewska 41', '20-121', 'Lublin');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -177,9 +176,9 @@ ALTER TABLE `car_types`
   ADD UNIQUE KEY `type` (`type`);
 
 --
--- Indeksy dla tabeli `user`
+-- Indeksy dla tabeli `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -199,10 +198,10 @@ ALTER TABLE `car_types`
   MODIFY `type_id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT dla tabeli `user`
+-- AUTO_INCREMENT dla tabeli `users`
 --
-ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `users`
+  MODIFY `user_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

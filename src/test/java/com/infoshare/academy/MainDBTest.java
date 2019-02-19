@@ -1,6 +1,5 @@
 package com.infoshare.academy;
 
-import com.infoshare.academy.database.CarsDAO;
 import com.infoshare.academy.model.cars.entity.Car;
 import com.infoshare.academy.model.carsservice.CarDescription;
 
