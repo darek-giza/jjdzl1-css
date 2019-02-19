@@ -10,7 +10,7 @@ public class MainCSVTest {
         System.out.println("*Pokaż samochód z klasy Car o id=5");
         CarMaker.readCar(5);
         System.out.println("*Pokaż samochód z klasy CarPassenger o id=108");
-        CarMaker.readCarPassenger(108);
+        CarMaker.readCar(108);
         System.out.println("*Pokaż listę samochodów z klasy Car");
         CarMaker.readCar();
 
@@ -23,15 +23,15 @@ public class MainCSVTest {
     }
 
     public static void carStreamMake() {
-        CarMaker.createCarPassengerList().stream()
+        CarMaker.createCarList().stream()
                 .filter(Car -> Car.getMake().equals("BMW"))
                 .map(Car -> "Znaleziono samochód o id=" + Car.getId() + ": "+ Car.getMake() + " " + Car.getModel() + ", rok produkcji: " + Car.getYear())
                 .forEach(System.out::println);
     }
 
     public static void carStreamColor() {
-        CarMaker.createCarPassengerList().stream()
-                .filter(CarPassenger -> CarPassenger.getColorEnum().equals(ColorEnum.BLACK))
+        CarMaker.createCarList().stream()
+                .filter(CarPassenger -> CarPassenger.getColor().equals(ColorEnum.BLACK))
                 .map(CarPassenger -> "Znaleziono samochód o id=" +CarPassenger.getId() + ": "+ CarPassenger.getMake() + " " + CarPassenger.getModel() + ", rok produkcji: " + CarPassenger.getYear())
                 .forEach(System.out::println);
     }

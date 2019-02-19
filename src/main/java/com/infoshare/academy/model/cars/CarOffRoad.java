@@ -1,25 +1,30 @@
 package com.infoshare.academy.model.cars;
 
+import com.infoshare.academy.model.cars.entity.Car;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+//@Entity
+@Table(name = "cars")
 public class CarOffRoad extends Car {
 
-    protected Integer seats;
+    @Column(name = "drive")
     protected Integer drive;
+    @Column(name = "has_winch")
     protected Boolean hasWinch;
+    @Column(name = "has_trunk")
     protected Boolean hasTrunk;
 
     //Constructor
-    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower, Integer seats, Integer drive, Boolean hasWinch, Boolean hasTrunk) {
-        super(id, make, model, year, mileage, fuelSourceEnum, enginePower);
-        this.seats = seats;
+    public CarOffRoad(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSourceEnum, Integer enginePower, ColorEnum colorEnum, BodyTypeEnum bodyTypeEnum, Integer seats, TransmissionEnum transmissionEnum, Integer drive, Boolean hasWinch, Boolean hasTrunk) {
+        super(id, make, model, year, mileage, fuelSourceEnum, enginePower, colorEnum, bodyTypeEnum, seats, transmissionEnum);
         this.drive = drive;
         this.hasWinch = hasWinch;
         this.hasTrunk = hasTrunk;
     }
-
     //Getters
-    public Integer getSeats() {
-        return seats;
-    }
 
     public Integer getDrive() {
         return drive;
@@ -34,9 +39,6 @@ public class CarOffRoad extends Car {
     }
 
     //Setters
-    public void setSeats(Integer seats) {
-        this.seats = seats;
-    }
 
     public void setDrive(Integer drive) {
         this.drive = drive;
@@ -54,17 +56,21 @@ public class CarOffRoad extends Car {
     @Override
     public String toString() {
         return "CarOffRoad{" +
-                "id=" + id +
+                "drive=" + drive +
+                ", hasWinch=" + hasWinch +
+                ", hasTrunk=" + hasTrunk +
+                ", id=" + id +
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", mileage=" + mileage +
-                ", fuelSourceEnum=" + fuelSourceEnum +
+                ", fuelSource=" + fuelSource +
                 ", enginePower=" + enginePower +
+                ", color=" + color +
+                ", bodyType=" + bodyType +
                 ", seats=" + seats +
-                ", drive=" + drive +
-                ", hasWinch='" + hasWinch + '\'' +
-                ", hasTrunk='" + hasTrunk + '\'' +
-                "} ";
+                ", transmission=" + transmission +
+                '}';
     }
 }
+

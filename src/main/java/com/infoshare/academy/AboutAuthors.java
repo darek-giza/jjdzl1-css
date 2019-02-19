@@ -7,8 +7,8 @@ public class AboutAuthors {
         System.out.println("Autorzy projektu:");
         System.out.println("\nDariusz Giza - developer");
         System.out.println("Arkadiusz Szlachta - developer");
-        System.out.println("Łukasz Waręcki - developer");
-        System.out.println("Kamil Wawer - scrum master");
+        System.out.println("Łukasz Waręcki - scrum master");
+        System.out.println("Kamil Wawer - developer");
 
         try {
             Thread.sleep(2000);

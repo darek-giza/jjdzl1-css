@@ -1,48 +1,54 @@
 package com.infoshare.academy.user;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Integer id;
+    @Column(name = "login")
     private String login;
-    private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "phone_number")
     private Long phoneNumber;
+    @Column(name = "first_name")
     private String firstName;
-    private String lastname;
-    private String adress;
-    private Integer houseNumber;
-    private Integer parcelNumber;
-    private String postCode;
-    private String city;
-    private boolean adult;
+    @Column(name = "last_name")
+    private String lastName;
+    @Column(name = "is_adult")
+    private Boolean isAdult;
+    @Embedded
+    private Address address;
 
-    //Constructor
-    public User(Integer id, String login, String email, String password) {
-        this.id = id;
-        this.login = login;
-        this.email = email;
-        this.password = password;
+    public User() {
     }
 
-    public User(String login, String email, String password, Long phoneNumber, String firstName, String lastname,
-                Integer id, String adress, Integer houseNumber, Integer parcelNumber, String postCode, String city,
-                boolean adult) {
+    public User(Integer id, String login, String password, String email) {
+        this.id = id;
         this.login = login;
-        this.email = email;
         this.password = password;
+        this.email = email;
+    }
+
+    public User(Integer id, String login, String password, String email, Long phoneNumber, String firstName, String lastName, Boolean isAdult, Address address) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.email = email;
         this.phoneNumber = phoneNumber;
         this.firstName = firstName;
-        this.lastname = lastname;
-        this.id = id;
-        this.adress = adress;
-        this.houseNumber = houseNumber;
-        this.parcelNumber = parcelNumber;
-        this.postCode = postCode;
-        this.city = city;
-        this.adult = adult;
+        this.lastName = lastName;
+        this.isAdult = isAdult;
+        this.address = address;
     }
 
-    //Getters
     public Integer getId() {
         return id;
     }
@@ -51,12 +57,12 @@ public class User {
         return login;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
     public String getPassword() {
         return password;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public Long getPhoneNumber() {
@@ -67,35 +73,18 @@ public class User {
         return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getAdress() {
-        return adress;
+    public Boolean getAdult() {
+        return isAdult;
     }
 
-    public Integer getHouseNumber() {
-        return houseNumber;
+    public Address getAddress() {
+        return address;
     }
 
-    public Integer getParcelNumber() {
-        return parcelNumber;
-    }
-
-    public String getPostCode() {
-        return postCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public boolean isAdult() {
-        return adult;
-    }
-
-    //Setters
     public void setId(Integer id) {
         this.id = id;
     }
@@ -104,12 +93,12 @@ public class User {
         this.login = login;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setPhoneNumber(Long phoneNumber) {
@@ -120,35 +109,18 @@ public class User {
         this.firstName = firstName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAdult(Boolean adult) {
+        isAdult = adult;
     }
 
-    public void setHouseNumber(Integer houseNumber) {
-        this.houseNumber = houseNumber;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
-    public void setParcelNumber(Integer parcelNumber) {
-        this.parcelNumber = parcelNumber;
-    }
-
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setAdult(boolean adult) {
-        this.adult = adult;
-    }
-
-    //Methods
     public boolean userAuth() {
         if (getLogin().equals(login) && getPassword().equals(password)) {
             return true;
@@ -160,19 +132,15 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='***'" +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", firstName='" + firstName + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", id=" + id +
-                ", adress='" + adress + '\'' +
-                ", houseNumber=" + houseNumber +
-                ", parcelNumber=" + parcelNumber +
-                ", postCode='" + postCode + '\'' +
-                ", city='" + city + '\'' +
-                ", adult=" + adult +
+                ", lastName='" + lastName + '\'' +
+                ", isAdult=" + isAdult +
+                ", address=" + address +
                 '}';
     }
 }
