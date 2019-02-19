@@ -2,18 +2,31 @@ package com.infoshare.academy.reservation;
 
 import com.infoshare.academy.menu.MessagesEnum;
 
+import javax.persistence.*;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
-public class Reservation extends DateModel {
+@Entity
+@Table(name = "reservations")
+public class Reservation {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "reservation_id")
     protected String id;
+    @Column(name = "car_id")
     protected Integer carId;
+    @Column(name = "user_id")
     protected Integer userId;
+    @Column(name = "start_date")
     protected Date startDate;
+    @Column(name = "end_date")
     protected Date endDate;
+
+    public Reservation() {
+    }
 
     public Reservation(Integer carId, Integer userId, Date startDate, Date endDate) {
         this.id = generateId();
@@ -78,13 +91,16 @@ public class Reservation extends DateModel {
     @Override
     public String toString() {
         return "Reservation{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", carId=" + carId +
                 ", userId=" + userId +
-                ", startDate=" + dateFormatter.format(startDate) +
-                ", endDate=" + dateFormatter.format(endDate) +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 '}';
     }
+
+
+    public static SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 
     public String description() {
         return "o numerze id=" + id +
@@ -109,13 +125,15 @@ public class Reservation extends DateModel {
         }
         return null;
     }
-    public String reservationToString(){
+
+    public String reservationToString() {
         StringBuilder newRow = new StringBuilder();
-        newRow.append(this.id+ ",");
-        newRow.append(this.carId+",");
-        newRow.append(this.userId+",");
-        newRow.append(dateFormatter.format(this.startDate)+",");
+        newRow.append(this.id + ",");
+        newRow.append(this.carId + ",");
+        newRow.append(this.userId + ",");
+        newRow.append(dateFormatter.format(this.startDate) + ",");
         newRow.append(dateFormatter.format(this.endDate));
         return newRow.toString();
     }
+
 }

@@ -42,7 +42,7 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
     @Override
     public List<User> getUsersList() {
         Session session = getSession();
-        List<User> usersList = session.createQuery("Select u FROM User u", User.class).getResultList();
+        List<User> usersList = session.createQuery("Select u FROM User  u",User.class).getResultList();
         session.getTransaction().commit();
         session.close();
         return usersList;
