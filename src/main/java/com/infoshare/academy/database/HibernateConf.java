@@ -3,7 +3,6 @@ package com.infoshare.academy.database;
 import com.infoshare.academy.reservation.Reservation;
 import com.infoshare.academy.user.Address;
 import com.infoshare.academy.user.User;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -21,7 +20,7 @@ public class HibernateConf {
         return sessionFactory;
     }
 
-    public static SessionFactory getSessionFactory() {
+    public static synchronized SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 }

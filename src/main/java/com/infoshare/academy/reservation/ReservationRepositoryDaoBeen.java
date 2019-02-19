@@ -2,9 +2,7 @@ package com.infoshare.academy.reservation;
 
 import org.hibernate.Session;
 
-import java.util.Date;
 import java.util.List;
-import java.util.ListResourceBundle;
 
 import static com.infoshare.academy.database.HibernateConf.getSessionFactory;
 
