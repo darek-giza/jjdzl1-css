@@ -105,7 +105,7 @@ public class Reservation {
         return "Samochód o id: " + carId +
                 " wynajęty przez: " + userId +
                 " od: " + dateFormatter.format(startDate) +
-                " do: " + dateFormatter.format(endDate) + "\n ";
+                " do: " + dateFormatter.format(endDate);
 
     }
 
