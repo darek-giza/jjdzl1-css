@@ -21,35 +21,42 @@ public class Car implements Vehicle {
     protected Integer year;
     @Column(name = "mileage")
     protected Integer mileage;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "fuel_source")
     protected FuelSourceEnum fuelSource;
     @Column(name = "engine_power")
     protected Integer enginePower;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "color")
     protected ColorEnum color;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "body_type")
     protected BodyTypeEnum bodyType;
     @Column(name = "seats")
     protected Integer seats;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "transmission")
     protected TransmissionEnum transmission;
+
+    @Column(name = "capacity")
+    protected Integer capacity;
+    @Column(name = "cargo_space")
+    protected Integer cargoSpace;
+    @Column(name = "has_lift")
+    protected Boolean hasLift;
+
+    @Column(name = "drive")
+    protected Integer drive;
+    @Column(name = "has_winch")
+    protected Boolean hasWinch;
+    @Column(name = "has_trunk")
+    protected Boolean hasTrunk;
+
     @Column(name = "is_reserved")
     protected Boolean isReserved;
 
-    //Constructor
-    public Car() {
-    }
-
-    public Car(Integer id, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSource, Integer enginePower, ColorEnum color, BodyTypeEnum bodyType, Integer seats, TransmissionEnum transmission) {
-        this.id = id;
+    public Car(Integer carType, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSource, Integer enginePower, ColorEnum color, BodyTypeEnum bodyType, Integer seats, TransmissionEnum transmission, Integer capacity, Integer cargoSpace, Boolean hasLift, Integer drive, Boolean hasWinch, Boolean hasTrunk, Boolean isReserved) {
+        this.carType = carType;
         this.make = make;
         this.model = model;
         this.year = year;
@@ -60,11 +67,15 @@ public class Car implements Vehicle {
         this.bodyType = bodyType;
         this.seats = seats;
         this.transmission = transmission;
+        this.capacity = capacity;
+        this.cargoSpace = cargoSpace;
+        this.hasLift = hasLift;
+        this.drive = drive;
+        this.hasWinch = hasWinch;
+        this.hasTrunk = hasTrunk;
         this.isReserved = isReserved;
-
     }
 
-    //Getters
     public Integer getId() {
         return id;
     }
@@ -113,12 +124,34 @@ public class Car implements Vehicle {
         return transmission;
     }
 
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public Integer getCargoSpace() {
+        return cargoSpace;
+    }
+
+    public Boolean getHasLift() {
+        return hasLift;
+    }
+
+    public Integer getDrive() {
+        return drive;
+    }
+
+    public Boolean getHasWinch() {
+        return hasWinch;
+    }
+
+    public Boolean getHasTrunk() {
+        return hasTrunk;
+    }
+
     public Boolean getReserved() {
         return isReserved;
     }
 
-
-    //Setters
     public void setId(Integer id) {
         this.id = id;
     }
@@ -167,12 +200,33 @@ public class Car implements Vehicle {
         this.transmission = transmission;
     }
 
-    public void setReserved(Boolean reserved) {
-        this.isReserved = reserved;
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
     }
 
-    //Methods
+    public void setCargoSpace(Integer cargoSpace) {
+        this.cargoSpace = cargoSpace;
+    }
 
+    public void setHasLift(Boolean hasLift) {
+        this.hasLift = hasLift;
+    }
+
+    public void setDrive(Integer drive) {
+        this.drive = drive;
+    }
+
+    public void setHasWinch(Boolean hasWinch) {
+        this.hasWinch = hasWinch;
+    }
+
+    public void setHasTrunk(Boolean hasTrunk) {
+        this.hasTrunk = hasTrunk;
+    }
+
+    public void setReserved(Boolean reserved) {
+        isReserved = reserved;
+    }
 
     @Override
     public String toString() {
@@ -189,14 +243,16 @@ public class Car implements Vehicle {
                 ", bodyType=" + bodyType +
                 ", seats=" + seats +
                 ", transmission=" + transmission +
+                ", capacity=" + capacity +
+                ", cargoSpace=" + cargoSpace +
+                ", hasLift=" + hasLift +
+                ", drive=" + drive +
+                ", hasWinch=" + hasWinch +
+                ", hasTrunk=" + hasTrunk +
                 ", isReserved=" + isReserved +
                 '}';
     }
 }
-
-
-
-
 
 /*    @Override
     public void checkIfReserved() {

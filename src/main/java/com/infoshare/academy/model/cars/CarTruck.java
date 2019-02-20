@@ -3,7 +3,6 @@ package com.infoshare.academy.model.cars;
 import com.infoshare.academy.model.cars.entity.Car;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Table;
 
 //@Entity
