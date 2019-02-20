@@ -99,15 +99,14 @@ public class Reservation {
                 '}';
     }
 
-
     public static SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 
     public String description() {
-        return "o numerze id=" + id +
-                ", id samochodu=" + carId +
-                ", id użytkownika=" + userId +
-                ", od dnia " + dateFormatter.format(startDate) +
-                " do " + dateFormatter.format(endDate);
+        return "Samochód o id: " + carId +
+                " wynajęty przez: " + userId +
+                " od: " + dateFormatter.format(startDate) +
+                " do: " + dateFormatter.format(endDate) + "\n ";
+
     }
 
     public static Reservation stringToReservation(String csvRow) {
