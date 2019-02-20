@@ -1,6 +1,11 @@
 package com.infoshare.academy.user;
 
+import com.infoshare.academy.reservation.Reservation;
+
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -22,31 +27,30 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "is_adult")
-    private Boolean isAdult;
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
     @Embedded
     private Address address;
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    private List<Reservation> reservations;
 
     public User() {
     }
 
-    public User(Integer id, String login, String password, String email) {
-        this.id = id;
+    public User(String login, String password, String email) {
         this.login = login;
         this.password = password;
         this.email = email;
     }
 
-    public User(Integer id, String login, String password, String email, Long phoneNumber, String firstName, String lastName, Boolean isAdult, Address address) {
-        this.id = id;
+    public User(String login, String password, String email, Long phoneNumber, String firstName, String lastName, LocalDate birthDate) {
         this.login = login;
         this.password = password;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.isAdult = isAdult;
-        this.address = address;
+        this.birthDate = birthDate;
     }
 
     public Integer getId() {
@@ -77,12 +81,16 @@ public class User {
         return lastName;
     }
 
-    public Boolean getAdult() {
-        return isAdult;
+    public LocalDate getBirthDate() {
+        return birthDate;
     }
 
     public Address getAddress() {
         return address;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
     public void setId(Integer id) {
@@ -113,12 +121,24 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setAdult(Boolean adult) {
-        isAdult = adult;
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public void addReservation(Reservation reservation){
+        if (reservations == null) {
+            reservations = new ArrayList<>();
+        }
+        reservations.add(reservation);
+        reservation.setUser(this);
     }
 
     public boolean userAuth() {
@@ -139,7 +159,7 @@ public class User {
                 ", phoneNumber=" + phoneNumber +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", isAdult=" + isAdult +
+                ", birthDate=" + birthDate +
                 ", address=" + address +
                 '}';
     }
