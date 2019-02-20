@@ -27,7 +27,6 @@ public class User {
     @Embedded
     private Address address;
 
-    //Constructors
     public User() {
     }
 
@@ -50,7 +49,6 @@ public class User {
         this.address = address;
     }
 
-    //Getters
     public Integer getId() {
         return id;
     }
@@ -123,7 +121,6 @@ public class User {
         this.address = address;
     }
 
-    //Methods
     public boolean userAuth() {
         if (getLogin().equals(login) && getPassword().equals(password)) {
             return true;

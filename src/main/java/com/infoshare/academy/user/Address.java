@@ -34,18 +34,6 @@ public class Address {
         return city;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     @Override
     public String toString() {
         return "Address{" +
