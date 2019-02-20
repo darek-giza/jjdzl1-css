@@ -9,5 +9,5 @@ public interface CarsRepositoryDao {
     List getCarsById();
     void updateCar(Car car, String[] parameters);
     void deleteCarById(int id);
-    void deleteCarBy(String login);
+    void deleteCarByLogin(String login);
 }

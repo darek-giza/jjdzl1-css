@@ -1,8 +1,13 @@
 package com.infoshare.academy.model.cars.entity;
 
 import com.infoshare.academy.model.cars.*;
+import com.infoshare.academy.model.cars.carEnum.BodyTypeEnum;
+import com.infoshare.academy.model.cars.carEnum.ColorEnum;
+import com.infoshare.academy.model.cars.carEnum.FuelSourceEnum;
+import com.infoshare.academy.model.cars.carEnum.TransmissionEnum;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "cars")
@@ -37,25 +42,28 @@ public class Car implements Vehicle {
     @Enumerated(EnumType.STRING)
     @Column(name = "transmission")
     protected TransmissionEnum transmission;
-
     @Column(name = "capacity")
     protected Integer capacity;
     @Column(name = "cargo_space")
     protected Integer cargoSpace;
     @Column(name = "has_lift")
     protected Boolean hasLift;
-
     @Column(name = "drive")
     protected Integer drive;
     @Column(name = "has_winch")
     protected Boolean hasWinch;
     @Column(name = "has_trunk")
     protected Boolean hasTrunk;
-
     @Column(name = "is_reserved")
     protected Boolean isReserved;
 
-    public Car(Integer carType, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSource, Integer enginePower, ColorEnum color, BodyTypeEnum bodyType, Integer seats, TransmissionEnum transmission, Integer capacity, Integer cargoSpace, Boolean hasLift, Integer drive, Boolean hasWinch, Boolean hasTrunk, Boolean isReserved) {
+    public Car() {
+    }
+
+    public Car(Integer carType, String make, String model, Integer year, Integer mileage,
+               FuelSourceEnum fuelSource, Integer enginePower, ColorEnum color, BodyTypeEnum bodyType,
+               Integer seats, TransmissionEnum transmission, Integer capacity, Integer cargoSpace,
+               Boolean hasLift, Integer drive, Boolean hasWinch, Boolean hasTrunk, Boolean isReserved) {
         this.carType = carType;
         this.make = make;
         this.model = model;
@@ -80,148 +88,148 @@ public class Car implements Vehicle {
         return id;
     }
 
-    public Integer getCarType() {
-        return carType;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public Integer getMileage() {
-        return mileage;
-    }
-
-    public FuelSourceEnum getFuelSource() {
-        return fuelSource;
-    }
-
-    public Integer getEnginePower() {
-        return enginePower;
-    }
-
-    public ColorEnum getColor() {
-        return color;
-    }
-
-    public BodyTypeEnum getBodyType() {
-        return bodyType;
-    }
-
-    public Integer getSeats() {
-        return seats;
-    }
-
-    public TransmissionEnum getTransmission() {
-        return transmission;
-    }
-
-    public Integer getCapacity() {
-        return capacity;
-    }
-
-    public Integer getCargoSpace() {
-        return cargoSpace;
-    }
-
-    public Boolean getHasLift() {
-        return hasLift;
-    }
-
-    public Integer getDrive() {
-        return drive;
-    }
-
-    public Boolean getHasWinch() {
-        return hasWinch;
-    }
-
-    public Boolean getHasTrunk() {
-        return hasTrunk;
-    }
-
-    public Boolean getReserved() {
-        return isReserved;
-    }
-
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getCarType() {
+        return carType;
     }
 
     public void setCarType(Integer carType) {
         this.carType = carType;
     }
 
+    public String getMake() {
+        return make;
+    }
+
     public void setMake(String make) {
         this.make = make;
+    }
+
+    public String getModel() {
+        return model;
     }
 
     public void setModel(String model) {
         this.model = model;
     }
 
+    public Integer getYear() {
+        return year;
+    }
+
     public void setYear(Integer year) {
         this.year = year;
+    }
+
+    public Integer getMileage() {
+        return mileage;
     }
 
     public void setMileage(Integer mileage) {
         this.mileage = mileage;
     }
 
+    public FuelSourceEnum getFuelSource() {
+        return fuelSource;
+    }
+
     public void setFuelSource(FuelSourceEnum fuelSource) {
         this.fuelSource = fuelSource;
+    }
+
+    public Integer getEnginePower() {
+        return enginePower;
     }
 
     public void setEnginePower(Integer enginePower) {
         this.enginePower = enginePower;
     }
 
+    public ColorEnum getColor() {
+        return color;
+    }
+
     public void setColor(ColorEnum color) {
         this.color = color;
+    }
+
+    public BodyTypeEnum getBodyType() {
+        return bodyType;
     }
 
     public void setBodyType(BodyTypeEnum bodyType) {
         this.bodyType = bodyType;
     }
 
+    public Integer getSeats() {
+        return seats;
+    }
+
     public void setSeats(Integer seats) {
         this.seats = seats;
+    }
+
+    public TransmissionEnum getTransmission() {
+        return transmission;
     }
 
     public void setTransmission(TransmissionEnum transmission) {
         this.transmission = transmission;
     }
 
+    public Integer getCapacity() {
+        return capacity;
+    }
+
     public void setCapacity(Integer capacity) {
         this.capacity = capacity;
+    }
+
+    public Integer getCargoSpace() {
+        return cargoSpace;
     }
 
     public void setCargoSpace(Integer cargoSpace) {
         this.cargoSpace = cargoSpace;
     }
 
+    public Boolean getHasLift() {
+        return hasLift;
+    }
+
     public void setHasLift(Boolean hasLift) {
         this.hasLift = hasLift;
+    }
+
+    public Integer getDrive() {
+        return drive;
     }
 
     public void setDrive(Integer drive) {
         this.drive = drive;
     }
 
+    public Boolean getHasWinch() {
+        return hasWinch;
+    }
+
     public void setHasWinch(Boolean hasWinch) {
         this.hasWinch = hasWinch;
     }
 
+    public Boolean getHasTrunk() {
+        return hasTrunk;
+    }
+
     public void setHasTrunk(Boolean hasTrunk) {
         this.hasTrunk = hasTrunk;
+    }
+
+    public Boolean getReserved() {
+        return isReserved;
     }
 
     public void setReserved(Boolean reserved) {
@@ -254,12 +262,4 @@ public class Car implements Vehicle {
     }
 }
 
-/*    @Override
-    public void checkIfReserved() {
-        if (this.isReserved) {
-            System.out.println("Vehicle id=" + getId() + " is not available.");
-        } else {
-            System.out.println("Vehicle id=" + getId() + " is available.");
-        }
-    }*/
 
