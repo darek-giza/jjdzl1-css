@@ -38,8 +38,6 @@ public class User {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH})
-    @ElementCollection(targetClass = Reservation.class)
-    @JoinColumn(name = "user_id")
     private List<Reservation> reservations;
 
 
@@ -94,11 +92,17 @@ public class User {
         return birthDate;
     }
 
-    public String getStreetAddress() { return streetAddress; }
+    public String getStreetAddress() {
+        return streetAddress;
+    }
 
-    public String getPostCode() { return postCode; }
+    public String getPostCode() {
+        return postCode;
+    }
 
-    public String getCity() { return city; }
+    public String getCity() {
+        return city;
+    }
 
     public List<Reservation> getReservations() {
        return reservations;
@@ -136,11 +140,17 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
+    }
 
-    public void setPostCode(String postCode) { this.postCode = postCode; }
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
 
-    public void setCity(String city) { this.city = city; }
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
@@ -169,16 +179,8 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", birthDate=" + birthDate +
-                ", streetAddress='" + streetAddress + '\'' +
-                ", postCode='" + postCode + '\'' +
-                ", city='" + city + '\'' +
                 ", reservations=" + reservations +
                 '}';
     }
 }
+

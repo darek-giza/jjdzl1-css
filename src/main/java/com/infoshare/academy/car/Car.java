@@ -47,8 +47,6 @@ public class Car implements Vehicle {
     protected TransmissionEnum transmission;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @ElementCollection(targetClass = Reservation.class)
-    @JoinColumn(name = "car_id")
     private List<Reservation> reservations;
 
 
@@ -180,12 +178,7 @@ public class Car implements Vehicle {
     @Override
     public String toString() {
         return "Car{" +
-                "id=" + id +
-                ", carType=" + carType +
                 ", make='" + make + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", mileage=" + mileage +
-                '}';
+                ", model='" + model + '\'';
     }
 }

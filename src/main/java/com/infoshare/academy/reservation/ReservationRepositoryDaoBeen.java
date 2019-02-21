@@ -15,16 +15,19 @@ public class ReservationRepositoryDaoBeen implements ReservationRepositoryDao {
     }
 
 
-
     @Override
     public List<Reservation> getReservationList() {
-        return null;
+        Session session = getSession();
+        List<Reservation> reservationList = session.createQuery("select r from Reservation r ").getResultList();
+        session.getTransaction().commit();
+        session.close();
+        return reservationList;
     }
 
     @Override
-    public List<Reservation> getReservationByUserId(int userId) {
+    public List<Reservation> getReservationByUserId(int id) {
         Session session = getSession();
-        List<Reservation> reservationListByUserId = session.createQuery("SELECT r FROM Reservation r WHERE r.userId='"+userId+"'", Reservation.class).getResultList();
+        List<Reservation> reservationListByUserId = session.createQuery("SELECT r FROM Reservation r WHERE r.id='" + id + "'", Reservation.class).getResultList();
         session.getTransaction().commit();
         session.close();
         return reservationListByUserId;
@@ -33,7 +36,7 @@ public class ReservationRepositoryDaoBeen implements ReservationRepositoryDao {
     @Override
     public List<Reservation> getReservationByCarId(int car) {
         Session session = getSession();
-        List<Reservation> reservationListByCarId = session.createQuery("select r From Reservation r Where r.car='"+ car +"'",Reservation.class).getResultList();
+        List<Reservation> reservationListByCarId = session.createQuery("select r From Reservation r Where r.car='" + car + "'", Reservation.class).getResultList();
         session.getTransaction().commit();
         session.close();
         return reservationListByCarId;

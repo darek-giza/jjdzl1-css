@@ -16,15 +16,16 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //@GeneratedValue(generator = "UUID")
     //@GenericGenerator(name = "UUID", strategy = "org.hibernate.reservation_id.UUIDGenerator")
-    @Column(name = "reservation_id", updatable = false)
-    private UUID reservation_id;
+    @Column(name = "reservation_id")//, updatable = false)
+    private Integer reservation_id;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name="user_id", insertable=false, updatable=false, nullable=false)
     private User user;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JoinColumn(name = "car_id",insertable=false, updatable=false, nullable=false)
     private Car car;
-
     @Column(name = "start_date")
     private LocalDate startDate;
     @Column(name = "end_date")
@@ -38,7 +39,7 @@ public class Reservation {
         this.endDate = endDate;
     }
 
-    public UUID getReservation_id() {
+    public Integer getReservation_id() {
         return reservation_id;
     }
 
@@ -77,10 +78,9 @@ public class Reservation {
     @Override
     public String toString() {
         return "Reservation{" +
-                "reservation_id=" + reservation_id +
                 ", car=" + car +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                '}';
+                '}'+"\n";
     }
 }
