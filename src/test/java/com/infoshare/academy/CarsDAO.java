@@ -1,9 +1,6 @@
 package com.infoshare.academy;
-import com.infoshare.academy.model.cars.carEnum.BodyTypeEnum;
-import com.infoshare.academy.model.cars.carEnum.ColorEnum;
-import com.infoshare.academy.model.cars.carEnum.FuelSourceEnum;
-import com.infoshare.academy.model.cars.carEnum.TransmissionEnum;
-import com.infoshare.academy.model.cars.entity.Car;
+import com.infoshare.academy.menuEnum.*;
+import com.infoshare.academy.car.Car;
 
 import java.sql.*;
 import java.util.ArrayList;

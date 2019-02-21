@@ -1,4 +1,4 @@
-package com.infoshare.academy.model.cars;
+package com.infoshare.academy.car;
 
 public interface Vehicle {
 

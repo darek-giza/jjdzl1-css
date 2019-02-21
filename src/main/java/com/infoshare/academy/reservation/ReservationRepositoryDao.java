@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface ReservationRepositoryDao {
     List<Reservation> getReservationList();
-    List<Reservation> getReservationByUserId(int userId);
-    List<Reservation> getReservationByCarId(int carId);
+    List<Reservation> getReservationByUserId(int user);
+    List<Reservation> getReservationByCarId(int car);
 }
 

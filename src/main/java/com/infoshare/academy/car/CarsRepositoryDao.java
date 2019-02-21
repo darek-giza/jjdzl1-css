@@ -1,6 +1,4 @@
-package com.infoshare.academy.model.cars;
-
-import com.infoshare.academy.model.cars.entity.Car;
+package com.infoshare.academy.car;
 
 import java.util.List;
 

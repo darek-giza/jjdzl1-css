@@ -2,7 +2,7 @@ package com.infoshare.academy.user;
 
 import com.infoshare.academy.iostream.FileIO;
 import com.infoshare.academy.iostream.FilePath;
-import com.infoshare.academy.menu.MessagesEnum;
+import com.infoshare.academy.menuEnum.MessagesEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +47,6 @@ public class UserService {
     }
 
     public static User returnUser(String[] userPart) {
-        return new User(Integer.parseInt(userPart[0]), userPart[1], userPart[2], userPart[3]);
+        return new User(userPart[0],userPart[1],userPart[2]);
     }
 }

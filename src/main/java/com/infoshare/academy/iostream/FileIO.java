@@ -1,6 +1,6 @@
 package com.infoshare.academy.iostream;
 
-import com.infoshare.academy.menu.MessagesEnum;
+import com.infoshare.academy.menuEnum.MessagesEnum;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

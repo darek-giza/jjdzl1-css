@@ -1,4 +1,4 @@
-package com.infoshare.academy.menu;
+package com.infoshare.academy.menuEnum;
 
 public enum MessagesEnum {
     APP_START("   ___          ___ _             _           ___         _             \n  / __|__ _ _ _/ __| |_  __ _ _ _(_)_ _  __ _/ __|_  _ __| |_ ___ _ __  \n | (__/ _` | '_\\__ \\ ' \\/ _` | '_| | ' \\/ _` \\__ \\ || (_-<  _/ -_) '  \\ \n  \\___\\__,_|_| |___/_||_\\__,_|_| |_|_||_\\__, |___/\\_, /__/\\__\\___|_|_|_|\n                                        |___/     |__/                  "),
@@ -49,4 +49,6 @@ public enum MessagesEnum {
     public void Messages(String text) {
         this.message = text;
     }
+
+
 }

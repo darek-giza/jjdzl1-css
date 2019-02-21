@@ -1,6 +1,5 @@
-package com.infoshare.academy.model.cars;
+package com.infoshare.academy.car;
 
-import com.infoshare.academy.model.cars.entity.Car;
 import org.hibernate.Session;
 import java.util.List;
 import static com.infoshare.academy.database.HibernateConf.getSessionFactory;

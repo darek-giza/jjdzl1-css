@@ -1,4 +1,5 @@
-package com.infoshare.academy.model.cars.carEnum;
+package com.infoshare.academy.menuEnum;
+
 
 public enum BodyTypeEnum {
 
@@ -20,7 +21,9 @@ public enum BodyTypeEnum {
         this.type = type;
     }
 
-    public String getType() { return type; }
+    public String getType() {
+        return type;
+    }
 
     public static BodyTypeEnum getBodyTypeEnum(String type) {
         switch (type) {

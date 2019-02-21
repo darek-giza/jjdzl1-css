@@ -29,10 +29,19 @@ public class User {
     private String lastName;
     @Column(name = "birth_date")
     private LocalDate birthDate;
-    @Embedded
-    private Address address;
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @Column(name = "street_address")
+    private String streetAddress;
+    @Column(name = "post_code")
+    private String postCode;
+    @Column(name = "city")
+    private String city;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
+    @ElementCollection(targetClass = Reservation.class)
+    @JoinColumn(name = "user_id")
     private List<Reservation> reservations;
+
 
     public User() {
     }
@@ -85,12 +94,14 @@ public class User {
         return birthDate;
     }
 
-    public Address getAddress() {
-        return address;
-    }
+    public String getStreetAddress() { return streetAddress; }
+
+    public String getPostCode() { return postCode; }
+
+    public String getCity() { return city; }
 
     public List<Reservation> getReservations() {
-        return reservations;
+       return reservations;
     }
 
     public void setId(Integer id) {
@@ -125,15 +136,19 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
+    public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
+
+    public void setPostCode(String postCode) { this.postCode = postCode; }
+
+    public void setCity(String city) { this.city = city; }
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
 
-    public void addReservation(Reservation reservation){
+
+
+    public void addReservation(Reservation reservation) {
         if (reservations == null) {
             reservations = new ArrayList<>();
         }
@@ -154,13 +169,16 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", login='" + login + '\'' +
-                ", password='***'" +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthDate=" + birthDate +
-                ", address=" + address +
+                ", streetAddress='" + streetAddress + '\'' +
+                ", postCode='" + postCode + '\'' +
+                ", city='" + city + '\'' +
+                ", reservations=" + reservations +
                 '}';
     }
 }

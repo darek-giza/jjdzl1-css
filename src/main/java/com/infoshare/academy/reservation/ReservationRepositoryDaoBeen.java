@@ -14,14 +14,11 @@ public class ReservationRepositoryDaoBeen implements ReservationRepositoryDao {
         return session;
     }
 
+
+
     @Override
     public List<Reservation> getReservationList() {
-        Session session = getSession();
-        List<Reservation> reservationList = session.createQuery("SELECT r FROM Reservation r ", Reservation.class).getResultList();
-        session.getTransaction().commit();
-        session.close();
-        return reservationList;
-
+        return null;
     }
 
     @Override
@@ -34,9 +31,9 @@ public class ReservationRepositoryDaoBeen implements ReservationRepositoryDao {
     }
 
     @Override
-    public List<Reservation> getReservationByCarId(int carId) {
+    public List<Reservation> getReservationByCarId(int car) {
         Session session = getSession();
-        List<Reservation> reservationListByCarId = session.createQuery("select r From Reservation r Where r.carId='"+carId+"'",Reservation.class).getResultList();
+        List<Reservation> reservationListByCarId = session.createQuery("select r From Reservation r Where r.car='"+ car +"'",Reservation.class).getResultList();
         session.getTransaction().commit();
         session.close();
         return reservationListByCarId;

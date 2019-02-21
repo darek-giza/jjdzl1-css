@@ -1,4 +1,4 @@
-package com.infoshare.academy.model.cars.carEnum;
+package com.infoshare.academy.menuEnum;
 
 public enum ColorEnum {
 

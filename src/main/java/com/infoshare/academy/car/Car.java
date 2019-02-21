@@ -1,6 +1,6 @@
-package com.infoshare.academy.model.cars.entity;
+package com.infoshare.academy.car;
 
-import com.infoshare.academy.model.cars.*;
+import com.infoshare.academy.menuEnum.*;
 import com.infoshare.academy.reservation.Reservation;
 
 import javax.persistence.*;
@@ -45,11 +45,12 @@ public class Car implements Vehicle {
     @Enumerated(EnumType.STRING)
     @Column(name = "transmission")
     protected TransmissionEnum transmission;
-    @Column(name = "is_reserved")
-    protected Boolean isReserved;
 
-    @OneToMany(mappedBy = "car", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ElementCollection(targetClass = Reservation.class)
+    @JoinColumn(name = "car_id")
     private List<Reservation> reservations;
+
 
     public Car() {
     }
@@ -167,7 +168,8 @@ public class Car implements Vehicle {
         this.reservations = reservations;
     }
 
-    public void addReservation(Reservation reservation){
+
+    public void addReservation(Reservation reservation) {
         if (reservations == null) {
             reservations = new ArrayList<>();
         }

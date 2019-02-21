@@ -102,7 +102,7 @@ INSERT INTO `car_types` (`type_id`, `type`) VALUES
 --
 
 CREATE TABLE `reservations` (
-  `reservation_id` varchar(100) NOT NULL,
+  `reservations` varchar(100) NOT NULL,
   `car_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `start_date` date DEFAULT NULL,
@@ -113,7 +113,7 @@ CREATE TABLE `reservations` (
 -- Zrzut danych tabeli `reservations`
 --
 
-INSERT INTO `reservations` (`reservation_id`, `car_id`, `user_id`, `start_date`, `end_date`) VALUES
+INSERT INTO `reservations` (`reservations`, `car_id`, `user_id`, `start_date`, `end_date`) VALUES
 ('cac876bc-de38-40e7-8981-4008168c3393', 1, 1, '2018-10-10', '2018-10-20'),
 ('b7a7b093-6b54-47c8-b74a-e57f4c09cb2d', 2, 1, '2018-10-10', '2019-12-30'),
 ('2ebcdfcd-56a8-4b71-9b92-eef637b00d70', 3, 1, '2018-10-10', '2018-10-20'),

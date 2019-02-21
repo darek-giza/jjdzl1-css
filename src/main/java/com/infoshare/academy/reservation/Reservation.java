@@ -1,6 +1,6 @@
 package com.infoshare.academy.reservation;
 
-import com.infoshare.academy.model.cars.entity.Car;
+import com.infoshare.academy.car.Car;
 import com.infoshare.academy.user.User;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -13,16 +13,18 @@ import java.util.UUID;
 public class Reservation {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(generator = "UUID")
+    //@GenericGenerator(name = "UUID", strategy = "org.hibernate.reservation_id.UUIDGenerator")
     @Column(name = "reservation_id", updatable = false)
-    private UUID id;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(name = "user_id")
+    private UUID reservation_id;
+
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private User user;
-    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
-    @JoinColumn(name = "car_id")
+
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private Car car;
+
     @Column(name = "start_date")
     private LocalDate startDate;
     @Column(name = "end_date")
@@ -36,8 +38,8 @@ public class Reservation {
         this.endDate = endDate;
     }
 
-    public UUID getId() {
-        return id;
+    public UUID getReservation_id() {
+        return reservation_id;
     }
 
     public User getUser() {
@@ -75,7 +77,7 @@ public class Reservation {
     @Override
     public String toString() {
         return "Reservation{" +
-                "id=" + id +
+                "reservation_id=" + reservation_id +
                 ", car=" + car +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
