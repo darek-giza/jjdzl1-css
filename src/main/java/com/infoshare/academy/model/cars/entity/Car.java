@@ -45,6 +45,8 @@ public class Car implements Vehicle {
     @Enumerated(EnumType.STRING)
     @Column(name = "transmission")
     protected TransmissionEnum transmission;
+    @Column(name = "is_reserved")
+    protected Boolean isReserved;
 
     @OneToMany(mappedBy = "car", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     private List<Reservation> reservations;
@@ -60,6 +62,7 @@ public class Car implements Vehicle {
         this.mileage = mileage;
     }
 
+    //Getters
     public Integer getId() {
         return id;
     }

@@ -1,6 +1,6 @@
 package com.infoshare.academy;
 
-import com.infoshare.academy.model.cars.ColorEnum;
+import com.infoshare.academy.model.cars.carEnum.ColorEnum;
 import com.infoshare.academy.model.carsservice.CarMaker;
 
 public class MainCSVTest {

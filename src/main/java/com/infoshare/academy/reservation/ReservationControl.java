@@ -5,8 +5,6 @@ import com.infoshare.academy.menu.CarTypeMenu;
 import com.infoshare.academy.menu.MainMenu;
 import com.infoshare.academy.menu.MessagesEnum;
 import com.infoshare.academy.model.cars.entity.Car;
-import com.infoshare.academy.model.cars.CarOffRoad;
-import com.infoshare.academy.model.cars.CarTruck;
 import com.infoshare.academy.model.carsservice.CarDescription;
 import com.infoshare.academy.model.carsservice.CarMaker;
 
@@ -65,24 +63,6 @@ public class ReservationControl {
                 }
                 break;
             case 2:
-                System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
-                for (CarOffRoad carOffRoad : CarMaker.createCarOffRoadList()) {
-                    if (checkIfCarAvailable(carOffRoad.getId(), startDate, endDate)) {
-                        System.out.println(CarDescription.carOffRoadDescription(carOffRoad));
-                        idList.add(carOffRoad.getId());
-                    }
-                }
-                break;
-            case 3:
-                System.out.println(MessagesEnum.LIST_AVAILABLE_CARS_IN_TIME_RANGE.getMessage());
-                for (CarTruck carTruck : CarMaker.createCarTruckList()) {
-                    if (checkIfCarAvailable(carTruck.getId(), startDate, endDate)) {
-                        System.out.println(CarDescription.carTruckDescription(carTruck));
-                        idList.add(carTruck.getId());
-                    }
-                }
-                break;
-            case 4:
                 MainMenu.showMainMenu();
                 break;
             default:

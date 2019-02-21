@@ -1,4 +1,4 @@
-package com.infoshare.academy.model.cars;
+package com.infoshare.academy.model.cars.carEnum;
 
 public enum TransmissionEnum {
     AUTOMATIC("Automatyczna"),
