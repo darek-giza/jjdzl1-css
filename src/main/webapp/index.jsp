@@ -8,11 +8,15 @@
 
 <html>
 <%List<User> usersList = new UsersRepositoryDaoBean().getUsersList();%>
+<%User user1 = new UsersRepositoryDaoBean().getUserById(4);%>
 <%List<Reservation> reservationList = new ReservationRepositoryDaoBeen().getReservationList();%>
 <%List<Reservation> reservationListByUserId = new ReservationRepositoryDaoBeen().getReservationByUserId(2);%>
 <%List<Reservation> reservationListByCarId = new ReservationRepositoryDaoBeen().getReservationByCarId(201);%>
 <body>
-<h2>Hello World!</h2>
+<h2>User id=4</h2>
+<% out.print(user1);%>
+
+<h1>User list</h1>
 
     <%for (User user : usersList) {
        out.println(user.toString()+"<br>");
