@@ -46,6 +46,9 @@ public class Car implements Vehicle {
     @Column(name = "transmission")
     protected TransmissionEnum transmission;
 
+    @Column(name = "reservation_id")
+    protected long reservation_id;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Reservation> reservations;
 
