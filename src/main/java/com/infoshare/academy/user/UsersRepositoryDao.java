@@ -9,6 +9,8 @@ public interface UsersRepositoryDao {
                  String firsName, String lastName, LocalDate birthDate,
                  String streetAddress, String postCode, String city);
 
+    User getUserById(int id);
+
     User getUserByLogin(String login);
 
     List getUsersList();
@@ -16,6 +18,8 @@ public interface UsersRepositoryDao {
     void updateUser(Long id, String login, String password, String email, Long phoneNumber,
                     String firsName, String lastName, LocalDate birthDate,
                     String streetAddress, String postCode, String city);
+
+    void deleteUserById(int id);
 
     void deleteUserByLogin(String login);
 }

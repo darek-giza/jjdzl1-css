@@ -34,6 +34,14 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
         session.close();
     }
 
+    @Override
+    public User getUserById(int id) {
+        Session session = getSession();
+        User user = session.get(User.class, id);
+        session.getTransaction().commit();
+        session.close();
+        return user;
+    }
 
     @Override
     public User getUserByLogin(String login) {
@@ -76,6 +84,15 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
         session.close();
 
 
+    }
+
+    @Override
+    public void deleteUserById(int id) {
+        Session session = getSession();
+        User user = session.get(User.class, id);
+        session.delete(user);
+        session.getTransaction().commit();
+        session.close();
     }
 
     @Override
