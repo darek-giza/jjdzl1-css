@@ -1,11 +1,14 @@
 package com.infoshare.academy.user;
 
 
+import com.infoshare.academy.servlets.AddUserServlet;
 import org.hibernate.Session;
 
+import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.infoshare.academy.database.HibernateConf.getSessionFactory;
@@ -14,24 +17,14 @@ import static com.infoshare.academy.database.HibernateConf.getSessionFactory;
 @RequestScoped
 public class UsersRepositoryDaoBean implements UsersRepositoryDao {
 
+
     @Override
-    public void addUser(Long id, String login, String password, String email, Long phoneNumber,
-                        String firsName, String lastName, LocalDate birthDate,
-                        String streetAddress, String postCode, String city) {
+    public void addUser(User user) {
         Session session = getSession();
-        User user = new User();
-        user.setLogin(login);
-        user.setPassword(password);
-        user.setEmail(email);
-        user.setPhoneNumber(phoneNumber);
-        user.setFirstName(firsName);
-        user.setLastName(lastName);
-        user.setBirthDate(birthDate);
-        user.setStreetAddress(streetAddress);
-        user.setPostCode(postCode);
-        user.setCity(city);
+        session.save(user);
         session.getTransaction().commit();
         session.close();
+
     }
 
     @Override

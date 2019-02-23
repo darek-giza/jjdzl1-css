@@ -5,9 +5,7 @@ import java.util.List;
 
 public interface UsersRepositoryDao {
 
-    void addUser(Long id, String login, String password, String email, Long phoneNumber,
-                 String firsName, String lastName, LocalDate birthDate,
-                 String streetAddress, String postCode, String city);
+    void addUser(User user);
 
     User getUserById(int id);
 

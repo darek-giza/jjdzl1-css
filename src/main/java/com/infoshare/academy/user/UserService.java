@@ -47,6 +47,6 @@ public class UserService {
     }
 
     public static User returnUser(String[] userPart) {
-        return new User(userPart[0],userPart[1],userPart[2]);
+        return new User(userPart[0], userPart[1], userPart[2]);
     }
 }

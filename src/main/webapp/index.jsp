@@ -13,20 +13,30 @@
 <%List<Reservation> reservationListByUserId = new ReservationRepositoryDaoBeen().getReservationByUserId(2);%>
 <%List<Reservation> reservationListByCarId = new ReservationRepositoryDaoBeen().getReservationByCarId(201);%>
 <body>
+
+<title color="gray" size="7">----CSS-----</title>
+
+<a href="car.html"><input type="button"value="Add car"></a>
+
+<a href="login.jsp"><input type="button" value="Zaloguj się"></a>
+
+
+</form>
 <h2>User id=4</h2>
-<% out.print(user1);%>
+<%out.print(user1);%>
 
 <h1>User list</h1>
 
-    <%for (User user : usersList) {
-       out.println(user.toString()+"<br>");
+<%
+    for (User user : usersList) {
+        out.println(user.toString() + "<br>");
     }
-    %>
+%>
 
 
 <h1>Reservation List</h1>
-<% for (Reservation reservation: reservationList){
-    out.println(reservation.toString()+"<br>");
+<% for (Reservation reservation : reservationList) {
+    out.println(reservation.toString() + "<br>");
 }
 %>
 
