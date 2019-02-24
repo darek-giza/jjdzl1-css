@@ -66,16 +66,15 @@
         Model samochodu:<input type="text" name="model"/><br/><br/>
         Rok produkcji:<input type="text" name="year"/><br/><br/>
         Przebieg:<input type="text" name="mileage"/><br/><br/>
+        Moc silnika:<input type="text" name="enginePower"/><br/><br/>
         Rodzaj paliwa:<br/>
-
-
-
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary">
                 <input type="radio" name="fuelSource" value="PETROL" id="fueloption1" autocomplete="off" checked> PETROL
             </label>
             <label class="btn btn-secondary">
-                <input type="radio" name="fuelSource" value="PETROLANDGAS" id="fueloption2" autocomplete="off"> PETROLANDGAS
+                <input type="radio" name="fuelSource" value="PETROLANDGAS" id="fueloption2" autocomplete="off">
+                PETROLANDGAS
             </label>
             <label class="btn btn-secondary">
                 <input type="radio" name="fuelSource" value="DIESEL" id="fueloption3" autocomplete="off"> DIESEL
@@ -91,10 +90,39 @@
             </label>
         </div>
         <br/>
-        Moc silnika:<input type="text" name="enginePower"/><br/><br/>
+        Skrzynia biegów<br/>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+                <input type="radio" name="transmission" value="MANUAL" id="transmisionoption1" autocomplete="off"
+                       checked> MANUAL
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="transmission" value="AUTOMATIC" id="transmisionoption1" autocomplete="off"
+                       checked> AUTOMATIC
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="transmission" value="SEMIAUTO" id="transmisionoption1" autocomplete="off"
+                       checked> SEMIAUTO
+            </label>
+        </div>
+        <br/>
+        Typ nadwozia:<br/>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label class="btn btn-secondary">
+                <input type="radio" name="bodyType" value="SEDAN" id="bodyoption1" autocomplete="off" checked> SEDAN
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="bodyType" value="COUPE" id="bodyoption1" autocomplete="off" checked> COUPE
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="bodyType" value="SUV" id="bodyoption1" autocomplete="off" checked> SUV
+            </label>
+            <label class="btn btn-secondary">
+                <input type="radio" name="bodyType" value="TURING" id="bodyoption1" autocomplete="off" checked> TURING
+            </label>
+        </div>
+        <br/>
         Kolor samochodu:<br/>
-
-
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-secondary">
                 <input type="radio" name="color" value="BLACK" id="coloroption1" autocomplete="off" checked> BLACK
@@ -109,55 +137,27 @@
                 <input type="radio" name="color" value="BLACK" id="coloroption1" autocomplete="off" checked> BLUE
             </label>
         </div>
-            <br/>
-            Typ nadwozia:<br/>
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-secondary">
-                    <input type="radio" name="bodyType" value="SEDAN" id="bodyoption1" autocomplete="off" checked> SEDAN
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="bodyType" value="COUPE" id="bodyoption1" autocomplete="off" checked> COUPE
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="bodyType" value="SUV" id="bodyoption1" autocomplete="off" checked> SUV
-                </label>
-                <label class="btn btn-secondary">
-                    <input type="radio" name="bodyType" value="TURING" id="bodyoption1" autocomplete="off" checked> TURING
-                </label>
-            </div>
-                <br/>
-                Ilość miejsc siedząsych:<input type="text" name="seats"/><br/><br/>
-                Skrzynia biegów<br/>
-                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="transmission" value="MANUAL" id="transmisionoption1" autocomplete="off" checked> MANUAL
-                    </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="transmission" value="AUTOMATIC" id="transmisionoption1" autocomplete="off" checked> AUTOMATIC
-                    </label>
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="transmission" value="SEMIAUTO" id="transmisionoption1" autocomplete="off" checked> SEMIAUTO
-                    </label>
-                </div>
-                    <br/>
-                    <input type="submit" value="ZAPISZ">
-                </div>
-            </div>
-            <!-- /.container -->
+        <br/>
+        Ilość miejsc siedząsych:<input type="text" name="seats"/><br/><br/>
 
-            <!-- Footer -->
-            <footer class="py-3 bg-dark">
-                <div class="container">
-                    <p class="m-0 text-center text-white"><img src="css/img/css-logo.png" width="35" height="35"
-                                                               class="d-inline-block mr-1" alt=""> Copyright &copy;
-                        2018-2019 by CSS Group</p>
-                </div>
-                <!-- /.container -->
-            </footer>
+        <input type="submit" value="ZAPISZ">
+</div>
+</div>
+<!-- /.container -->
 
-            <!-- Bootstrap core JavaScript -->
-            <script src="css/vendor/jquery/jquery.min.js"></script>
-            <script src="css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Footer -->
+<footer class="py-3 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white"><img src="css/img/css-logo.png" width="35" height="35"
+                                                   class="d-inline-block mr-1" alt=""> Copyright &copy;
+            2018-2019 by CSS Group</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="css/vendor/jquery/jquery.min.js"></script>
+<script src="css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

@@ -35,8 +35,6 @@ public class User {
     private String postCode;
     @Column(name = "city")
     private String city;
-    @Column(name = "reservation_id")
-    private Long reservation_id;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.DETACH, CascadeType.MERGE,
             CascadeType.PERSIST, CascadeType.REFRESH})

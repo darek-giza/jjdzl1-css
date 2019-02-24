@@ -14,175 +14,190 @@ public class Car implements Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "car_id")
-    protected Integer id;
+    private Integer id;
     @Column(name = "car_type")
-    protected Integer carType;
+    private Integer carType;
     @Column(name = "make")
-    protected String make;
+    private String make;
     @Column(name = "model")
-    protected String model;
+    private String model;
     @Column(name = "year")
-    protected Integer year;
+    private Integer year;
     @Column(name = "mileage")
-    protected Integer mileage;
+    private Integer mileage;
+    @Column(name = "engine_power")
+    private Integer enginePower;
+
+
 
     @Enumerated(EnumType.STRING)
     @Column(name = "fuel_source")
-    protected FuelSourceEnum fuelSource;
-    @Column(name = "engine_power")
-    protected Integer enginePower;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "color")
-    protected ColorEnum color;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "body_type")
-    protected BodyTypeEnum bodyType;
-    @Column(name = "seats")
-    protected Integer seats;
+    private FuelSourceEnum fuelSource;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "transmission")
-    protected TransmissionEnum transmission;
+    private TransmissionEnum transmission;
 
-    @Column(name = "reservation_id")
-    protected long reservation_id;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "body_type")
+    private BodyTypeEnum bodyType;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @Enumerated(EnumType.STRING)
+    @Column(name = "color")
+    private ColorEnum color;
+
+    @Column(name = "seats")
+    private Integer seats;
+
+    //CarTruck
+    @Column(name = "capacity")
+    private Integer capacity;
+    @Column(name = "cargo_space")
+    private Integer cargoSpace;
+
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE,
+            CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Reservation> reservations;
 
     public Car() {
-
     }
 
-    public Car(Integer carType, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSource, Integer enginePower, ColorEnum color, BodyTypeEnum bodyType, Integer seats, TransmissionEnum transmission) {
+    public Car(Integer carType, String make, String model, Integer year, Integer mileage, Integer enginePower,
+               FuelSourceEnum fuelSource, TransmissionEnum transmission, BodyTypeEnum bodyType,
+               ColorEnum color, Integer seats) {
         this.carType = carType;
         this.make = make;
         this.model = model;
         this.year = year;
         this.mileage = mileage;
-        this.fuelSource = fuelSource;
         this.enginePower = enginePower;
-        this.color = color;
-        this.bodyType = bodyType;
-        this.seats = seats;
+        this.fuelSource = fuelSource;
         this.transmission = transmission;
+        this.bodyType = bodyType;
+        this.color = color;
+        this.seats = seats;
     }
 
-    public Car(Integer carType, String make, String model, Integer year, Integer mileage) {
-        this.carType = carType;
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.mileage = mileage;
-    }
-
-    //Getters
     public Integer getId() {
         return id;
-    }
-
-    public Integer getCarType() {
-        return carType;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public Integer getMileage() {
-        return mileage;
-    }
-
-    public FuelSourceEnum getFuelSource() {
-        return fuelSource;
-    }
-
-    public Integer getEnginePower() {
-        return enginePower;
-    }
-
-    public ColorEnum getColor() {
-        return color;
-    }
-
-    public BodyTypeEnum getBodyType() {
-        return bodyType;
-    }
-
-    public Integer getSeats() {
-        return seats;
-    }
-
-    public TransmissionEnum getTransmission() {
-        return transmission;
-    }
-
-    public List<Reservation> getReservations() {
-        return reservations;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
+    public Integer getCarType() {
+        return carType;
+    }
+
     public void setCarType(Integer carType) {
         this.carType = carType;
+    }
+
+    public String getMake() {
+        return make;
     }
 
     public void setMake(String make) {
         this.make = make;
     }
 
+    public String getModel() {
+        return model;
+    }
+
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public Integer getYear() {
+        return year;
     }
 
     public void setYear(Integer year) {
         this.year = year;
     }
 
+    public Integer getMileage() {
+        return mileage;
+    }
+
     public void setMileage(Integer mileage) {
         this.mileage = mileage;
     }
 
-    public void setFuelSource(FuelSourceEnum fuelSource) {
-        this.fuelSource = fuelSource;
+    public Integer getEnginePower() {
+        return enginePower;
     }
 
     public void setEnginePower(Integer enginePower) {
         this.enginePower = enginePower;
     }
 
-    public void setColor(ColorEnum color) {
-        this.color = color;
+    public FuelSourceEnum getFuelSource() {
+        return fuelSource;
     }
 
-    public void setBodyType(BodyTypeEnum bodyType) {
-        this.bodyType = bodyType;
+    public void setFuelSource(FuelSourceEnum fuelSource) {
+        this.fuelSource = fuelSource;
     }
 
-    public void setSeats(Integer seats) {
-        this.seats = seats;
+    public TransmissionEnum getTransmission() {
+        return transmission;
     }
 
     public void setTransmission(TransmissionEnum transmission) {
         this.transmission = transmission;
     }
 
+    public BodyTypeEnum getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyTypeEnum bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    public ColorEnum getColor() {
+        return color;
+    }
+
+    public void setColor(ColorEnum color) {
+        this.color = color;
+    }
+
+    public Integer getSeats() {
+        return seats;
+    }
+
+    public void setSeats(Integer seats) {
+        this.seats = seats;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    public Integer getCargoSpace() {
+        return cargoSpace;
+    }
+
+    public void setCargoSpace(Integer cargoSpace) {
+        this.cargoSpace = cargoSpace;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
     }
-
 
     public void addReservation(Reservation reservation) {
         if (reservations == null) {
@@ -193,9 +208,21 @@ public class Car implements Vehicle {
     }
 
     @Override
+
     public String toString() {
         return "Car{" +
+                "id=" + id +
+                ", carType=" + carType +
                 ", make='" + make + '\'' +
-                ", model='" + model + '\'';
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", mileage=" + mileage +
+                ", enginePower=" + enginePower +
+                ", fuelSource=" + fuelSource +
+                ", transmission=" + transmission +
+                ", bodyType=" + bodyType +
+                ", color=" + color +
+                ", seats=" + seats +
+                '}';
     }
 }

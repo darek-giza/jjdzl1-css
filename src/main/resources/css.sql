@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: asgard-mysql
--- Czas generowania: 21 Lut 2019, 18:52
--- Wersja serwera: 8.0.14
+-- Czas generowania: 24 Lut 2019, 19:18
+-- Wersja serwera: 8.0.13
 -- Wersja PHP: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -35,39 +35,43 @@ CREATE TABLE `cars` (
   `model` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `year` int(4) NOT NULL,
   `mileage` int(10) NOT NULL,
-  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `engine_power` float NOT NULL,
-  `color` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `body_type` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `seats` int(2) NOT NULL,
+  `fuel_source` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `transmission` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `reservation_id` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `body_type` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `color` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `seats` int(2) DEFAULT NULL,
+  `capacity` int(15) DEFAULT NULL,
+  `cargo_space` int(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Zrzut danych tabeli `cars`
 --
 
-INSERT INTO `cars` (`car_id`, `car_type`, `make`, `model`, `year`, `mileage`, `fuel_source`, `engine_power`, `color`, `body_type`, `seats`, `transmission`, `reservation_id`) VALUES
-(1, 1, 'BMW', 'M5', 2015, 65000, 'PETROL', 350, 'WHITE', 'SEDAN', 5, 'MANUAL', '1'),
-(2, 1, 'Audi', 'R8', 2015, 35000, 'PETROL', 435, 'RED', 'COUPE', 5, 'AUTOMATIC', '2'),
-(3, 1, 'BMW', 'E90', 2011, 65000, 'DIESEL', 220, 'WHITE', 'SEDAN', 5, 'MANUAL', '3'),
-(4, 1, 'Audi', 'Q5', 2017, 60000, 'DIESEL', 240, 'SILVER', 'COUPE', 5, 'AUTOMATIC', '4'),
-(5, 1, 'BMW', 'M3', 2015, 120000, 'DIESEL', 435, 'BLACK', 'COUPE', 4, 'MANUAL', '5'),
-(6, 1, 'BMW', 'X3', 2016, 15000, 'DIESEL', 200, 'SILVER', 'SUV', 7, 'AUTOMATIC', '6'),
-(7, 1, 'Opel', 'Astra', 2018, 15000, 'PETROLANDGAS', 75, 'RED', 'SEDAN', 5, 'MANUAL', '7'),
-(8, 1, 'Opel', 'Meriva', 2014, 35000, 'DIESEL', 130, 'BEIGE', 'SEDAN', 7, 'AUTOMATIC', '8'),
-(9, 1, 'Opel', 'Insignia', 2019, 5000, 'DIESEL', 180, 'BLACK', 'COUPE', 5, 'AUTOMATIC', '9'),
-(10, 1, 'Toyota', 'C-HR', 2017, 25000, 'DIESEL', 170, 'WHITE', 'SUV', 7, 'AUTOMATIC', '10'),
-(101, 2, 'Mercedes', 'ML350', 2016, 115000, 'PETROL', 280, 'BLACK', 'SUV', 7, 'AUTOMATIC', '12'),
-(102, 2, 'Jeep', 'Cherokee', 2018, 15000, 'DIESEL', 180, 'RED', 'SUV', 7, 'AUTOMATIC', '13'),
-(103, 2, 'Mitsubishi', 'L200', 2013, 76000, 'DIESEL', 235, 'BLACK', 'SUV', 7, 'AUTOMATIC', '14'),
-(104, 2, 'Mercedes', 'GLK', 2009, 160000, 'DIESEL', 265, 'BLACK', 'SUV', 7, 'AUTOMATIC', '15'),
-(201, 1, 'Porsche', 'Cayenne', 2016, 35000, 'PETROL', 280, 'BLACK', 'SUV', 5, 'AUTOMATIC', '11'),
-(301, 3, 'Mercedes', 'Sprinter', 2016, 60000, 'DIESEL', 190, 'WHITE', 'WAGON', 3, 'MANUAL', '16'),
-(302, 3, 'Mercedes', 'Sprinter', 2018, 35000, 'DIESEL', 180, 'WHITE', 'WAGON', 3, 'MANUAL', '17'),
-(303, 3, 'Mercedes', 'Vito', 2013, 130000, 'DIESEL', 130, 'WHITE', 'WAGON', 3, 'MANUAL', '18'),
-(304, 3, 'Iveco', 'Daily', 2015, 235000, 'DIESEL', 280, 'WHITE', 'WAGON', 3, 'MANUAL', '19');
+INSERT INTO `cars` (`car_id`, `car_type`, `make`, `model`, `year`, `mileage`, `engine_power`, `fuel_source`, `transmission`, `body_type`, `color`, `seats`, `capacity`, `cargo_space`) VALUES
+(1, 1, 'BMW', 'M5', 2015, 65000, 350, 'PETROL', 'MANUAL', 'SEDAN', 'WHITE', 5, 0, 0),
+(2, 1, 'Audi', 'R8', 2015, 35000, 435, 'PETROL', 'AUTOMATIC', 'COUPE', 'RED', 5, 0, 0),
+(3, 1, 'BMW', 'E90', 2011, 65000, 220, 'DIESEL', 'MANUAL', 'SEDAN', 'WHITE', 5, 0, 0),
+(4, 1, 'Audi', 'Q5', 2017, 60000, 240, 'DIESEL', 'AUTOMATIC', 'COUPE', 'SILVER', 5, 0, 0),
+(5, 1, 'BMW', 'M3', 2015, 120000, 435, 'DIESEL', 'MANUAL', 'COUPE', 'BLACK', 4, 0, 0),
+(6, 1, 'BMW', 'X3', 2016, 15000, 200, 'DIESEL', 'AUTOMATIC', 'SUV', 'SILVER', 7, 0, 0),
+(7, 1, 'Opel', 'Astra', 2018, 15000, 75, 'PETROLANDGAS', 'MANUAL', 'SEDAN', 'RED', 5, 0, 0),
+(8, 1, 'Opel', 'Meriva', 2014, 35000, 130, 'DIESEL', 'AUTOMATIC', 'SEDAN', 'BEIGE', 7, 0, 0),
+(9, 1, 'Opel', 'Insignia', 2019, 5000, 180, 'DIESEL', 'AUTOMATIC', 'COUPE', 'BLACK', 5, 0, 0),
+(10, 1, 'Toyota', 'C-HR', 2017, 25000, 170, 'DIESEL', 'AUTOMATIC', 'SUV', 'WHITE', 7, 0, 0),
+(101, 2, 'Mercedes', 'ML350', 2016, 115000, 280, 'PETROL', 'AUTOMATIC', 'SUV', 'BLACK', 7, 0, 0),
+(102, 2, 'Jeep', 'Cherokee', 2018, 15000, 180, 'DIESEL', 'AUTOMATIC', 'SUV', 'RED', 7, 0, 0),
+(103, 2, 'Mitsubishi', 'L200', 2013, 76000, 235, 'DIESEL', 'AUTOMATIC', 'SUV', 'BLACK', 7, 0, 0),
+(104, 2, 'Mercedes', 'GLK', 2009, 160000, 265, 'DIESEL', 'AUTOMATIC', 'SUV', 'BLACK', 7, 0, 0),
+(201, 1, 'Porsche', 'Cayenne', 2016, 35000, 280, 'PETROL', 'AUTOMATIC', 'SUV', 'BLACK', 5, 0, 0),
+(301, 3, 'Mercedes', 'Sprinter', 2016, 60000, 190, 'DIESEL', 'MANUAL', 'WAGON', 'WHITE', 3, 0, 0),
+(302, 3, 'Mercedes', 'Sprinter', 2018, 35000, 180, 'DIESEL', 'MANUAL', 'WAGON', 'WHITE', 3, 0, 0),
+(303, 3, 'Mercedes', 'Vito', 2013, 130000, 130, 'DIESEL', 'MANUAL', 'WAGON', 'WHITE', 3, 0, 0),
+(304, 3, 'Iveco', 'Daily', 2015, 235000, 280, 'DIESEL', 'MANUAL', 'WAGON', 'WHITE', 3, 0, 0),
+(305, 1, 'BMW', 'M3', 2000, 2000, 150, 'PETROLANDGAS', 'AUTOMATIC', 'COUPE', 'BLACK', 5, 0, 0),
+(306, 1, 'BMW', 'M3', 2000, 2000, 150, 'PETROLANDGAS', 'AUTOMATIC', 'COUPE', 'RED', 5, 0, 0),
+(307, 1, 'BMW', 'M5', 2018, 14578, 350, 'DIESEL', 'AUTOMATIC', 'SEDAN', 'RED', 5, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -118,7 +122,7 @@ INSERT INTO `reservations` (`reservation_id`, `car_id`, `user_id`, `start_date`,
 ('4', 3, 1, '2018-10-10', '2018-10-20'),
 ('5', 201, 2, '2018-12-01', '2018-12-01'),
 ('6', 101, 1, '2019-02-04', '2019-02-09'),
-('7', 201, 1, '2019-01-20', '2019-03-10'),
+('7', 201, 4, '2019-01-20', '2019-03-10'),
 ('8', 2, 1, '2018-10-10', '2019-12-30'),
 ('9', 4, 2, '2018-10-10', '2018-11-01');
 
@@ -130,6 +134,7 @@ INSERT INTO `reservations` (`reservation_id`, `car_id`, `user_id`, `start_date`,
 
 CREATE TABLE `users` (
   `user_id` int(12) NOT NULL,
+  `user_type` int(15) NOT NULL,
   `login` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -139,19 +144,18 @@ CREATE TABLE `users` (
   `birth_date` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `street_address` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `post_code` varchar(6) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `city` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
-  `reservation_id` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
+  `city` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Zrzut danych tabeli `users`
 --
 
-INSERT INTO `users` (`user_id`, `login`, `password`, `email`, `phone_number`, `first_name`, `last_name`, `birth_date`, `street_address`, `post_code`, `city`, `reservation_id`) VALUES
-(1, 'admin', '12345', 'admin@example.com', '601001001', 'Admin', 'Aplikacji', '1980-01-01', 'Chopina 10', '20-140', 'Lublin', '1'),
-(2, 'marek', 'maro123', 'marek@example.com', '691029123', 'Marek', 'Kowalski', '1980-01-01', 'Koncertowa 4', '20-155', 'Lublin', '2'),
-(3, 'Ewa', 'eww11.', 'ewa@example.com', '691029123', 'Ewa', 'Konieczna', '1980-01-01', 'Nadbystrzycka 48A', '20-123', 'Lublin', '3'),
-(4, 'darek', '0000', 'darek_giza@op.pl', '772123124', 'Darek', 'Giza', '1980-01-01', 'Al. Królewska 41', '20-121', 'Lublin', '4');
+INSERT INTO `users` (`user_id`, `user_type`, `login`, `password`, `email`, `phone_number`, `first_name`, `last_name`, `birth_date`, `street_address`, `post_code`, `city`) VALUES
+(1, 0, 'admin', '12345', 'admin@example.com', '601001001', 'Admin', 'Aplikacji', '1980-01-01', 'Chopina 10', '20-140', 'Lublin'),
+(2, 0, 'marek', 'maro123', 'marek@example.com', '691029123', 'Marek', 'Kowalski', '1980-01-01', 'Koncertowa 4', '20-155', 'Lublin'),
+(3, 0, 'Ewa', 'eww11.', 'ewa@example.com', '691029123', 'Ewa', 'Konieczna', '1980-01-01', 'Nadbystrzycka 48A', '20-123', 'Lublin'),
+(4, 0, 'darek', '0000', 'darek_giza@op.pl', '772123124', 'Darek', 'Giza', '1980-01-01', 'Al. Królewska 41', '20-121', 'Lublin');
 
 --
 -- Indeksy dla zrzutów tabel
@@ -190,7 +194,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT dla tabeli `cars`
 --
 ALTER TABLE `cars`
-  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=305;
+  MODIFY `car_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=308;
 
 --
 -- AUTO_INCREMENT dla tabeli `car_types`
