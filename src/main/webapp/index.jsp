@@ -7,16 +7,18 @@
          pageEncoding="UTF-8" %>
 
 <html>
-<%List<User> usersList = new UsersRepositoryDaoBean().getUsersList();%>
-<%User user1 = new UsersRepositoryDaoBean().getUserById(4);%>
-<%List<Reservation> reservationList = new ReservationRepositoryDaoBeen().getReservationList();%>
-<%List<Reservation> reservationListByUserId = new ReservationRepositoryDaoBeen().getReservationByUserId(2);%>
-<%List<Reservation> reservationListByCarId = new ReservationRepositoryDaoBeen().getReservationByCarId(201);%>
+<%UsersRepositoryDaoBean usersRepo = new UsersRepositoryDaoBean();
+ReservationRepositoryDaoBeen reservationRepo = new ReservationRepositoryDaoBeen();
+List<User> usersList = usersRepo.getUsersList();
+User user1 = usersRepo.getUserById(4);
+List<Reservation> reservationList = reservationRepo.getReservationList();
+List<Reservation> reservationListByUserId = reservationRepo.getReservationByUserId(2);
+List<Reservation> reservationListByCarId = reservationRepo.getReservationByCarId(201);%>
 <body>
 
 <title color="gray" size="7">----CSS-----</title>
 
-<a href="car.html"><input type="button"value="Add car"></a>
+<a href="addcar.html"><input type="button" value="Add car"></a>
 
 <a href="login.jsp"><input type="button" value="Zaloguj się"></a>
 

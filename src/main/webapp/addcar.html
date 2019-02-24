@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Rezerwacja samochodów">
+    <meta name="keywords" content="samochód, rezerwacja">
+    <meta name="author" content="CSS Group">
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge">
+
+    <title>CarSharingSystem</title>
+
+    <!-- Styles - Bootstrap core and custom -->
+    <link href="css/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/css/main.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><img src="css/img/css-logo.png" width="35" height="35" class="d-inline-block mr-1" alt=""> CarSharingSystem</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Start
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Logowanie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rezerwacja</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Opłaty</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <form method="post" action="waliduj.jsp">
+        <h2>Dodawanie nowego samochodu do bazy</h2>
+
+        Marka samochodu:<input type="text" name="name"/><br/><br/>
+        Model samochodu:<input type="text" name="name"/><br/><br/>
+        Rok produkcji:<input type="text" name="name"/><br/><br/>
+        Przebieg:<input type="text" name="name"/><br/><br/>
+        Rodzaj paliwa;<br/>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">PETROL</label>
+            <input class="form-check-input" type="radio" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">PETROLANDGAS</label>
+            <input class="form-check-input" type="radio" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">DIESEL</label>
+            <input class="form-check-input" type="radio" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">CNG</label>
+            <input class="form-check-input" type="radio" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">HYBRID</label>
+            <input class="form-check-input" type="radio" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2">ELECTRIC</label>
+        </div>
+        Moc silnika:<input type="text" name="name"/><br/><br/>
+        Kolor samochodu:<br/>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1">BLACK</label>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                <label class="form-check-label" for="defaultCheck2">RED</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                <label class="form-check-label" for="defaultCheck2">WHITE</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                <label class="form-check-label" for="defaultCheck2">BLUE</label>
+            </div>
+            Typ nadwozia:<br/>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">SEDAN</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                    <label class="form-check-label" for="defaultCheck2">COUPE</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                    <label class="form-check-label" for="defaultCheck2">SUV</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                    <label class="form-check-label" for="defaultCheck2">TOURING</label>
+                </div>
+                Ilość miejsc siedząsych:<input type="text" name="name"/><br/><br/>
+                Skrzynia biegów<br/>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">MANUAL</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">AUTOMATIC</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                        <label class="form-check-label" for="defaultCheck2">SEMIAUTO</label>
+                    </div>
+                    <br/>
+                    <input type="submit" value="ZAPISZ">
+                </div>
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+<footer class="py-3 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white"><img src="css/img/css-logo.png" width="35" height="35" class="d-inline-block mr-1" alt=""> Copyright &copy; 2018-2019 by CSS Group</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<!-- Bootstrap core JavaScript -->
+<script src="css/vendor/jquery/jquery.min.js"></script>
+<script src="css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
