@@ -1,14 +1,11 @@
 package com.infoshare.academy.user;
 
 
-import com.infoshare.academy.servlets.AddUserServlet;
 import org.hibernate.Session;
 
-import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import static com.infoshare.academy.database.HibernateConf.getSessionFactory;

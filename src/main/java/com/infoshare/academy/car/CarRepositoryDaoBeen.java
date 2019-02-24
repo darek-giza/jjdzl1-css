@@ -7,12 +7,14 @@ import com.infoshare.academy.menuEnum.TransmissionEnum;
 import org.hibernate.Filter;
 import org.hibernate.Session;
 
+import javax.ejb.Stateless;
 import java.lang.reflect.Parameter;
 import java.util.List;
 import java.util.stream.Stream;
 
 import static com.infoshare.academy.database.HibernateConf.getSessionFactory;
 
+@Stateless
 public class CarRepositoryDaoBeen implements CarsRepositoryDao {
 
     private Session getSession() {
@@ -23,23 +25,8 @@ public class CarRepositoryDaoBeen implements CarsRepositoryDao {
 
 
     @Override
-    public Car addCar(Integer carType, String make, String model, Integer year, Integer mileage, FuelSourceEnum
-            fuelSourceEnum, Integer enginePower, ColorEnum colorEnum, BodyTypeEnum bodyTypeEnum,
-                      TransmissionEnum transmissionEnum) {
-
-        Session session = getSession();
-        Car car = new Car();
-        car.setCarType(carType);
-        car.setMake(make);
-        car.setModel(model);
-        car.setYear(year);
-        car.setMileage(mileage);
-        car.setFuelSource(fuelSourceEnum);
-        car.setEnginePower(enginePower);
-        car.setColor(colorEnum);
-        car.setBodyType(bodyTypeEnum);
-        car.setTransmission(transmissionEnum);
-        session.beginTransaction();
+    public Car addCar(Car car){
+        Session session=getSession();
         session.save(car);
         session.getTransaction().commit();
         session.close();

@@ -52,8 +52,22 @@ public class Car implements Vehicle {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "car", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Reservation> reservations;
 
-
     public Car() {
+
+    }
+
+    public Car(Integer carType, String make, String model, Integer year, Integer mileage, FuelSourceEnum fuelSource, Integer enginePower, ColorEnum color, BodyTypeEnum bodyType, Integer seats, TransmissionEnum transmission) {
+        this.carType = carType;
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.mileage = mileage;
+        this.fuelSource = fuelSource;
+        this.enginePower = enginePower;
+        this.color = color;
+        this.bodyType = bodyType;
+        this.seats = seats;
+        this.transmission = transmission;
     }
 
     public Car(Integer carType, String make, String model, Integer year, Integer mileage) {

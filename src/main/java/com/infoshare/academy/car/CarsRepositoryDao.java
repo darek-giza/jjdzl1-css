@@ -10,8 +10,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public interface CarsRepositoryDao {
-     Car addCar(Integer carType, String make, String model, Integer year, Integer mileage, FuelSourceEnum
-             fuelSourceEnum, Integer enginePower, ColorEnum colorEnum, BodyTypeEnum bodyTypeEnum, TransmissionEnum transmissionEnum);
+     Car addCar(Car car);
      Stream<Car> list();
      Car getCar(long id);
      Car updateCar(long id,Integer carType, String make, String model, Integer year, Integer mileage, FuelSourceEnum
