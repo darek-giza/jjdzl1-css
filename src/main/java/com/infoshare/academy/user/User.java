@@ -15,6 +15,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
+    @Column(name = "user_type")
+    private Integer userType;
     @Column(name = "login")
     private String login;
     @Column(name = "password")
@@ -31,15 +33,12 @@ public class User {
     private LocalDate birthDate;
     @Column(name = "street_address")
     private String streetAddress;
-    @Column(name = "post_code")
-    private String postCode;
+    @Column(name = "postal_code")
+    private String postalCode;
     @Column(name = "city")
     private String city;
-
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = {CascadeType.DETACH, CascadeType.MERGE,
-            CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
     private List<Reservation> reservations;
-
 
     public User() {
     }
@@ -50,7 +49,8 @@ public class User {
         this.email = email;
     }
 
-    public User(String login, String password, String email, Long phoneNumber, String firstName, String lastName, LocalDate birthDate) {
+    public User(Integer userType, String login, String password, String email, Long phoneNumber, String firstName, String lastName, LocalDate birthDate, String streetAddress, String postalCode, String city) {
+        this.userType = userType;
         this.login = login;
         this.password = password;
         this.email = email;
@@ -58,10 +58,17 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
+        this.streetAddress = streetAddress;
+        this.postalCode = postalCode;
+        this.city = city;
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public Integer getUserType() {
+        return userType;
     }
 
     public String getLogin() {
@@ -92,24 +99,29 @@ public class User {
         return birthDate;
     }
 
-    public String getStreetAddress() {
-        return streetAddress;
-    }
-
-    public String getPostCode() {
-        return postCode;
-    }
-
-    public String getCity() {
-        return city;
-    }
 
     public List<Reservation> getReservations() {
-       return reservations;
+        return reservations;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void setUserType(Integer userType) {
+        this.userType = userType;
+    }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public String getCity() {
+        return city;
     }
 
     public void setLogin(String login) {
@@ -144,8 +156,8 @@ public class User {
         this.streetAddress = streetAddress;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public void setCity(String city) {
@@ -156,9 +168,7 @@ public class User {
         this.reservations = reservations;
     }
 
-
-
-    public void addReservation(Reservation reservation) {
+    public void addReservation(Reservation reservation){
         if (reservations == null) {
             reservations = new ArrayList<>();
         }
@@ -178,9 +188,17 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", userType=" + userType +
                 ", login='" + login + '\'' +
-                ", reservations=" + reservations +
+                ", password=***" +
+                ", email='" + email + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthDate=" + birthDate +
+                ", streetAddress='" + streetAddress + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", city='" + city + '\'' +
                 '}';
     }
 }
-

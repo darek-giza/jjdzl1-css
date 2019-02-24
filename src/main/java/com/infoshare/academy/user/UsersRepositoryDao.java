@@ -1,6 +1,5 @@
 package com.infoshare.academy.user;
 
-import java.time.LocalDate;
 import java.util.List;
 
 public interface UsersRepositoryDao {
@@ -13,9 +12,7 @@ public interface UsersRepositoryDao {
 
     List getUsersList();
 
-    void updateUser(Long id, String login, String password, String email, Long phoneNumber,
-                    String firsName, String lastName, LocalDate birthDate,
-                    String streetAddress, String postCode, String city);
+    void updateUser();
 
     void deleteUserById(int id);
 

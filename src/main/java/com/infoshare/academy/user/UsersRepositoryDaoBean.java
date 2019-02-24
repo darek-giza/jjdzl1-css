@@ -5,7 +5,6 @@ import org.hibernate.Session;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import java.time.LocalDate;
 import java.util.List;
 
 import static com.infoshare.academy.database.HibernateConf.getSessionFactory;
@@ -52,28 +51,8 @@ public class UsersRepositoryDaoBean implements UsersRepositoryDao {
     }
 
     @Override
-    public void updateUser(Long id, String login, String password, String email, Long phoneNumber,
-                           String firsName, String lastName, LocalDate birthDate,
-                           String streetAddress, String postCode, String city) {
-
-        Session session = getSession();
-        User user = session.get(User.class, id);
-        if (user != null) {
-            user.setLogin(login);
-            user.setPassword(password);
-            user.setEmail(email);
-            user.setPhoneNumber(phoneNumber);
-            user.setFirstName(firsName);
-            user.setLastName(lastName);
-            user.setBirthDate(birthDate);
-            user.setStreetAddress(streetAddress);
-            user.setPostCode(postCode);
-            user.setCity(city);
-        }
-        session.getTransaction().commit();
-        session.close();
-
-
+    public void updateUser() {
+        // TODO: 2019-02-24 todo here
     }
 
     @Override
