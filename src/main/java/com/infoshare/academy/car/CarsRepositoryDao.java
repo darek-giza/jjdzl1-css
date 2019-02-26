@@ -6,15 +6,15 @@ import com.infoshare.academy.menuEnum.FuelSourceEnum;
 import com.infoshare.academy.menuEnum.TransmissionEnum;
 import org.hibernate.Filter;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.stream.Stream;
 
 public interface CarsRepositoryDao {
      Car addCar(Car car);
      Stream<Car> list();
-     Car getCar(long id);
-     Car updateCar(long id,Integer carType, String make, String model, Integer year, Integer mileage, FuelSourceEnum
-             fuelSourceEnum, Integer enginePower, ColorEnum colorEnum, BodyTypeEnum bodyTypeEnum, TransmissionEnum transmissionEnum);
+     Car getCar(Integer id);
+     Car updateCar(Car car,Integer id);
      void deleteCar(long id);
      Stream<Car> searchCar(Filter filter);
 }

@@ -7,13 +7,13 @@
          pageEncoding="UTF-8" %>
 
 <html>
-<%UsersRepositoryDaoBean usersRepo = new UsersRepositoryDaoBean();
+<%--UsersRepositoryDaoBean usersRepo = new UsersRepositoryDaoBean();
 ReservationRepositoryDaoBeen reservationRepo = new ReservationRepositoryDaoBeen();
 List<User> usersList = usersRepo.getUsersList();
 User user1 = usersRepo.getUserById(4);
 List<Reservation> reservationList = reservationRepo.getReservationList();
 List<Reservation> reservationListByUserId = reservationRepo.getReservationByUserId(2);
-List<Reservation> reservationListByCarId = reservationRepo.getReservationByCarId(201);%>
+List<Reservation> reservationListByCarId = reservationRepo.getReservationByCarId(201);--%>
 <body>
 
 <title color="gray" size="7">----CSS-----</title>
@@ -22,14 +22,16 @@ List<Reservation> reservationListByCarId = reservationRepo.getReservationByCarId
 
 <a href="login.jsp"><input type="button" value="Zaloguj się"></a>
 
+<a href="updateCar.jsp"><input type="button" value="Update Car"></a>
+
 
 </form>
-<h2>User id=4</h2>
-<%out.print(user1);%>
+<%--<h2>User id=4</h2>--%>
+<%--<%out.print(user1);%>--%>
 
-<h1>User list</h1>
+<%--<h1>User list</h1>--%>
 
-<%
+<%--
     for (User user : usersList) {
         out.println(user.toString() + "<br>");
     }
@@ -54,6 +56,6 @@ List<Reservation> reservationListByCarId = reservationRepo.getReservationByCarId
 <h1>Reservation list by car id</h1>
 <% for (Reservation reservation : reservationListByCarId) {
     out.println(reservation.toString() + "<br/>");
-}%>
+}--%>
 </body>
 </html>
