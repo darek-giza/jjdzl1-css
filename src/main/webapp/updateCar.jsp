@@ -69,19 +69,21 @@
 
 <!-- Page Content -->
 <div class="container">
-    <form method="get" action="updateCar.jsp">
+    <form method="get" action="updateCar">
         <h2>Aktualizacja danych samochodu</h2>
-
         Podaj id samochodu<input type="text" name="id">
-        <input type="submit" value="POBIERZ"><br/>
-        <input type="text" value="<%%>">
+        <input type="submit" value="POBIERZ"><br/><br/>
+        Przebieg samochodu o id : <%=request.getAttribute("id")%>
+        wynosi:  <%=request.getAttribute("mileage")%> km
+    </form>
+    <form method="post" action="updateCar">
+        <br/>
+        <br/>
+        Podaj id samochodu:<input type="text" name="id">
+        Podaj aktualny przebieg samochodu:<input type="text" name="mileage">
 
-
-</form>
-
-
-    <br/>
-    <input type="submit" value="ZAPISZ">
+        <input type="submit" value="ZAPISZ">
+        <a href="index.jsp"></a>
     </form>
 </div>
 <!-- /.container -->

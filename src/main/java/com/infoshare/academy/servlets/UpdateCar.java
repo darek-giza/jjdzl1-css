@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+
+import static java.lang.System.out;
 
 @WebServlet("/updateCar")
 public class UpdateCar extends HttpServlet {
@@ -21,29 +24,39 @@ public class UpdateCar extends HttpServlet {
     @EJB
     CarsRepositoryDao dao;
 
-
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         String id = req.getParameter("id");
-
+        PrintWriter writer =resp.getWriter();
+        resp.setContentType("text/html;charset=UTF-8");
         if (id == null || id.isEmpty()) {
             resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             return;
-
         }
-        Car carById = dao.getCar(Integer.parseInt("id"));
-        Integer carMileage=carById.getMileage();
+        Car car = dao.getCar(Integer.valueOf(id));
 
-        if (carById == null) {
+        if (car == null) {
             resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
-
         }
-        resp.setContentType("text/html");
-        PrintWriter writer = resp.getWriter();
-        writer.print(carMileage);
+
+        req.setAttribute("id", car.getId());
+        req.setAttribute("mileage", car.getMileage());
+        req.getRequestDispatcher("/updateCar.jsp").forward(req, resp);
+
     }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+       String id=req.getParameter("id");
+       String mileage =req.getParameter("mileage");
+
+        dao.updateCarMileage(new Integer(id).intValue(),new Integer(mileage).intValue());
+
+        req.getRequestDispatcher("/index.jsp").forward(req,resp);
+
+    }
 }
+

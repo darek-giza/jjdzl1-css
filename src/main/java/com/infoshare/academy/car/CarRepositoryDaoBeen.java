@@ -4,11 +4,16 @@ import com.infoshare.academy.menuEnum.BodyTypeEnum;
 import com.infoshare.academy.menuEnum.ColorEnum;
 import com.infoshare.academy.menuEnum.FuelSourceEnum;
 import com.infoshare.academy.menuEnum.TransmissionEnum;
+import com.infoshare.academy.reservation.Reservation;
+import com.infoshare.academy.user.User;
 import org.hibernate.Filter;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import javax.ejb.Stateless;
 import javax.persistence.criteria.CriteriaBuilder;
+import java.io.CharArrayReader;
 import java.lang.reflect.Parameter;
 import java.util.List;
 import java.util.stream.Stream;
@@ -54,16 +59,16 @@ public class CarRepositoryDaoBeen implements CarsRepositoryDao {
         Car getCarById = session.get(Car.class,id);
         session.getTransaction().commit();
         session.close();
+        System.out.println(getCarById);
         return getCarById;
     }
 
 
-
     @Override
-    public Car updateCar(Car car,Integer id) {
+    public Car updateCarMileage(Integer id,Integer mileage) {
         Session session = getSession();
         Car updateCar = session.get(Car.class, id);
-        session.save(car);
+        updateCar.setMileage(mileage);
         session.getTransaction().commit();
         session.close();
         return updateCar;
