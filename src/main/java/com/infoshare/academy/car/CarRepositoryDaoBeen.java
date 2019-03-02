@@ -76,7 +76,7 @@ public class CarRepositoryDaoBeen implements CarsRepositoryDao {
 
 
     @Override
-    public void deleteCar(long id) {
+    public void deleteCar(Integer id) {
         Session session = getSession();
         Car carToDelete = session.get(Car.class, id);
         session.delete(carToDelete);

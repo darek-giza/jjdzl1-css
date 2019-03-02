@@ -11,5 +11,7 @@
 
 <a href="updateCar.jsp"><input type="button" value="Update Car"></a>
 
+<a href="deleteCar.jsp"><input type="text" value="Delete Car"></a>
+
 </body>
 </html>

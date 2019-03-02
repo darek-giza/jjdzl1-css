@@ -50,6 +50,7 @@ class AddCarServlet extends HttpServlet {
                 Integer.parseInt(seats));
 
         dao.addCar(car);
+        req.getRequestDispatcher("/index.jsp").forward(req,resp);
 
     }
 }

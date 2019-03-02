@@ -9,6 +9,6 @@ public interface CarsRepositoryDao {
      Stream<Car> list();
      Car getCar(Integer id);
      Car updateCarMileage(Integer id,Integer mileage);
-     void deleteCar(long id);
+     void deleteCar(Integer id);
      Stream<Car> searchCar(Filter filter);
 }

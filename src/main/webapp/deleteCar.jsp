@@ -1,14 +1,6 @@
-<%@ page import="com.infoshare.academy.car.CarRepositoryDaoBeen" %>
-<%@ page import="com.infoshare.academy.car.Car" %>
-<%@ page import="java.io.PrintWriter" %>
-<%@ page import="javax.persistence.Id" %>
-<%@ page import="com.infoshare.academy.car.CarsRepositoryDao" %>
-<%@ page import="com.infoshare.academy.user.UsersRepositoryDaoBean" %>
-<!DOCTYPE html>
-<html lang="pl"></html>
-<%@page language="java" contentType="text/html; charset=UTF-8"
-        pageEncoding="UTF-8" %>
 
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 
 <head>
 
@@ -69,20 +61,20 @@
 
 <!-- Page Content -->
 <div class="container">
-    <form method="get" action="updateCar">
-        <h2>Aktualizacja danych samochodu</h2>
+    <form method="get" action="deleteCar">
+        <h2>Usuwanie samochodu</h2>
         Podaj id samochodu<input type="text" name="id">
-        <input type="submit" value="POBIERZ"><br/><%=request.getAttribute("error")%><br/>
-        Przebieg samochodu o id : <%=request.getAttribute("id")%>
-        wynosi:  <%=request.getAttribute("mileage")%> km
+        <input type="submit" value="POBIERZ"><br/>
+        Samochodu o id : <%=request.getAttribute("id")%><br/>
+        Marka:<%=request.getAttribute("make")%><br/>
+        Model:<%=request.getAttribute("model")%><br/>
+        Rok:<%=request.getAttribute("year")%><br/>
     </form>
-    <form method="post" action="updateCar">
+    <form method="post" action="deleteCar">
         <br/>
         <br/>
         Podaj id samochodu:<input type="text" name="id">
-        Podaj aktualny przebieg samochodu:<input type="text" name="mileage">
-
-        <input type="submit" value="ZAPISZ">
+        <input type="submit" value="SKASUJ">
         <a href="index.jsp"></a>
     </form>
 </div>
@@ -103,5 +95,3 @@
 <script src="css/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
-</htm
